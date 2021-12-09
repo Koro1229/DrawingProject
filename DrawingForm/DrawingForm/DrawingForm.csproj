@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\DrawingModel\DrawingModel\Ellipse.cs" Link="Model\Ellipse.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\IGraphics.cs" Link="Model\IGraphics.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\Line.cs" Link="Model\Line.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\Model.cs" Link="Model\Model.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\Rectangle.cs" Link="Model\Rectangle.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\Shape.cs" Link="Model\Shape.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+</Project>
