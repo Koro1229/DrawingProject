@@ -24,6 +24,10 @@ namespace DrawingApp
         DrawingModel.Model _model;
         PresentationModel.PresentationModel _presentationModel;
 
+        const int LINE_MODE = 0;
+        const int RECTANGLE_MODE = 1;
+        const int ELLIPSE_MODE = 2;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -74,7 +78,7 @@ namespace DrawingApp
 
         private void ResetDefaultButtonAndMode()
         {
-            _presentationModel.ChangeDrawingMode(0);
+            _presentationModel.ChangeDrawingMode(LINE_MODE);
 
             _presentationModel.RectangleButtonStatus = true;
             _presentationModel.EllipseButtonStatus = true;
@@ -87,7 +91,7 @@ namespace DrawingApp
             _presentationModel.RectangleButtonStatus = false;
             _presentationModel.EllipseButtonStatus = true;
 
-            _presentationModel.ChangeDrawingMode(1);
+            _presentationModel.ChangeDrawingMode(RECTANGLE_MODE);
 
             RefreshButtonStatus();
         }
@@ -97,7 +101,7 @@ namespace DrawingApp
             _presentationModel.RectangleButtonStatus = true;
             _presentationModel.EllipseButtonStatus = false;
 
-            _presentationModel.ChangeDrawingMode(2);
+            _presentationModel.ChangeDrawingMode(ELLIPSE_MODE);
 
             RefreshButtonStatus();
         }

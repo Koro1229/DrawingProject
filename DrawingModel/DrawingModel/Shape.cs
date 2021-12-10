@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DrawingModel
 { 
-    interface Shape
+    public interface Shape
     {
 
         void Draw(IGraphics graphics);

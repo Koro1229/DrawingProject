@@ -1,0 +1,18 @@
+<stylecopresultscache>
+  <version>12</version>
+  <project key="20687131">
+    <configuration>
+    </configuration>
+  </project>
+  <sourcecode name="ModelTests.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/11/01 18:59:47.140</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2021/12/11 02:17:20.950</sourceFile>
+      <parser>2021/11/01 18:59:47.140</parser>
+      <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
+</stylecopresultscache>

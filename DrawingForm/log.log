@@ -1,2 +1,144 @@
 ResolveFWLinkAccountManager statusCode is redirect: 'True'
 ResolveFWLinkAccountManager resovled fwlink from 'https://go.microsoft.com/fwlink/?LinkID=415837' to 'https://app.vssps.visualstudio.com/'
+TableControl: QueueUpdate 2021/12/11 上午 02:20:25:900
+TableControl: About to update entries 2021/12/11 上午 02:20:26:7
+TableControl: Updating entries 2021/12/11 上午 02:20:26:7
+TableControl: QueueUpdate 2021/12/11 上午 02:20:28:598
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:29:39
+TableControl: Refreshing UI 2021/12/11 上午 02:20:29:50
+TableControl: QueueUpdate 2021/12/11 上午 02:20:29:51
+TableControl: About to update entries 2021/12/11 上午 02:20:29:52
+TableControl: Updating entries 2021/12/11 上午 02:20:29:52
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:29:53
+TableControl: Refreshing UI 2021/12/11 上午 02:20:29:53
+Informational: 開始為要求的測試回合執行測試探索
+Informational: ========== 開始測試探索 ==========
+Warning: 找到相同延伸模組的多個版本。系統會選取最高版本。
+  Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter : 14.0.5816.2
+Informational: ========== 測試探索已完成: 在 784.2 毫秒 找到 2 項測試 ==========
+Informational: 正在執行測試方法: 'MainFormUITest.GUITest.GUITest.BasicFunctionTest'
+Informational: ========== 開始測試回合 ==========
+TableControl: QueueUpdate 2021/12/11 上午 02:20:34:611
+Warning: 找到相同延伸模組的多個版本。系統會選取最高版本。
+  Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter : 14.0.5816.2
+TableControl: About to update entries 2021/12/11 上午 02:20:34:731
+TableControl: Updating entries 2021/12/11 上午 02:20:34:732
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:34:732
+TableControl: Refreshing UI 2021/12/11 上午 02:20:34:732
+TableControl: QueueUpdate 2021/12/11 上午 02:20:36:804
+TableControl: About to update entries 2021/12/11 上午 02:20:36:911
+TableControl: Updating entries 2021/12/11 上午 02:20:36:911
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:36:911
+TableControl: Refreshing UI 2021/12/11 上午 02:20:36:912
+Informational: ========== 測試回合已完成: 在 2.6 秒 執行了 1 項測試 (0 項通過，1 項失敗，0 項跳過) ==========
+TableControl: QueueUpdate 2021/12/11 上午 02:20:37:885
+TableControl: About to update entries 2021/12/11 上午 02:20:37:993
+TableControl: Updating entries 2021/12/11 上午 02:20:37:993
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:37:993
+TableControl: Refreshing UI 2021/12/11 上午 02:20:37:994
+TableControl: QueueUpdate 2021/12/11 上午 02:20:44:8
+TableControl: About to update entries 2021/12/11 上午 02:20:44:8
+TableControl: Updating entries 2021/12/11 上午 02:20:44:9
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:44:9
+TableControl: Refreshing UI 2021/12/11 上午 02:20:44:9
+TableControl: QueueUpdate 2021/12/11 上午 02:20:44:747
+TableControl: About to update entries 2021/12/11 上午 02:20:44:747
+TableControl: Updating entries 2021/12/11 上午 02:20:44:748
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:44:755
+TableControl: Refreshing UI 2021/12/11 上午 02:20:44:762
+TableControl: QueueUpdate 2021/12/11 上午 02:20:46:254
+TableControl: About to update entries 2021/12/11 上午 02:20:46:255
+TableControl: Updating entries 2021/12/11 上午 02:20:46:255
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:46:255
+TableControl: Refreshing UI 2021/12/11 上午 02:20:46:263
+TableControl: QueueUpdate 2021/12/11 上午 02:20:47:162
+TableControl: About to update entries 2021/12/11 上午 02:20:47:162
+TableControl: Updating entries 2021/12/11 上午 02:20:47:162
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:20:47:163
+TableControl: Refreshing UI 2021/12/11 上午 02:20:47:163
+TableControl: QueueUpdate 2021/12/11 上午 02:21:05:880
+TableControl: About to update entries 2021/12/11 上午 02:21:05:880
+TableControl: Updating entries 2021/12/11 上午 02:21:05:881
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:21:05:881
+TableControl: Refreshing UI 2021/12/11 上午 02:21:05:889
+TableControl: QueueUpdate 2021/12/11 上午 02:21:19:348
+TableControl: About to update entries 2021/12/11 上午 02:21:19:462
+TableControl: Updating entries 2021/12/11 上午 02:21:19:462
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:21:20:20
+TableControl: Refreshing UI 2021/12/11 上午 02:21:20:21
+Informational: 開始為要求的測試回合執行測試探索
+Informational: ========== 開始測試探索 ==========
+Warning: 找到相同延伸模組的多個版本。系統會選取最高版本。
+  Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter : 14.0.5816.2
+Informational: ========== 測試探索已完成: 在 901.1 毫秒 找到 2 項測試 ==========
+Informational: 正在執行測試方法: 'MainFormUITest.GUITest.MainFormUITest.BasicFunctionTest'
+Informational: ========== 開始測試回合 ==========
+TableControl: QueueUpdate 2021/12/11 上午 02:21:23:585
+Warning: 找到相同延伸模組的多個版本。系統會選取最高版本。
+  Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter : 14.0.5816.2
+TableControl: About to update entries 2021/12/11 上午 02:21:23:698
+TableControl: Updating entries 2021/12/11 上午 02:21:23:698
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:21:23:698
+TableControl: Refreshing UI 2021/12/11 上午 02:21:23:699
+Informational: ========== 測試回合已完成: 在 2.6 秒 執行了 1 項測試 (0 項通過，1 項失敗，0 項跳過) ==========
+TableControl: QueueUpdate 2021/12/11 上午 02:21:26:941
+TableControl: About to update entries 2021/12/11 上午 02:21:27:54
+TableControl: Updating entries 2021/12/11 上午 02:21:27:54
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:21:27:55
+TableControl: Refreshing UI 2021/12/11 上午 02:21:27:60
+TableControl: QueueUpdate 2021/12/11 上午 02:21:29:92
+TableControl: About to update entries 2021/12/11 上午 02:21:29:93
+TableControl: Updating entries 2021/12/11 上午 02:21:29:93
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:21:29:101
+TableControl: Refreshing UI 2021/12/11 上午 02:21:29:107
+TableControl: QueueUpdate 2021/12/11 上午 02:21:29:757
+TableControl: About to update entries 2021/12/11 上午 02:21:29:758
+TableControl: Updating entries 2021/12/11 上午 02:21:29:758
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:21:29:759
+TableControl: Refreshing UI 2021/12/11 上午 02:21:29:766
+TableControl: QueueUpdate 2021/12/11 上午 02:21:30:426
+TableControl: About to update entries 2021/12/11 上午 02:21:30:427
+TableControl: Updating entries 2021/12/11 上午 02:21:30:427
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:21:30:427
+TableControl: Refreshing UI 2021/12/11 上午 02:21:30:428
+Informational: 正在執行類型 'MainFormUITest.GUITest.MainFormUITest' 中的所有測試
+Informational: ========== 開始測試回合 ==========
+Warning: 找到相同延伸模組的多個版本。系統會選取最高版本。
+  Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter : 14.0.5816.2
+TableControl: QueueUpdate 2021/12/11 上午 02:22:35:976
+TableControl: About to update entries 2021/12/11 上午 02:22:35:976
+TableControl: Updating entries 2021/12/11 上午 02:22:35:977
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:22:35:977
+TableControl: Refreshing UI 2021/12/11 上午 02:22:35:977
+TableControl: QueueUpdate 2021/12/11 上午 02:22:38:41
+TableControl: About to update entries 2021/12/11 上午 02:22:38:145
+TableControl: Updating entries 2021/12/11 上午 02:22:38:145
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:22:38:146
+TableControl: Refreshing UI 2021/12/11 上午 02:22:38:146
+TableControl: QueueUpdate 2021/12/11 上午 02:22:51:233
+TableControl: About to update entries 2021/12/11 上午 02:22:51:334
+TableControl: Updating entries 2021/12/11 上午 02:22:51:334
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:22:51:334
+TableControl: Refreshing UI 2021/12/11 上午 02:22:51:345
+TableControl: QueueUpdate 2021/12/11 上午 02:23:26:843
+TableControl: About to update entries 2021/12/11 上午 02:23:26:844
+TableControl: Updating entries 2021/12/11 上午 02:23:26:844
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:23:26:845
+TableControl: Refreshing UI 2021/12/11 上午 02:23:26:851
+Informational: ========== 測試回合已完成: 在 53.1 秒 執行了 2 項測試 (2 項通過，0 項失敗，0 項跳過) ==========
+TableControl: QueueUpdate 2021/12/11 上午 02:23:29:687
+TableControl: About to update entries 2021/12/11 上午 02:23:29:790
+TableControl: Updating entries 2021/12/11 上午 02:23:29:790
+TableControl: Updating entries (UI thread) 2021/12/11 上午 02:23:29:790
+TableControl: Refreshing UI 2021/12/11 上午 02:23:29:797
+Warning: 建置失敗或其已取消。
+Informational: 開始為要求的測試回合執行測試探索
+Informational: ========== 開始測試探索 ==========
+Warning: 找到相同延伸模組的多個版本。系統會選取最高版本。
+  Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter : 14.0.5816.2
+Informational: ========== 測試探索已完成: 在 795 毫秒 找到 2 項測試 ==========
+Informational: 正在執行測試方法: 'MainFormUITest.GUITest.MainFormUITest.BasicFunctionTest'
+Informational: ========== 開始測試回合 ==========
+Warning: 找到相同延伸模組的多個版本。系統會選取最高版本。
+  Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter : 14.0.5816.2
+Informational: ========== 測試回合已完成: 在 14.1 秒 執行了 1 項測試 (1 項通過，0 項失敗，0 項跳過) ==========

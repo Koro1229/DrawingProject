@@ -1,1 +1,1 @@
-C:\Users\Koro\Desktop\Homework\Koro\windowDesign\Drawing\DrawingApp\DrawingApp\DrawingApp.csproj;x86
+C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\DrawingApp.csproj;x86

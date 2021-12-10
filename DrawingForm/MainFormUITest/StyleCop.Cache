@@ -1,0 +1,79 @@
+<stylecopresultscache>
+  <version>12</version>
+  <project key="960038433">
+    <configuration>
+    </configuration>
+  </project>
+  <sourcecode name="MainFormUITest.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/11/01 18:59:47.140</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2021/12/11 02:47:56.080</sourceFile>
+      <parser>2021/11/01 18:59:47.140</parser>
+      <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/11/01 18:59:47.140</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2021/12/11 00:29:47.865</sourceFile>
+      <parser>2021/11/01 18:59:47.140</parser>
+      <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Robot.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/11/01 18:59:47.140</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2021/12/11 02:41:39.712</sourceFile>
+      <parser>2021/11/01 18:59:47.140</parser>
+      <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="SpacingAndNewLine17" ruleCheckId="SN0017">
+        <context>ICS(空白與空行-17)</context>
+        <line>90</line>
+        <index>2911</index>
+        <endIndex>2912</endIndex>
+        <startLine>90</startLine>
+        <startColumn>1</startColumn>
+        <endLine>90</endLine>
+        <endColumn>2</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
+        <context>Unsuitable naming(名不符實)-SYSTEM_ENVIRNMENT(envirnment)</context>
+        <line>26</line>
+        <index>840</index>
+        <endIndex>892</endIndex>
+        <startLine>26</startLine>
+        <startColumn>9</startColumn>
+        <endLine>26</endLine>
+        <endColumn>61</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="SpacingAndNewLine16" ruleCheckId="SN0016">
+        <context>ICS(空白與空行-16)</context>
+        <line>93</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
+        <context>Unsuitable naming(名不符實)-firsePoint(firse)</context>
+        <line>193</line>
+        <index>6431</index>
+        <endIndex>6456</endIndex>
+        <startLine>193</startLine>
+        <startColumn>46</startColumn>
+        <endLine>193</endLine>
+        <endColumn>71</endColumn>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+</stylecopresultscache>

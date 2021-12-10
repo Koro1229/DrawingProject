@@ -6,15 +6,22 @@ using System.Windows.Forms;
 
 namespace DrawingForm.PresentationModel
 {
-    class PresentationModel
+    public class PresentationModel
     {
-        Model _model;
+        public event PresentationModelEventHandler _presentationModelChanged;
+        public delegate void PresentationModelEventHandler();
+
+        readonly Model _model;
+
         bool _rectangle = true;
         bool _ellipse = true;
+
         public PresentationModel(Model model, Control canvas)
         {
             this._model = model;
+            _model._modelChanged += NotifyObserver;
         }
+
         public void Draw(System.Drawing.Graphics graphics)
         {
             // graphics物件是Paint事件帶進來的，只能在當次Paint使用
@@ -47,7 +54,15 @@ namespace DrawingForm.PresentationModel
             }
         }
 
-        public void ChangeDrawingMode(int mode)
+        public void NotifyObserver()
+        {
+            if (_presentationModelChanged != null)
+            {
+                _presentationModelChanged();
+            }
+        }
+
+        public void SetDrawingMode(int mode)
         {
             _model.DrawingMode = mode;
         }

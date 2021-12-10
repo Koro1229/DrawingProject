@@ -37,7 +37,7 @@ namespace DrawingForm
             // _clear
             // 
             this._clear.AutoSize = true;
-            this._clear.Location = new System.Drawing.Point(638, 12);
+            this._clear.Location = new System.Drawing.Point(1188, 12);
             this._clear.Name = "_clear";
             this._clear.Size = new System.Drawing.Size(150, 25);
             this._clear.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace DrawingForm
             // _ellipse
             // 
             this._ellipse.AutoSize = true;
-            this._ellipse.Location = new System.Drawing.Point(325, 12);
+            this._ellipse.Location = new System.Drawing.Point(600, 12);
             this._ellipse.Name = "_ellipse";
             this._ellipse.Size = new System.Drawing.Size(150, 25);
             this._ellipse.TabIndex = 1;
@@ -71,12 +71,12 @@ namespace DrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this._rectangle);
             this.Controls.Add(this._ellipse);
             this.Controls.Add(this._clear);
             this.Name = "DrawingForm";
-            this.Text = "Form1";
+            this.Text = "DrawingForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

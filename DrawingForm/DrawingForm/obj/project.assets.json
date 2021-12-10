@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Koro\\.nuget\\packages\\": {},
+    "C:\\Users\\joker\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\Drawing\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
+      "projectUniqueName": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
       "projectName": "DrawingForm",
-      "projectPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\Drawing\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
-      "packagesPath": "C:\\Users\\Koro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\Drawing\\DrawingForm\\DrawingForm\\obj\\",
+      "projectPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
+      "packagesPath": "C:\\Users\\joker\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Koro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\joker\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

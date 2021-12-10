@@ -46,7 +46,7 @@
     <build:Item Name="VisualStudio" Version="16.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Enterprise 2019" />
     <build:Item Name="OperatingSystem" Version="10.0.19041.1288 (WinBuild.160101.0800)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="16.0.31727.243" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="16.0.31613.86" />
     <build:Item Name="ProjectGUID" Value="{719FF8F8-57C3-4FA8-8414-C68E28321D0F}" />
     <build:Item Name="OptimizingToolset" Value="None" />
     <build:Item Name="TargetRuntime" Value="Managed" />

@@ -7,17 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DrawingModel;
+
 namespace DrawingForm
 {
     public partial class DrawingForm : Form
     {
-        DrawingModel.Model _model;
-        PresentationModel.PresentationModel _presentationModel;
-        Panel _canvas = new DoubleBufferedPanel();
+        readonly Model _model;
+        readonly PresentationModel.PresentationModel _presentationModel;
+        readonly Panel _canvas = new DoubleBufferedPanel();
+
+        const int LINE_MODE = 0;
+        const int RECTANGLE_MODE = 1;
+        const int ELLIPSE_MODE = 2;
 
         public DrawingForm()
         {
             InitializeComponent();
+            _canvas.Name = "_canvas";
             _canvas.Dock = DockStyle.Fill;
             _canvas.BackColor = System.Drawing.Color.LightYellow;
             _canvas.MouseDown += HandleCanvasPressed;
@@ -28,6 +35,7 @@ namespace DrawingForm
             _model = new DrawingModel.Model();
             _presentationModel = new PresentationModel.PresentationModel(_model, _canvas);
             _model._modelChanged += HandleModelChanged;
+            _presentationModel._presentationModelChanged += RefreshButtonStatus;
         }
 
         public void HandleClearButtonClick(object sender, System.EventArgs e)
@@ -38,18 +46,18 @@ namespace DrawingForm
 
         public void HandleCanvasPressed(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            _model.PointerPressed(e.X, e.Y);
+            _model.PressPointer(e.X, e.Y);
         }
 
         public void HandleCanvasReleased(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            _model.PointerReleased(e.X, e.Y);
+            _model.ReleasePointer(e.X, e.Y);
             ResetDefaultButtonAndMode();
         }
 
         public void HandleCanvasMoved(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            _model.PointerMoved(e.X, e.Y);
+            _model.MovePointer(e.X, e.Y);
         }
 
         public void HandleCanvasPaint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -73,7 +81,7 @@ namespace DrawingForm
             _presentationModel.RectangleButtonStatus = false;
             _presentationModel.EllipseButtonStatus = true;
 
-            _presentationModel.ChangeDrawingMode(1);
+            _presentationModel.SetDrawingMode(RECTANGLE_MODE);
 
             RefreshButtonStatus();
         }
@@ -83,14 +91,14 @@ namespace DrawingForm
             _presentationModel.RectangleButtonStatus = true;
             _presentationModel.EllipseButtonStatus = false;
 
-            _presentationModel.ChangeDrawingMode(2);
+            _presentationModel.SetDrawingMode(ELLIPSE_MODE);
 
             RefreshButtonStatus();
         }
 
         private void ResetDefaultButtonAndMode()
         {
-            _presentationModel.ChangeDrawingMode(0);
+            _presentationModel.SetDrawingMode(LINE_MODE);
 
             _presentationModel.RectangleButtonStatus = true;
             _presentationModel.EllipseButtonStatus = true;

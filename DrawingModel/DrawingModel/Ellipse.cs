@@ -8,23 +8,23 @@ namespace DrawingModel
 {
     class Ellipse : Shape
     {
-        public double x1;
-        public double y1;
-        public double x2;
-        public double y2;
+        private double _x1;
+        private double _y1;
+        private double _x2;
+        private double _y2;
         public void Draw(IGraphics graphics)
         {
-            graphics.DrawEllipse(x1, y1, x2, y2);
+            graphics.DrawEllipse(_x1, _y1, _x2, _y2);
         }
         public double FirstX
         {
             get
             {
-                return x1;
+                return _x1;
             }
             set
             {
-                x1 = value;
+                _x1 = value;
             }
         }
 
@@ -32,11 +32,11 @@ namespace DrawingModel
         {
             get
             {
-                return x2;
+                return _x2;
             }
             set
             {
-                x2 = value;
+                _x2 = value;
             }
         }
 
@@ -44,11 +44,11 @@ namespace DrawingModel
         {
             get
             {
-                return y1;
+                return _y1;
             }
             set
             {
-                y1 = value;
+                _y1 = value;
             }
         }
 
@@ -56,11 +56,11 @@ namespace DrawingModel
         {
             get
             {
-                return y2;
+                return _y2;
             }
             set
             {
-                y2 = value;
+                _y2 = value;
             }
         }
     }
