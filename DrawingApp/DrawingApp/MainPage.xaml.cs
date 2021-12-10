@@ -21,8 +21,8 @@ namespace DrawingApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        DrawingModel.Model _model;
-        PresentationModel.PresentationModel _presentationModel;
+        readonly DrawingModel.Model _model;
+        readonly PresentationModel.PresentationModel _presentationModel;
 
         const int LINE_MODE = 0;
         const int RECTANGLE_MODE = 1;
@@ -36,49 +36,57 @@ namespace DrawingApp
             _model._modelChanged += HandleModelChanged;
         }
 
+        //不知道可以幹嘛 實際也沒幹嘛
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
 
+        //Clear按鈕按下事件
         private void HandleClearButtonClick(object sender, RoutedEventArgs e)
         {
             _model.Clear();
             ResetDefaultButtonAndMode();
         }
 
+        //滑鼠在canvas上按下事件
         public void HandleCanvasPressed(object sender, PointerRoutedEventArgs e)
         {
-            _model.PointerPressed(e.GetCurrentPoint(_canvas).Position.X,
+            _model.PressPointer(e.GetCurrentPoint(_canvas).Position.X,
             e.GetCurrentPoint(_canvas).Position.Y);
         }
 
+        //滑鼠在canvas上放開事件
         public void HandleCanvasReleased(object sender, PointerRoutedEventArgs e)
         {
-            _model.PointerReleased(e.GetCurrentPoint(_canvas).Position.X,
+            _model.ReleasePointer(e.GetCurrentPoint(_canvas).Position.X,
             e.GetCurrentPoint(_canvas).Position.Y);
             ResetDefaultButtonAndMode();
         }
 
+        //滑鼠在canvas上移動事件
         public void HandleCanvasMoved(object sender, PointerRoutedEventArgs e)
         {
-            _model.PointerMoved(e.GetCurrentPoint(_canvas).Position.X,
+            _model.MovePointer(e.GetCurrentPoint(_canvas).Position.X,
             e.GetCurrentPoint(_canvas).Position.Y);
         }
 
+        //跑觀察者觸發時應該跑的事件
         public void HandleModelChanged()
         {
             _presentationModel.Draw();
         }
 
+        //刷新按鈕狀態
         private void RefreshButtonStatus()
         {
             _rectangle.IsEnabled = _presentationModel.RectangleButtonStatus;
             _ellipse.IsEnabled = _presentationModel.EllipseButtonStatus;
         }
 
+        //回歸預設
         private void ResetDefaultButtonAndMode()
         {
-            _presentationModel.ChangeDrawingMode(LINE_MODE);
+            _presentationModel.SetDrawingMode(LINE_MODE);
 
             _presentationModel.RectangleButtonStatus = true;
             _presentationModel.EllipseButtonStatus = true;
@@ -86,22 +94,24 @@ namespace DrawingApp
             RefreshButtonStatus();
         }
 
+        //rectangle按鈕按下事件
         private void HandleRectangleButtonClick(object sender, RoutedEventArgs e)
         {
             _presentationModel.RectangleButtonStatus = false;
             _presentationModel.EllipseButtonStatus = true;
 
-            _presentationModel.ChangeDrawingMode(RECTANGLE_MODE);
+            _presentationModel.SetDrawingMode(RECTANGLE_MODE);
 
             RefreshButtonStatus();
         }
 
+        //ellipse按鈕按下事件
         private void HandleEllipseButtonClick(object sender, RoutedEventArgs e)
         {
             _presentationModel.RectangleButtonStatus = true;
             _presentationModel.EllipseButtonStatus = false;
 
-            _presentationModel.ChangeDrawingMode(ELLIPSE_MODE);
+            _presentationModel.SetDrawingMode(ELLIPSE_MODE);
 
             RefreshButtonStatus();
         }

@@ -15,20 +15,24 @@ namespace DrawingApp.PresentationModel
 {
     class PresentationModel
     {
-        Model _model;
-        IGraphics _igraphics;
+        readonly Model _model;
+        readonly IGraphics _igraphics;
         bool _rectangle = true;
         bool _ellipse = true;
+
         public PresentationModel(Model model, Canvas canvas)
         {
             this._model = model;
             _igraphics = new WindowsStoreGraphicsAdaptor(canvas);
         }
+
+        //畫圖
         public void Draw()
         {
             // 重複使用igraphics物件
             _model.Draw(_igraphics);
         }
+
         public bool RectangleButtonStatus
         {
             get
@@ -53,7 +57,8 @@ namespace DrawingApp.PresentationModel
             }
         }
 
-        public void ChangeDrawingMode(int mode)
+        //改變畫圖模式
+        public void SetDrawingMode(int mode)
         {
             _model.DrawingMode = mode;
         }

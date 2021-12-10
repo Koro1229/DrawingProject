@@ -23,7 +23,7 @@ namespace MainFormUITest
         private const String DATA_ROW = "資料列";
         private const String APP = "app";
         private const String DEVICE_NAME = "deviceName";
-        private const String SYSTEM_ENVIRNMENT = "WindowsPC";
+        private const String WINDOWS = "WindowsPC";
         private const String SPACE = " ";
         private const string WIN_APP_DRIVER_URI = "http://127.0.0.1:4723";
 
@@ -39,7 +39,7 @@ namespace MainFormUITest
             _root = root;
             var options = new AppiumOptions();
             options.AddAdditionalCapability(APP, targetAppPath);
-            options.AddAdditionalCapability(DEVICE_NAME, SYSTEM_ENVIRNMENT);
+            options.AddAdditionalCapability(DEVICE_NAME, WINDOWS);
 
             const int INITIAL_TIME = 5;
             _driver = new WindowsDriver<WindowsElement>(new Uri(WIN_APP_DRIVER_URI), options);
@@ -88,7 +88,6 @@ namespace MainFormUITest
             }
         }
 
-
         // test
         public void Sleep(Double time)
         {
@@ -128,10 +127,11 @@ namespace MainFormUITest
         }
 
         // test
-        public void ClickDataGridViewCellBy(string name, int rowIndex, string columnName)
+        public void ClickDataGridViewCellBy(int rowIndex, string columnName)
         {
-            var dataGridView = _driver.FindElementByAccessibilityId(name);
-            _driver.FindElementByName(columnName.ToString() + SPACE + DATA_ROW + SPACE + rowIndex.ToString()).Click();
+            //var dataGridView = _driver.FindElementByAccessibilityId(name);
+            var dataGridViewCell = _driver.FindElementByName(columnName.ToString() + SPACE + DATA_ROW + SPACE + rowIndex.ToString());
+            dataGridViewCell.Click();
         }
 
         // test
@@ -193,9 +193,13 @@ namespace MainFormUITest
         {
             var element = _driver.FindElementByAccessibilityId(name);
             var action = new Actions(_driver);
-            action.MoveToElement(element).MoveByOffset(firstPoint.Item1, firstPoint.Item2).ClickAndHold().Build().Perform();
-            action.MoveByOffset((secondPoint.Item1 - firstPoint.Item1), (secondPoint.Item2 - firstPoint.Item2)).Build().Perform();
-            action.Release().Build().Perform();
+            action.MoveToElement(element);
+            action.MoveByOffset(firstPoint.Item1, firstPoint.Item2);
+            action.ClickAndHold();
+            action.MoveByOffset((secondPoint.Item1 - firstPoint.Item1), (secondPoint.Item2 - firstPoint.Item2));
+            action.Release();
+            action.Build();
+            action.Perform();
         }
     }
 }

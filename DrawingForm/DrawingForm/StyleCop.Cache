@@ -8,7 +8,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/11 02:15:20.130</sourceFile>
+      <sourceFile>2021/12/11 03:20:27.853</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -19,7 +19,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/10 19:18:01.011</sourceFile>
+      <sourceFile>2021/12/11 03:21:05.611</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -30,7 +30,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/11 02:15:20.124</sourceFile>
+      <sourceFile>2021/12/11 03:20:18.791</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -41,7 +41,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/11 02:53:46.715</sourceFile>
+      <sourceFile>2021/12/11 03:19:54.623</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -49,12 +49,12 @@
     <violations>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="ClassDeclaration1" ruleCheckId="CD0001">
         <context>ICS(類別宣告-1)</context>
-        <line>15</line>
+        <line>16</line>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="ClassDeclaration1" ruleCheckId="CD0001">
         <context>ICS(類別宣告-1)</context>
-        <line>16</line>
+        <line>17</line>
         <warning>False</warning>
       </violation>
     </violations>
@@ -63,7 +63,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/11 02:14:30.424</sourceFile>
+      <sourceFile>2021/12/11 03:20:08.883</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -74,7 +74,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/10 19:17:55.241</sourceFile>
+      <sourceFile>2021/12/11 03:21:14.659</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -85,7 +85,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/11 02:52:54.106</sourceFile>
+      <sourceFile>2021/12/11 03:22:44.184</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -96,7 +96,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/11 02:52:51.516</sourceFile>
+      <sourceFile>2021/12/11 03:22:09.337</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -118,7 +118,7 @@
     <timestamps>
       <styleCop>2021/11/01 18:59:47.140</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/12/11 02:52:54.113</sourceFile>
+      <sourceFile>2021/12/11 03:25:20.167</sourceFile>
       <parser>2021/11/01 18:59:47.140</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/11/01 18:59:47.140</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>

@@ -41,11 +41,8 @@ namespace DrawingApp
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            // 當視窗中已有內容時，不重複應用程式初始化，
-            // 只確定視窗是作用中
             if (rootFrame == null)
             {
-                // 建立框架做為巡覽內容，並巡覽至第一頁
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
@@ -54,21 +51,12 @@ namespace DrawingApp
                 {
                     //TODO: 從之前暫停的應用程式載入狀態
                 }
-
-                // 將框架放在目前視窗中
                 Window.Current.Content = rootFrame;
             }
-
             if (e.PrelaunchActivated == false)
             {
                 if (rootFrame.Content == null)
-                {
-                    // 在巡覽堆疊未還原時，巡覽至第一頁，
-                    // 設定新的頁面，方式是透過傳遞必要資訊做為巡覽
-                    // 參數
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                }
-                // 確定目前視窗是作用中
                 Window.Current.Activate();
             }
         }
@@ -80,7 +68,8 @@ namespace DrawingApp
         /// <param name="e">有關巡覽失敗的詳細資料</param>
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+            const String FAIL_MESSAGE = "Failed to load Page ";
+            throw new Exception(FAIL_MESSAGE + e.SourcePageType.FullName);
         }
 
         /// <summary>

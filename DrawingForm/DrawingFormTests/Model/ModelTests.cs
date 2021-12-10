@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DrawingModel.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class ModelTests
     {
         Model _model;
@@ -19,7 +19,7 @@ namespace DrawingModel.Tests
             _model._firstPointY = 0;
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void PointerPressedTest()
         {
             Assert.IsFalse(_model.IsPressed());
@@ -32,7 +32,7 @@ namespace DrawingModel.Tests
             Assert.AreEqual(_model._firstPointY, 100);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void PointerMovedTest()
         {
             bool isObserverCalled = false;
@@ -47,19 +47,19 @@ namespace DrawingModel.Tests
             Assert.IsTrue(isObserverCalled);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void PointerReleasedTest()
         {
             _model.PressPointer(100, 100);
             _model.ReleasePointer(200, 200);
-            Shape test = _model.GetShapes()[0];
+            IShape test = _model.GetShapes()[0];
             Assert.AreEqual(test.FirstX, 100);
             Assert.AreEqual(test.FirstY, 100);
             Assert.AreEqual(test.SecondX, 200);
             Assert.AreEqual(test.SecondY, 200);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ClearTest()
         {
             _model.PressPointer(100, 100);
@@ -70,14 +70,14 @@ namespace DrawingModel.Tests
             Assert.AreEqual(_model.GetShapes().Count, 0);//確定有清掉
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void DrawTest()
         {
             //目前不知道測試方法
             Assert.IsTrue(true);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ClearAllTest()
         {
             // OnPaint時會自動清除畫面，因此不需實作
@@ -85,7 +85,7 @@ namespace DrawingModel.Tests
             Assert.IsTrue(true);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void IsPressedTest()
         {
             Assert.IsFalse(_model.IsPressed());
@@ -93,7 +93,7 @@ namespace DrawingModel.Tests
             Assert.IsTrue(_model.IsPressed());
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void NotifyModelChangedTest()
         {
             bool isObserverCalled = false;
@@ -106,7 +106,7 @@ namespace DrawingModel.Tests
             Assert.IsTrue(isObserverCalled);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void DrawingModeGetterAndSetterTest()
         {
             const int LINE_MODE = 0;

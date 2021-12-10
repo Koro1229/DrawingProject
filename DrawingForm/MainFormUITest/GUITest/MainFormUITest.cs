@@ -57,6 +57,7 @@ namespace MainFormUITest.GUITest
             RunScriptBuildASnowman();
         }
 
+        //基本功能
         private void RunScriptBasicFunction()
         {
             _robot.SwitchTo(DRAWING_FORM);
@@ -78,6 +79,7 @@ namespace MainFormUITest.GUITest
             _robot.Sleep(1);
         }
 
+        //雪人
         private void RunScriptBuildASnowman()
         {
             _robot.SwitchTo(DRAWING_FORM);

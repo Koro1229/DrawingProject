@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DrawingModel
 { 
-    public interface Shape
+    public interface IShape
     {
-
+        //畫圖
         void Draw(IGraphics graphics);
 
         double FirstX

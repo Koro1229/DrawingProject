@@ -14,16 +14,20 @@ namespace DrawingForm.PresentationModel
         {
             this._graphics = graphics;
         }
+
+        //清空全部 目前沒實作，因為畫面自己有在做事
         public void ClearAll()
         {
             // OnPaint時會自動清除畫面，因此不需實作
         }
 
+        //畫線
         public void DrawLine(double x1, double y1, double x2, double y2)
         {
             _graphics.DrawLine(Pens.Black, (float)x1, (float)y1, (float)x2, (float)y2);
         }
 
+        //畫方形
         public void DrawRectangle(double x1, double y1, double x2, double y2)
         {
             double width = x2 > x1? x2 - x1 : x1 - x2;
@@ -36,6 +40,7 @@ namespace DrawingForm.PresentationModel
             _graphics.DrawRectangle(Pens.Black, (float)leftTopXCoordinate, (float)leftTopYCoordinate, (float)width, (float)height);
         }
 
+        //畫橢圓
         public void DrawEllipse(double x1, double y1, double x2, double y2)
         {
             double width = x2 > x1 ? x2 - x1 : x1 - x2;

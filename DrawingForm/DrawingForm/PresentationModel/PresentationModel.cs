@@ -16,12 +16,13 @@ namespace DrawingForm.PresentationModel
         bool _rectangle = true;
         bool _ellipse = true;
 
-        public PresentationModel(Model model, Control canvas)
+        public PresentationModel(Model model)
         {
             this._model = model;
             _model._modelChanged += NotifyObserver;
         }
 
+        //畫圖
         public void Draw(System.Drawing.Graphics graphics)
         {
             // graphics物件是Paint事件帶進來的，只能在當次Paint使用
@@ -54,6 +55,7 @@ namespace DrawingForm.PresentationModel
             }
         }
 
+        //觀察者
         public void NotifyObserver()
         {
             if (_presentationModelChanged != null)
@@ -62,6 +64,7 @@ namespace DrawingForm.PresentationModel
             }
         }
 
+        //設定畫圖的模式
         public void SetDrawingMode(int mode)
         {
             _model.DrawingMode = mode;
