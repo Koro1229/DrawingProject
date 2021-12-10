@@ -188,38 +188,6 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.Model._firstPointX</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingForm</Project>
-              <File>Model.cs</File>
-              <Line>16</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.Model._firstPointY</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingForm</Project>
-              <File>Model.cs</File>
-              <Line>17</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
               <SmellType>Unresolved warnings(忽視警告)-使用模式比對</SmellType>
               <HashCode>MainFormUITest\MainFormUITest.Robot.cs.Unresolved warnings(忽視警告)-使用模式比對.178</HashCode>
               <Severity>Red</Severity>
@@ -235,14 +203,46 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>4</Id>
+              <Id>2</Id>
               <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
-              <HashCode>DrawingForm\DrawingForm.PresentationModel.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.63</HashCode>
+              <HashCode>DrawingForm\DrawingForm.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.127</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
-              <File>PresentationModel.cs</File>
-              <Line>63</Line>
+              <File>Model.cs</File>
+              <Line>127</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
+              <HashCode>DrawingForm\DrawingForm.Model.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.13</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingForm\DrawingForm</Project>
+              <File>Model.cs</File>
+              <Line>13</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
+              <HashCode>DrawingForm\DrawingForm.Model.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.13</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingForm\DrawingForm</Project>
+              <File>Model.cs</File>
+              <Line>13</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -252,102 +252,6 @@
             </Smell>
             <Smell>
               <Id>5</Id>
-              <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
-              <HashCode>DrawingForm\DrawingForm.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.110</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingForm\DrawingForm</Project>
-              <File>Model.cs</File>
-              <Line>110</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>Unresolved warnings(忽視警告)-物件初始化可以簡化</SmellType>
-              <HashCode>DrawingFormTests\DrawingFormTests.ModelTests.cs.Unresolved warnings(忽視警告)-物件初始化可以簡化.17</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingFormTests\DrawingFormTests</Project>
-              <File>ModelTests.cs</File>
-              <Line>17</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>7</Id>
-              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
-              <HashCode>DrawingForm\DrawingForm.PresentationModel.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.11</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingForm\DrawingForm</Project>
-              <File>PresentationModel.cs</File>
-              <Line>11</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>8</Id>
-              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
-              <HashCode>DrawingForm\DrawingForm.PresentationModel.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.11</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingForm\DrawingForm</Project>
-              <File>PresentationModel.cs</File>
-              <Line>11</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>9</Id>
-              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
-              <HashCode>DrawingForm\DrawingForm.Model.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.13</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingForm\DrawingForm</Project>
-              <File>Model.cs</File>
-              <Line>13</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>10</Id>
-              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
-              <HashCode>DrawingForm\DrawingForm.Model.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.13</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingForm\DrawingForm</Project>
-              <File>Model.cs</File>
-              <Line>13</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>11</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
               <HashCode>4 AutoGeneratedProgram.Main(string[])</HashCode>
               <Severity>Red</Severity>
@@ -364,7 +268,9 @@
             </Smell>
           </Reviews>
           <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList />
+          <HashCodeRequestIgnoreList>
+            <string>4 AutoGeneratedProgram.Main(string[])</string>
+          </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
@@ -449,8 +355,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1034</ProductionLoc>
-          <TestLoc>280</TestLoc>
+          <ProductionLoc>1051</ProductionLoc>
+          <TestLoc>276</TestLoc>
         </CodeReview>
       </Data>
     </div>

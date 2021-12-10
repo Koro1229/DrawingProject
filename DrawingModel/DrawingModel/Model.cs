@@ -13,8 +13,8 @@ namespace DrawingModel
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
         //Tuple<double, double> _firstPoint;
-        public double _firstPointX;
-        public double _firstPointY;
+        double _firstPointX;
+        double _firstPointY;
         private bool _isPressed = false;
         private readonly List<IShape> _shapes = new List<IShape>();
         readonly Line _lineHint = new Line();
@@ -37,6 +37,23 @@ namespace DrawingModel
             set
             {
                 _drawingMode = value;
+            }
+        }
+        //for test
+        public double FirstPointX
+        {
+            get
+            {
+                return _firstPointX;
+            }
+        }
+
+        //for test
+        public double FirstPointY
+        {
+            get
+            {
+                return _firstPointY;
             }
         }
 

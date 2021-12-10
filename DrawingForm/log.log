@@ -288,3 +288,6 @@ Informational: ========== 開始測試回合 ==========
 Warning: 找到相同延伸模組的多個版本。系統會選取最高版本。
   Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter : 14.0.5816.2
 Informational: ========== 測試回合已完成: 在 12.7 秒 執行了 1 項測試 (1 項通過，0 項失敗，0 項跳過) ==========
+TestWindow package loaded
+Informational: 記錄層級已設定為 資訊性 (預設)。
+Informational: 記錄層級已設定為 資訊性 (預設)。

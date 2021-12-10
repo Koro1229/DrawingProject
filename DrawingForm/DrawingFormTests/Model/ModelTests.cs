@@ -15,21 +15,17 @@ namespace DrawingModel.Tests
         public void Setup()
         {
             _model = new Model();
-            _model._firstPointX = 0;
-            _model._firstPointY = 0;
         }
 
         [TestMethod]
         public void PointerPressedTest()
         {
             Assert.IsFalse(_model.IsPressed());
-            Assert.AreEqual(_model._firstPointY, 0);
-            Assert.AreEqual(_model._firstPointY, 0);
 
             _model.PressPointer(100, 100);
             Assert.IsTrue(_model.IsPressed());
-            Assert.AreEqual(_model._firstPointX, 100);
-            Assert.AreEqual(_model._firstPointY, 100);
+            Assert.AreEqual(_model.FirstPointX, 100);
+            Assert.AreEqual(_model.FirstPointY, 100);
         }
 
         [TestMethod]

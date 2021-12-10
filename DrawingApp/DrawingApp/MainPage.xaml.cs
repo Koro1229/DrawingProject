@@ -34,6 +34,7 @@ namespace DrawingApp
             _model = new DrawingModel.Model();
             _presentationModel = new PresentationModel.PresentationModel(_model, _canvas);
             _model._modelChanged += HandleModelChanged;
+            _presentationModel._presentationModelChanged += RefreshButtonStatus;
         }
 
         //不知道可以幹嘛 實際也沒幹嘛
