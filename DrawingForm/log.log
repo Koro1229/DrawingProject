@@ -291,3 +291,13 @@ Informational: ========== 測試回合已完成: 在 12.7 秒 執行了 1 項測
 TestWindow package loaded
 Informational: 記錄層級已設定為 資訊性 (預設)。
 Informational: 記錄層級已設定為 資訊性 (預設)。
+TestWindow package loaded
+Informational: 記錄層級已設定為 資訊性 (預設)。
+Informational: 記錄層級已設定為 資訊性 (預設)。
+TestWindow package loaded
+Informational: 記錄層級已設定為 資訊性 (預設)。
+Informational: 記錄層級已設定為 資訊性 (預設)。
+Exception e:災難性的失敗 (Exception from HRESULT: 0x8000FFFF (E_UNEXPECTED))
+Exception e:災難性的失敗 (Exception from HRESULT: 0x8000FFFF (E_UNEXPECTED))
+Exception e:災難性的失敗 (Exception from HRESULT: 0x8000FFFF (E_UNEXPECTED))
+Exception e:災難性的失敗 (Exception from HRESULT: 0x8000FFFF (E_UNEXPECTED))

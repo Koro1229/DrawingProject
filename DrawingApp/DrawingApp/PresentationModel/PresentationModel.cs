@@ -8,7 +8,7 @@ using DrawingModel;
 
 namespace DrawingApp.PresentationModel
 {
-    class PresentationModel
+    public class PresentationModel
     {
         public event ModelChangedEventHandler _presentationModelChanged;
         public delegate void ModelChangedEventHandler();
@@ -22,6 +22,7 @@ namespace DrawingApp.PresentationModel
         {
             this._model = model;
             _igraphics = new WindowsStoreGraphicsAdaptor(canvas);
+            _model._modelChanged += NotifyObeserver;
         }
 
         //畫圖
@@ -61,6 +62,7 @@ namespace DrawingApp.PresentationModel
             _model.DrawingMode = mode;
         }
 
+        //觀察者
         public void NotifyObeserver()
         {
             if (_presentationModelChanged != null)

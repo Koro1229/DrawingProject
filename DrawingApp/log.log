@@ -1,1 +1,56 @@
 given range is not current
+TestWindow package loaded
+Informational: 記錄層級已設定為 資訊性 (預設)。
+Informational: 記錄層級已設定為 資訊性 (預設)。
+Informational: 已在 0.181 秒內從解決方案快取載入 0 筆測試記錄。
+Informational: 測試資料存放區在 0.019 秒內開啟。
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:763
+TableControl: About to update entries 2021/12/11 下午 05:42:33:767
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:769
+TableControl: Updating entries 2021/12/11 下午 05:42:33:785
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:785
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:796
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:801
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:810
+TableControl: Updating entries (UI thread) 2021/12/11 下午 05:42:33:938
+TableControl: Refreshing UI 2021/12/11 下午 05:42:33:939
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:946
+TableControl: About to update entries 2021/12/11 下午 05:42:33:946
+TableControl: Updating entries 2021/12/11 下午 05:42:33:968
+TableControl: Updating entries (UI thread) 2021/12/11 下午 05:42:33:977
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:978
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:981
+TableControl: Refreshing UI 2021/12/11 下午 05:42:33:982
+TableControl: QueueUpdate 2021/12/11 下午 05:42:33:984
+TableControl: About to update entries 2021/12/11 下午 05:42:33:984
+TableControl: Updating entries 2021/12/11 下午 05:42:33:984
+TableControl: Updating entries (UI thread) 2021/12/11 下午 05:42:33:985
+TableControl: QueueUpdate 2021/12/11 下午 05:42:34:585
+TableControl: About to update entries 2021/12/11 下午 05:42:34:586
+TableControl: Updating entries 2021/12/11 下午 05:42:34:587
+TableControl: Updating entries (UI thread) 2021/12/11 下午 05:42:34:587
+TableControl: Refreshing UI 2021/12/11 下午 05:42:34:587
+Informational: 開始為要求的測試回合執行測試探索
+Informational: ========== 開始測試探索 ==========
+Informational: ========== 測試探索已完成: 在 1.3 秒 找到 1 項測試 ==========
+Informational: 找不到任何測試可執行。
+Informational: ========== 開始測試探索 ==========
+Informational: ========== 已跳過測試探索: 所有測試容器皆為最新狀態 ==========
+TableControl: QueueUpdate 2021/12/11 下午 05:42:47:368
+TableControl: About to update entries 2021/12/11 下午 05:42:47:475
+TableControl: Updating entries 2021/12/11 下午 05:42:47:475
+TableControl: Updating entries (UI thread) 2021/12/11 下午 05:42:47:475
+TableControl: Refreshing UI 2021/12/11 下午 05:42:47:476
+TableControl: QueueUpdate 2021/12/11 下午 05:43:06:513
+TableControl: About to update entries 2021/12/11 下午 05:43:06:614
+TableControl: Updating entries 2021/12/11 下午 05:43:06:614
+TableControl: Updating entries (UI thread) 2021/12/11 下午 05:43:06:614
+TableControl: Refreshing UI 2021/12/11 下午 05:43:06:615
+given range is not current
+given range is not current
+given range is not current
+given range is not current
+given range is not current
+given range is not current
+given range is not current
+given range is not current

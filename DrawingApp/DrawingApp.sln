@@ -7,16 +7,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingApp", "DrawingApp\Dr
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
 		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|ARM = Release|ARM
 		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Debug|ARM.ActiveCfg = Debug|ARM
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Debug|ARM.Build.0 = Debug|ARM
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -29,6 +32,7 @@ Global
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Debug|x86.ActiveCfg = Debug|x86
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Debug|x86.Build.0 = Debug|x86
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Debug|x86.Deploy.0 = Debug|x86
+		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Release|Any CPU.ActiveCfg = Release|x86
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Release|ARM.ActiveCfg = Release|ARM
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Release|ARM.Build.0 = Release|ARM
 		{719FF8F8-57C3-4FA8-8414-C68E28321D0F}.Release|ARM.Deploy.0 = Release|ARM
