@@ -13,9 +13,6 @@ namespace DrawingForm.PresentationModel
 
         readonly Model _model;
 
-        bool _rectangle = true;
-        bool _ellipse = true;
-
         public PresentationModel(Model model)
         {
             this._model = model;
@@ -31,27 +28,33 @@ namespace DrawingForm.PresentationModel
             _model.Draw(new WindowsFormsGraphicsAdaptor(graphics));
         }
 
+        public bool LineButtonStatus
+        {
+            get; set;
+        }
         public bool RectangleButtonStatus
         {
-            get
-            {
-                return _rectangle;
-            }
-            set
-            {
-                _rectangle = value;
-            }
+            get; set;
         }
 
         public bool EllipseButtonStatus
         {
+            get; set;
+        }
+
+        public bool RedoButtonStatus
+        {
             get
             {
-                return _ellipse;
+                return _model.RedoStatus;
             }
-            set
+        }
+
+        public bool UndoButtonStatus
+        {
+            get
             {
-                _ellipse = value;
+                return _model.UndoStatus;
             }
         }
 
@@ -69,5 +72,19 @@ namespace DrawingForm.PresentationModel
         {
             _model.DrawingMode = mode;
         }
+
+        //設定按鈕狀態
+        public void SetButtonStatus(bool line, bool rectangle, bool ellipse)
+        {
+            LineButtonStatus = line;
+            RectangleButtonStatus = rectangle;
+            EllipseButtonStatus = ellipse;
+        }
+
+        //public String GetShapeData(double corX, double corY)
+        //{
+        //    IShape shape = _model.GetOnShape(corX, corY);
+
+        //}
     }
 }

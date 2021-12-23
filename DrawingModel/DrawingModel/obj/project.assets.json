@@ -12689,18 +12689,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joker\\.nuget\\packages\\": {},
+    "C:\\Users\\Koro\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingModel\\DrawingModel\\DrawingModel.csproj",
+      "projectUniqueName": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingModel\\DrawingModel\\DrawingModel.csproj",
       "projectName": "DrawingModel",
-      "projectPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingModel\\DrawingModel\\DrawingModel.csproj",
-      "packagesPath": "C:\\Users\\joker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingModel\\DrawingModel\\obj\\",
+      "projectPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingModel\\DrawingModel\\DrawingModel.csproj",
+      "packagesPath": "C:\\Users\\Koro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingModel\\DrawingModel\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -12708,7 +12708,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\joker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Koro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

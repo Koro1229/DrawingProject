@@ -8,6 +8,7 @@ namespace DrawingModel
 {
     class Rectangle : IShape
     {
+        const int TWO = 2;
         private double _x1;
         private double _y1;
         private double _x2;
@@ -64,6 +65,16 @@ namespace DrawingModel
             set
             {
                 _y2 = value;
+            }
+        }
+
+        public Tuple<double, double> Center
+        {
+            get
+            {
+                double centerX = (_x1 + _x2) / TWO;
+                double centerY = (_y1 + _y2) / TWO;
+                return new Tuple<double, double>(centerX, centerY);
             }
         }
     }

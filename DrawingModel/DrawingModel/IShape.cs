@@ -30,5 +30,10 @@ namespace DrawingModel
         {
             get; set;
         }
+
+        Tuple<double, double> Center
+        {
+            get;
+        }
     }
 }

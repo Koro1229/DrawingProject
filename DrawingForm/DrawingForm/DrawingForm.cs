@@ -20,6 +20,7 @@ namespace DrawingForm
         const int LINE_MODE = 0;
         const int RECTANGLE_MODE = 1;
         const int ELLIPSE_MODE = 2;
+        const int DEFAULT_MODE = -1;
 
         public DrawingForm()
         {
@@ -31,6 +32,7 @@ namespace DrawingForm
             _canvas.MouseUp += HandleCanvasReleased;
             _canvas.MouseMove += HandleCanvasMoved;
             _canvas.Paint += HandleCanvasPaint;
+            _canvas.Click += HandleCanvasClicked;
             Controls.Add(_canvas);
             _model = new DrawingModel.Model();
             _presentationModel = new PresentationModel.PresentationModel(_model);
@@ -70,6 +72,11 @@ namespace DrawingForm
             _presentationModel.Draw(e.Graphics);
         }
 
+        public void HandleCanvasClicked(object sender, EventArgs e)
+        {
+
+        }
+
         //當觀察者觸發時跑的事件
         public void HandleModelChanged()
         {
@@ -79,15 +86,28 @@ namespace DrawingForm
         //刷新按鈕狀態
         private void RefreshButtonStatus()
         {
+            _line.Enabled = _presentationModel.LineButtonStatus;
             _rectangle.Enabled = _presentationModel.RectangleButtonStatus;
             _ellipse.Enabled = _presentationModel.EllipseButtonStatus;
+            _redo.Enabled = _presentationModel.RedoButtonStatus;
+            _undo.Enabled = _presentationModel.UndoButtonStatus;
+        }
+
+
+        //Line按鈕按下的事件
+        public void HandleLineButtonClick(object sender, System.EventArgs e)
+        {
+            _presentationModel.SetButtonStatus(false, true, true);
+
+            _presentationModel.SetDrawingMode(LINE_MODE);
+
+            RefreshButtonStatus();
         }
 
         //Rectangle按鈕按下的事件
         public void HandleRectangleButtonClick(object sender, System.EventArgs e)
         {
-            _presentationModel.RectangleButtonStatus = false;
-            _presentationModel.EllipseButtonStatus = true;
+            _presentationModel.SetButtonStatus(true, false, true);
 
             _presentationModel.SetDrawingMode(RECTANGLE_MODE);
 
@@ -97,8 +117,7 @@ namespace DrawingForm
         //Ellipse按鈕按下的事件
         public void HandleEllipseButtonClick(object sender, System.EventArgs e)
         {
-            _presentationModel.RectangleButtonStatus = true;
-            _presentationModel.EllipseButtonStatus = false;
+            _presentationModel.SetButtonStatus(true, true, false);
 
             _presentationModel.SetDrawingMode(ELLIPSE_MODE);
 
@@ -108,11 +127,24 @@ namespace DrawingForm
         //回到預設狀態
         private void ResetDefaultButtonAndMode()
         {
-            _presentationModel.SetDrawingMode(LINE_MODE);
+            _presentationModel.SetButtonStatus(true, true, true);
 
-            _presentationModel.RectangleButtonStatus = true;
-            _presentationModel.EllipseButtonStatus = true;
+            _presentationModel.SetDrawingMode(DEFAULT_MODE);
 
+            RefreshButtonStatus();
+        }
+
+        //undo
+        private void UndoHandler(Object sender, EventArgs e)
+        {
+            _model.Undo();
+            RefreshButtonStatus();
+        }
+
+        //redo
+        private void RedoHandler(Object sender, EventArgs e)
+        {
+            _model.Redo();
             RefreshButtonStatus();
         }
     }

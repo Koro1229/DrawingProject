@@ -7,16 +7,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\..\DrawingModel\DrawingModel\CommandManager.cs" Link="Model\CommandManager.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\DrawCommand.cs" Link="Model\DrawCommand.cs" />
     <Compile Include="..\..\DrawingModel\DrawingModel\Ellipse.cs" Link="Model\Ellipse.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\ICommand.cs" Link="Model\ICommand.cs" />
     <Compile Include="..\..\DrawingModel\DrawingModel\IGraphics.cs" Link="Model\IGraphics.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\IShape.cs" Link="Model\IShape.cs" />
     <Compile Include="..\..\DrawingModel\DrawingModel\Line.cs" Link="Model\Line.cs" />
     <Compile Include="..\..\DrawingModel\DrawingModel\Model.cs" Link="Model\Model.cs" />
     <Compile Include="..\..\DrawingModel\DrawingModel\Rectangle.cs" Link="Model\Rectangle.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\Shape.cs" Link="Model\Shape.cs" />
+    <Compile Include="..\..\DrawingModel\DrawingModel\ShapeFactory.cs" Link="Model\ShapeFactory.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

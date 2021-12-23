@@ -47,6 +47,7 @@ namespace DrawingModel.Tests
         public void PointerReleasedTest()
         {
             _model.PressPointer(100, 100);
+            _model.MovePointer(200, 200);
             _model.ReleasePointer(200, 200);
             IShape test = _model.GetShapes()[0];
             Assert.AreEqual(test.FirstX, 100);
@@ -59,6 +60,7 @@ namespace DrawingModel.Tests
         public void ClearTest()
         {
             _model.PressPointer(100, 100);
+            _model.MovePointer(200, 200);
             _model.ReleasePointer(200, 200);
             Assert.AreEqual(_model.GetShapes().Count, 1);//確定有進去
 

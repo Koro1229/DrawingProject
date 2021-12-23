@@ -10,20 +10,17 @@ namespace DrawingModel
     {
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
-        //Tuple<double, double> _firstPoint;
+
+        CommandManager _commandManager = new CommandManager();
         double _firstPointX;
         double _firstPointY;
+        double _secondX;
+        double _secondY;
         private bool _isPressed = false;
         private readonly List<IShape> _shapes = new List<IShape>();
-        readonly Line _lineHint = new Line();
-        readonly Rectangle _rectangleHint = new Rectangle();
-        readonly Ellipse _ellipseHint = new Ellipse();
 
-        const int LINE_MODE = 0;
-        const int RECTANGLE_MODE = 1;
-        const int ELLIPSE_MODE = 2;
-
-        private int _drawingMode = LINE_MODE;//0 = line, 1 = rectangle, 2 = ellipse
+        const int DEFAULT_MODE = -1;
+        private int _drawingMode = DEFAULT_MODE;//-1 = NO SHAPE, 0 = line, 1 = rectangle, 2 = ellipse
 
         //get for test ,set for function
         public int DrawingMode
@@ -55,15 +52,29 @@ namespace DrawingModel
             }
         }
 
+        public bool RedoStatus
+        {
+            get
+            {
+                return _commandManager.RedoStatus;
+            }
+        }
+
+        public bool UndoStatus
+        {
+            get
+            {
+                return _commandManager.UndoStatus;
+            }
+        }
+
         //存取按下的資料
         public void PressPointer(double currentXCoordinate, double currentYCoordinate)
         {
-            if (currentXCoordinate > 0 && currentYCoordinate > 0)
+            if (currentXCoordinate > 0 && currentYCoordinate > 0 && _drawingMode != -1 && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
             {
                 _firstPointX = currentXCoordinate;
                 _firstPointY = currentYCoordinate;
-                _lineHint.FirstX = _rectangleHint.FirstX = _ellipseHint.FirstX = _firstPointX;
-                _lineHint.FirstY = _rectangleHint.FirstY = _ellipseHint.FirstY = _firstPointY;
                 _isPressed = true;
             }
         }
@@ -73,8 +84,8 @@ namespace DrawingModel
         {
             if (_isPressed)
             {
-                _lineHint.SecondX = _rectangleHint.SecondX = _ellipseHint.SecondX = currentXCoordinate;
-                _lineHint.SecondY = _rectangleHint.SecondY = _ellipseHint.SecondY = currentYCoordinate;
+                _secondX = currentXCoordinate;
+                _secondY = currentYCoordinate;
                 NotifyModelChanged();
             }
         }
@@ -82,24 +93,29 @@ namespace DrawingModel
         //滑鼠按鍵放開後做的事情
         public void ReleasePointer(double currentXCoordinate, double currentYCoordinate)
         {
-            if (_isPressed)
+            if (_isPressed && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
             {
-                _isPressed = false;
-                if (_drawingMode == LINE_MODE)
-                    AddNewLineShape(currentXCoordinate, currentYCoordinate);
-                else if (_drawingMode == RECTANGLE_MODE)
-                    AddNewRectangleShape(currentXCoordinate, currentYCoordinate);
-                else if (_drawingMode == ELLIPSE_MODE)
-                    AddNewEllipseShape(currentXCoordinate, currentYCoordinate);
-
-                NotifyModelChanged();
+                IShape shape = ShapeFactory.CreateShape(_drawingMode);
+                //if (shape.GetType() == new Line().GetType())
+                //{
+                //    //_commandManager.Execute(new DrawCommand(this, SetLineStatus(shape)));
+                //}
+                //else
+                //{
+                    shape = SetShapeStatus(shape);
+                    _commandManager.Execute(new DrawCommand(this, shape));
+                //}
             }
+
+            _isPressed = false;
+            NotifyModelChanged();
         }
 
         //清空
         public void Clear()
         {
             _isPressed = false;
+       
             _shapes.Clear();
             NotifyModelChanged();
         }
@@ -109,13 +125,17 @@ namespace DrawingModel
         {
             graphics.ClearAll();
             foreach (IShape aShape in _shapes)
-                aShape.Draw(graphics);
-            if (_isPressed && _drawingMode == LINE_MODE)
-                _lineHint.Draw(graphics);
-            else if (_isPressed && _drawingMode == RECTANGLE_MODE)
-                _rectangleHint.Draw(graphics);
-            else if (_isPressed && _drawingMode == ELLIPSE_MODE)
-                _ellipseHint.Draw(graphics);
+                if (aShape.GetType() == new Line().GetType())
+                        aShape.Draw(graphics);
+            foreach (IShape aShape in _shapes)
+                if (aShape.GetType() != new Line().GetType())
+                        aShape.Draw(graphics);
+            if (_isPressed)
+            {
+                IShape currentShape = ShapeFactory.CreateShape(_drawingMode);
+                currentShape = SetShapeStatus(currentShape);
+                currentShape.Draw(graphics);
+            }
         }
 
         //observer
@@ -131,42 +151,12 @@ namespace DrawingModel
             // OnPaint時會自動清除畫面，因此不需實作
         }
 
-        //增加shape Line
-        private void AddNewLineShape(double secondXCoordinate, double secondYCoordinate)
+        //增加新形狀
+        public void AddNewShape(IShape shape)
         {
-            Line hint = new Line
-            { 
-                FirstX = _firstPointX,
-                FirstY = _firstPointY,
-                SecondX = secondXCoordinate,
-                SecondY = secondYCoordinate };
-            _shapes.Add(hint);
+            _shapes.Add(shape);
         }
-
-        //增加shape Rectangle
-        private void AddNewRectangleShape(double secondXCoordinate, double secondYCoordinate)
-        {
-            Rectangle hint = new Rectangle
-            { 
-                FirstX = _firstPointX,
-                FirstY = _firstPointY,
-                SecondX = secondXCoordinate,
-                SecondY = secondYCoordinate };
-            _shapes.Add(hint);
-        }
-
-        //增加shape Ellipse
-        private void AddNewEllipseShape(double secondXCoordinate, double secondYCoordinate)
-        {
-            Ellipse hint = new Ellipse
-            { 
-                FirstX = _firstPointX,
-                FirstY = _firstPointY,
-                SecondX = secondXCoordinate,
-                SecondY = secondYCoordinate };
-            _shapes.Add(hint);
-        }
-
+       
         //current for test 確認有按著
         public bool IsPressed()
         {
@@ -178,5 +168,72 @@ namespace DrawingModel
         {
             return _shapes;
         }
+
+        //設定shape狀態
+        private IShape SetShapeStatus(IShape shape)
+        {
+            shape.FirstX = _firstPointX;
+            shape.FirstY = _firstPointY;
+            shape.SecondX = _secondX;
+            shape.SecondY = _secondY;
+            return shape;
+        }
+
+        public void DeleteShape()
+        {
+            _shapes.RemoveAt(_shapes.Count - 1);
+        }
+
+        public void Undo()
+        {
+            _commandManager.Undo();
+            NotifyModelChanged();
+        }
+
+        public void Redo()
+        {
+            _commandManager.Redo();
+            NotifyModelChanged();
+        }
+
+        private IShape GetOnShape(double currentXCoordinate, double currentYCoordinate)
+        {
+            for (int i = 0; i < _shapes.Count; i++)
+            {
+                if (PointInShape(currentXCoordinate, currentYCoordinate, i))
+                    return _shapes[i];
+            }
+            return null;
+        }
+
+        private bool PointInShape(double currentXCoordinate, double currentYCoordinate, int index)
+        {
+            IShape shape = _shapes[index];
+            double firstX = shape.FirstX < shape.SecondX ? shape.FirstX : shape.SecondX;
+            double secondX = shape.FirstX < shape.SecondX ? shape.SecondX : shape.FirstX;
+            if (currentXCoordinate >= firstX && currentXCoordinate <= secondX)
+            {
+                double firstY = shape.FirstY < shape.SecondY ? shape.FirstY : shape.SecondY;
+                double secondY = shape.FirstY < shape.SecondY ? shape.SecondY : shape.FirstY;
+                if (currentYCoordinate >= firstY && currentYCoordinate <= secondY)
+                    return true;
+            }
+            return false;
+        }
+
+        //private Line SetLineStatus(IShape shape)
+        //{
+        //    const int AVERAGE = 2;
+        //    Line line = new Line();
+        //    IShape firstShape = _shapes[GetOnShape(shape.FirstX, shape.FirstY)];
+        //    IShape secondShape = _shapes[GetOnShape(shape.SecondX, shape.SecondY)];
+        //    line.FirstX = (firstShape.FirstX + firstShape.SecondX) / AVERAGE;
+        //    line.FirstY = (firstShape.FirstY + firstShape.SecondY) / AVERAGE;
+        //    line.SecondX = (secondShape.FirstX + secondShape.SecondX) / AVERAGE;
+        //    line.SecondY = (secondShape.FirstY + secondShape.SecondY) / AVERAGE;
+        //    line.FirseShape = firstShape;
+        //    line.SecondShape = secondShape;
+        //    return line;
+        //}
     }
 }
