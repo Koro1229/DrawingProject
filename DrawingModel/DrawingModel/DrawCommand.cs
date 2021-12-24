@@ -18,7 +18,7 @@ namespace DrawingModel
 
         public void Execute()
         {
-            _model.AddNewShape(_shape);
+            _model.AddNewShape(_shape); 
         }
 
         public void UnExecute()
