@@ -61,9 +61,9 @@ namespace DrawingModel.Tests
             const int ELLIPSE_MODE = 2;
 
             Assert.AreEqual(_model.DrawingMode, LINE_MODE);//default
-            _presentationModel.SetDrawingMode(RECTANGLE_MODE);
+            _presentationModel.DrawingMode = RECTANGLE_MODE;
             Assert.AreEqual(_model.DrawingMode, RECTANGLE_MODE);
-            _presentationModel.SetDrawingMode(ELLIPSE_MODE);
+            _presentationModel.DrawingMode = ELLIPSE_MODE;
             Assert.AreEqual(_model.DrawingMode, ELLIPSE_MODE);
         }
     }

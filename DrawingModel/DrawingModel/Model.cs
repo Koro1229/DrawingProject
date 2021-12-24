@@ -16,7 +16,9 @@ namespace DrawingModel
         double _firstPointY;
         double _secondX;
         double _secondY;
+        private int _currentSelectedIndex = -1;
         private bool _isPressed = false;
+        private bool _isDrawed = false;
         private readonly List<IShape> _shapes = new List<IShape>();
 
         const int DEFAULT_MODE = -1;
@@ -73,9 +75,10 @@ namespace DrawingModel
         {
             if (currentXCoordinate > 0 && currentYCoordinate > 0 && _drawingMode != -1 && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
             {
-                _firstPointX = currentXCoordinate;
-                _firstPointY = currentYCoordinate;
+                _firstPointX = _secondX = currentXCoordinate;
+                _firstPointY = _secondY = currentYCoordinate;
                 _isPressed = true;
+                _isDrawed = false;
             }
         }
 
@@ -86,6 +89,7 @@ namespace DrawingModel
             {
                 _secondX = currentXCoordinate;
                 _secondY = currentYCoordinate;
+                _isDrawed = true;
                 NotifyModelChanged();
             }
         }
@@ -93,21 +97,17 @@ namespace DrawingModel
         //滑鼠按鍵放開後做的事情
         public void ReleasePointer(double currentXCoordinate, double currentYCoordinate)
         {
-            if (_isPressed && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
+            if (_isPressed && _isDrawed && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
             {
                 IShape shape = ShapeFactory.CreateShape(_drawingMode);
-                //if (shape.GetType() == new Line().GetType())
-                //{
-                //    //_commandManager.Execute(new DrawCommand(this, SetLineStatus(shape)));
-                //}
-                //else
-                //{
-                    shape = SetShapeStatus(shape);
+                shape = SetShapeStatus(shape);
+                if (shape.GetType() == new Line().GetType())
+                    _commandManager.Execute(new DrawCommand(this, SetLineStatus(shape)));
+                else
                     _commandManager.Execute(new DrawCommand(this, shape));
-                //}
             }
 
-            _isPressed = false;
+            _isPressed = _isDrawed = false;
             NotifyModelChanged();
         }
 
@@ -130,11 +130,29 @@ namespace DrawingModel
             foreach (IShape aShape in _shapes)
                 if (aShape.GetType() != new Line().GetType())
                         aShape.Draw(graphics);
+            foreach (IShape aShape in _shapes)
+                if (aShape.IsSelected)
+                    aShape.Selected(graphics);
             if (_isPressed)
             {
                 IShape currentShape = ShapeFactory.CreateShape(_drawingMode);
                 currentShape = SetShapeStatus(currentShape);
                 currentShape.Draw(graphics);
+            }
+        }
+
+        public void MarkShape(double corX, double corY)
+        {
+            for (int i = _shapes.Count - 1; i >= 0; i--)
+            {
+                if (PointInShape(corX, corY, i))
+                {
+                    if (_currentSelectedIndex != -1)
+                        _shapes[_currentSelectedIndex].IsSelected = false;
+                    _shapes[i].IsSelected = true;
+                    _currentSelectedIndex = i;
+                    break;
+                }
             }
         }
 
@@ -176,6 +194,7 @@ namespace DrawingModel
             shape.FirstY = _firstPointY;
             shape.SecondX = _secondX;
             shape.SecondY = _secondY;
+            shape.IsSelected = false;
             return shape;
         }
 
@@ -196,12 +215,14 @@ namespace DrawingModel
             NotifyModelChanged();
         }
 
-        private IShape GetOnShape(double currentXCoordinate, double currentYCoordinate)
+        public IShape GetOnShape(double currentXCoordinate, double currentYCoordinate)
         {
-            for (int i = 0; i < _shapes.Count; i++)
+            for (int i = _shapes.Count - 1; i >= 0; i--)
             {
                 if (PointInShape(currentXCoordinate, currentYCoordinate, i))
+                {
                     return _shapes[i];
+                }
             }
             return null;
         }
@@ -221,19 +242,19 @@ namespace DrawingModel
             return false;
         }
 
-        //private Line SetLineStatus(IShape shape)
-        //{
-        //    const int AVERAGE = 2;
-        //    Line line = new Line();
-        //    IShape firstShape = _shapes[GetOnShape(shape.FirstX, shape.FirstY)];
-        //    IShape secondShape = _shapes[GetOnShape(shape.SecondX, shape.SecondY)];
-        //    line.FirstX = (firstShape.FirstX + firstShape.SecondX) / AVERAGE;
-        //    line.FirstY = (firstShape.FirstY + firstShape.SecondY) / AVERAGE;
-        //    line.SecondX = (secondShape.FirstX + secondShape.SecondX) / AVERAGE;
-        //    line.SecondY = (secondShape.FirstY + secondShape.SecondY) / AVERAGE;
-        //    line.FirseShape = firstShape;
-        //    line.SecondShape = secondShape;
-        //    return line;
-        //}
+        private Line SetLineStatus(IShape shape)
+        {
+            const int AVERAGE = 2;
+            Line line = new Line();
+            IShape firstShape = GetOnShape(shape.FirstX, shape.FirstY);
+            IShape secondShape = GetOnShape(shape.SecondX, shape.SecondY);
+            line.FirstX = (firstShape.FirstX + firstShape.SecondX) / AVERAGE;
+            line.FirstY = (firstShape.FirstY + firstShape.SecondY) / AVERAGE;
+            line.SecondX = (secondShape.FirstX + secondShape.SecondX) / AVERAGE;
+            line.SecondY = (secondShape.FirstY + secondShape.SecondY) / AVERAGE;
+            line.FirseShape = firstShape;
+            line.SecondShape = secondShape;
+            return line;
+        }
     }
 }

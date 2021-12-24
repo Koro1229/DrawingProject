@@ -13,10 +13,17 @@ namespace DrawingModel
         private double _y1;
         private double _x2;
         private double _y2;
+        private bool _isSelected;
         //畫圖
         public void Draw(IGraphics graphics)
         {
             graphics.DrawLine(_x1, _y1, _x2, _y2);
+        }
+
+        //選取
+        public void Selected(IGraphics graphics)
+        {
+            graphics.DrawSelectedItem(_x1, _y1, _x2, _y2);
         }
 
         public double FirstX
@@ -87,5 +94,16 @@ namespace DrawingModel
             get; set;
         }
 
+        public bool IsSelected
+        {
+            get
+            {
+                return _isSelected;
+            }
+            set
+            {
+                _isSelected = value;
+            }
+        }
     }
 }

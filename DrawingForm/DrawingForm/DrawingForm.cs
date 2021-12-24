@@ -32,7 +32,6 @@ namespace DrawingForm
             _canvas.MouseUp += HandleCanvasReleased;
             _canvas.MouseMove += HandleCanvasMoved;
             _canvas.Paint += HandleCanvasPaint;
-            _canvas.Click += HandleCanvasClicked;
             Controls.Add(_canvas);
             _model = new DrawingModel.Model();
             _presentationModel = new PresentationModel.PresentationModel(_model);
@@ -56,6 +55,8 @@ namespace DrawingForm
         //滑鼠放開Canvas的事件
         public void HandleCanvasReleased(object sender, System.Windows.Forms.MouseEventArgs e)
         {
+            if (_presentationModel.DrawingMode == DEFAULT_MODE)
+                _label.Text = _presentationModel.GetShapeData(e.X, e.Y);
             _model.ReleasePointer(e.X, e.Y);
             ResetDefaultButtonAndMode();
         }
@@ -70,11 +71,6 @@ namespace DrawingForm
         public void HandleCanvasPaint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             _presentationModel.Draw(e.Graphics);
-        }
-
-        public void HandleCanvasClicked(object sender, EventArgs e)
-        {
-
         }
 
         //當觀察者觸發時跑的事件
@@ -99,7 +95,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(false, true, true);
 
-            _presentationModel.SetDrawingMode(LINE_MODE);
+            _presentationModel.DrawingMode = LINE_MODE;
 
             RefreshButtonStatus();
         }
@@ -109,7 +105,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(true, false, true);
 
-            _presentationModel.SetDrawingMode(RECTANGLE_MODE);
+            _presentationModel.DrawingMode = RECTANGLE_MODE;
 
             RefreshButtonStatus();
         }
@@ -119,7 +115,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(true, true, false);
 
-            _presentationModel.SetDrawingMode(ELLIPSE_MODE);
+            _presentationModel.DrawingMode = ELLIPSE_MODE;
 
             RefreshButtonStatus();
         }
@@ -129,7 +125,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(true, true, true);
 
-            _presentationModel.SetDrawingMode(DEFAULT_MODE);
+            _presentationModel.DrawingMode = DEFAULT_MODE;
 
             RefreshButtonStatus();
         }

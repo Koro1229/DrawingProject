@@ -16,6 +16,7 @@ namespace DrawingModel
         void DrawRectangle(double x1, double y1, double x2, double y2);
         //畫橢圓
         void DrawEllipse(double x1, double y1, double x2, double y2);
-
+        //畫框框
+        void DrawSelectedItem(double x1, double y1, double x2, double y2);
     }
 }

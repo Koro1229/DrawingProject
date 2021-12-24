@@ -10,6 +10,8 @@ namespace DrawingModel
     {
         //畫圖
         void Draw(IGraphics graphics);
+        //選擇
+        void Selected(IGraphics graphics);
 
         double FirstX
         {
@@ -34,6 +36,11 @@ namespace DrawingModel
         Tuple<double, double> Center
         {
             get;
+        }
+
+        bool IsSelected
+        {
+            get; set;
         }
     }
 }

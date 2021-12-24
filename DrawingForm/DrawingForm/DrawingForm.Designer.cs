@@ -117,7 +117,9 @@ namespace DrawingForm
             // _label
             // 
             this._label.AutoSize = true;
-            this._label.Location = new System.Drawing.Point(1131, 540);
+            this._label.BackColor = System.Drawing.Color.Thistle;
+            this._label.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._label.Location = new System.Drawing.Point(1100, 700);
             this._label.Name = "_label";
             this._label.Size = new System.Drawing.Size(0, 15);
             this._label.TabIndex = 5;
