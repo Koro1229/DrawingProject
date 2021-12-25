@@ -25,5 +25,10 @@ namespace DrawingModel
         {
             _model.DeleteShape();
         }
+
+        public void Clear()
+        {
+            _model.ClearAll();
+        }
     }
 }

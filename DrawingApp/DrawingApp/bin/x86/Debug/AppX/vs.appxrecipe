@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>ABD7F993676729057ABAAF5BC5DD9EEFA3DEA82711B512769A95675481BAFF0C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>3B6C3549F6280971F8D1886B9F06D1D02A3606DBEE2D2C279363A52F9A7C0BCF</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>7f41d95b-a269-4357-b9d1-8b1e374dbbb7_1.0.0.0_x86__j37y6zvnxabrj</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>7f41d95b-a269-4357-b9d1-8b1e374dbbb7_j37y6zvnxabrj!App</RegisteredUserModeAppID>
     <RegisteredPackageID>7f41d95b-a269-4357-b9d1-8b1e374dbbb7</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-12-11T08:54:37.197</Modified>
+      <Modified>2021-12-25T10:25:35.503</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\bin\x86\Debug\DrawingApp.exe">
       <PackagePath>entrypoint\DrawingApp.exe</PackagePath>
-      <Modified>2021-12-11T08:54:36.660</Modified>
+      <Modified>2021-12-25T10:25:34.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\joker\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -90,15 +90,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\bin\x86\Debug\DrawingApp.xr.xml">
       <PackagePath>DrawingApp.xr.xml</PackagePath>
-      <Modified>2021-12-10T09:04:26.765</Modified>
+      <Modified>2021-12-25T10:25:34.866</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-12-11T08:54:36.578</Modified>
+      <Modified>2021-12-25T10:25:34.883</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-12-11T08:54:36.578</Modified>
+      <Modified>2021-12-25T10:25:34.883</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -106,11 +106,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-12-11T08:54:36.789</Modified>
+      <Modified>2021-12-25T08:59:52.448</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingApp\DrawingApp\bin\x86\Debug\Core\DrawingApp.exe">
       <PackagePath>DrawingApp.exe</PackagePath>
-      <Modified>2021-12-11T08:54:37.194</Modified>
+      <Modified>2021-12-25T10:25:35.494</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

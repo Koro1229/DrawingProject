@@ -135,6 +135,7 @@ namespace DrawingForm
             this.Controls.Add(this._rectangle);
             this.Controls.Add(this._ellipse);
             this.Controls.Add(this._clear);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DrawingForm";
             this.Text = "DrawingForm";
             this.toolStrip1.ResumeLayout(false);

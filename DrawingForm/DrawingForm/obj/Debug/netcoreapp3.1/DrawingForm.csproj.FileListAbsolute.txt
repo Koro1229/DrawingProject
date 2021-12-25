@@ -95,3 +95,4 @@ C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\Draw
 C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\obj\Debug\netcoreapp3.1\DrawingForm.dll
 C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\obj\Debug\netcoreapp3.1\DrawingForm.pdb
 C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\obj\Debug\netcoreapp3.1\DrawingForm.genruntimeconfig.cache
+C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingForm\obj\Debug\netcoreapp3.1\DrawingForm.Properties.Resources.resources

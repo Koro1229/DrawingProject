@@ -42,19 +42,19 @@ namespace DrawingForm.PresentationModel
             get; set;
         }
 
-        public bool RedoButtonStatus
-        {
-            get
-            {
-                return _model.RedoStatus;
-            }
-        }
-
         public bool UndoButtonStatus
         {
             get
             {
                 return _model.UndoStatus;
+            }
+        }
+
+        public bool RedoButtonStatus
+        {
+            get
+            {
+                return _model.RedoStatus;
             }
         }
 

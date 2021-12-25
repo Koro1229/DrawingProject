@@ -78,5 +78,44 @@ namespace DrawingApp.PresentationModel
             double bottom = _canvas.MaxHeight - (y2 > y1 ? y2 : y1);
             return new Thickness(left, top, right, bottom);
         }
+
+        public void DrawSelectedItem(double x1, double y1, double x2, double y2)
+        {
+            Windows.UI.Xaml.Shapes.Rectangle SelectedItem = new Windows.UI.Xaml.Shapes.Rectangle
+            {
+                Margin = GetMarginAttribute(x1, y1, x2, y2),
+                Width = x2 > x1 ? x2 - x1 : x1 - x2,
+                Height = y2 > y1 ? y2 - y1 : y1 - y2,
+                Stroke = new SolidColorBrush(Colors.Red),
+                StrokeThickness = 3,
+                StrokeDashArray = { 7, 3 }
+            };
+            _canvas.Children.Add(SelectedItem);
+            DrawCorner(x1, y1, x2, y2);
+        }
+
+        private void DrawCorner(double x1, double y1, double x2, double y2)
+        {
+            const float HALF_RADIUS = 4;
+            DrawPoint(x1 - HALF_RADIUS, y1 - HALF_RADIUS);
+            DrawPoint(x1 - HALF_RADIUS, y2 - HALF_RADIUS);
+            DrawPoint(x2 - HALF_RADIUS, y1 - HALF_RADIUS);
+            DrawPoint(x2 - HALF_RADIUS, y2 - HALF_RADIUS);
+        }
+
+        private void DrawPoint(double corX, double corY)
+        {
+            const float RADIUS = 8;
+            Windows.UI.Xaml.Shapes.Ellipse point = new Windows.UI.Xaml.Shapes.Ellipse
+            {
+                Margin = GetMarginAttribute(corX, corY, corX + RADIUS, corY + RADIUS),
+                Width = RADIUS,
+                Height = RADIUS,
+                Fill = new SolidColorBrush(Colors.White),
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 1
+            };
+            _canvas.Children.Add(point);
+        }
     }
 }

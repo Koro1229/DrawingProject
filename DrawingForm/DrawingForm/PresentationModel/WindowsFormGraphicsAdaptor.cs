@@ -78,8 +78,10 @@ namespace DrawingForm.PresentationModel
         private void DrawPoint(double corX, double corY)
         {
             const float RADIUS = 6;
-            SolidBrush solidBrush = new SolidBrush(Color.Black);
+            Pen pen = new Pen(Color.Black, 2);
+            SolidBrush solidBrush = new SolidBrush(Color.White);
             _graphics.FillEllipse(solidBrush, (float)corX - (RADIUS / 2), (float)corY - (RADIUS / 2), RADIUS, RADIUS);
+            _graphics.DrawEllipse(pen, (float)corX - (RADIUS / 2), (float)corY - (RADIUS / 2), RADIUS, RADIUS);
         }
     }
 }

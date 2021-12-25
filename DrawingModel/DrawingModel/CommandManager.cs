@@ -19,6 +19,13 @@ namespace DrawingModel
             redo.Clear();
         }
 
+        public void Clear()
+        {
+            redo.Clear();
+            undo.Clear();
+        }
+
+
         public void Undo()
         {
             if (undo.Count > 0)

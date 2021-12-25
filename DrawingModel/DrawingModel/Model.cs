@@ -114,10 +114,12 @@ namespace DrawingModel
         //清空
         public void Clear()
         {
+            _commandManager.Clear();
             _isPressed = false;
-       
+
             _shapes.Clear();
             NotifyModelChanged();
+
         }
 
         //畫圖
@@ -126,10 +128,10 @@ namespace DrawingModel
             graphics.ClearAll();
             foreach (IShape aShape in _shapes)
                 if (aShape.GetType() == new Line().GetType())
-                        aShape.Draw(graphics);
+                    aShape.Draw(graphics);
             foreach (IShape aShape in _shapes)
                 if (aShape.GetType() != new Line().GetType())
-                        aShape.Draw(graphics);
+                    aShape.Draw(graphics);
             foreach (IShape aShape in _shapes)
                 if (aShape.IsSelected)
                     aShape.Selected(graphics);
@@ -143,17 +145,18 @@ namespace DrawingModel
 
         public void MarkShape(double corX, double corY)
         {
+            if (_currentSelectedIndex != -1)
+                _shapes[_currentSelectedIndex].IsSelected = false;
             for (int i = _shapes.Count - 1; i >= 0; i--)
             {
                 if (PointInShape(corX, corY, i))
                 {
-                    if (_currentSelectedIndex != -1)
-                        _shapes[_currentSelectedIndex].IsSelected = false;
                     _shapes[i].IsSelected = true;
                     _currentSelectedIndex = i;
                     break;
                 }
             }
+
         }
 
         //observer
@@ -167,6 +170,7 @@ namespace DrawingModel
         public void ClearAll()
         {
             // OnPaint時會自動清除畫面，因此不需實作
+
         }
 
         //增加新形狀
@@ -230,14 +234,17 @@ namespace DrawingModel
         private bool PointInShape(double currentXCoordinate, double currentYCoordinate, int index)
         {
             IShape shape = _shapes[index];
-            double firstX = shape.FirstX < shape.SecondX ? shape.FirstX : shape.SecondX;
-            double secondX = shape.FirstX < shape.SecondX ? shape.SecondX : shape.FirstX;
-            if (currentXCoordinate >= firstX && currentXCoordinate <= secondX)
+            if (shape.GetType() != new Line().GetType())
             {
-                double firstY = shape.FirstY < shape.SecondY ? shape.FirstY : shape.SecondY;
-                double secondY = shape.FirstY < shape.SecondY ? shape.SecondY : shape.FirstY;
-                if (currentYCoordinate >= firstY && currentYCoordinate <= secondY)
-                    return true;
+                double firstX = shape.FirstX < shape.SecondX ? shape.FirstX : shape.SecondX;
+                double secondX = shape.FirstX < shape.SecondX ? shape.SecondX : shape.FirstX;
+                if (currentXCoordinate >= firstX && currentXCoordinate <= secondX)
+                {
+                    double firstY = shape.FirstY < shape.SecondY ? shape.FirstY : shape.SecondY;
+                    double secondY = shape.FirstY < shape.SecondY ? shape.SecondY : shape.FirstY;
+                    if (currentYCoordinate >= firstY && currentYCoordinate <= secondY)
+                        return true;
+                }
             }
             return false;
         }

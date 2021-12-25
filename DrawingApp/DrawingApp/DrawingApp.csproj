@@ -116,11 +116,23 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\DrawingModel\DrawingModel\CommandManager.cs">
+      <Link>Model\CommandManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\DrawingModel\DrawingModel\DrawCommand.cs">
+      <Link>Model\DrawCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\DrawingModel\DrawingModel\Ellipse.cs">
       <Link>Model\Ellipse.cs</Link>
     </Compile>
+    <Compile Include="..\..\DrawingModel\DrawingModel\ICommand.cs">
+      <Link>Model\ICommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\DrawingModel\DrawingModel\IGraphics.cs">
       <Link>Model\IGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\..\DrawingModel\DrawingModel\IShape.cs">
+      <Link>Model\IShape.cs</Link>
     </Compile>
     <Compile Include="..\..\DrawingModel\DrawingModel\Line.cs">
       <Link>Model\Line.cs</Link>
@@ -131,8 +143,8 @@
     <Compile Include="..\..\DrawingModel\DrawingModel\Rectangle.cs">
       <Link>Model\Rectangle.cs</Link>
     </Compile>
-    <Compile Include="..\..\DrawingModel\DrawingModel\Shape.cs">
-      <Link>Model\Shape.cs</Link>
+    <Compile Include="..\..\DrawingModel\DrawingModel\ShapeFactory.cs">
+      <Link>Model\ShapeFactory.cs</Link>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

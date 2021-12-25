@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lIcXdhvhfR35O0ahpoUaueEF70ZbPThe+cDDNxU5T1JXAj2xczArtFxWlOdTnAe8T/l1ciUXnezEZrUQ7ZflsQ==",
+  "dgSpecHash": "45t+s3vEEyGMeQZ94zCqPJbhjlc2dSwjLbGhCKQVvQ+jHBX8dtb6enY8cMQcd0DX0Pp/Jot43YoSMMTnUWxRvA==",
   "success": true,
   "projectFilePath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingApp\\DrawingApp\\DrawingApp.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,6 @@
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
     "C:\\Users\\joker\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.netcore.universalwindowsplatform\\6.2.12\\microsoft.netcore.universalwindowsplatform.6.2.12.nupkg.sha512",
-    "C:\\Users\\joker\\.nuget\\packages\\mstest.testframework\\2.2.8\\mstest.testframework.2.2.8.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\joker\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.any.system.globalization\\4.0.11\\runtime.any.system.globalization.4.0.11.nupkg.sha512",
