@@ -85,6 +85,7 @@ namespace DrawingForm
             _line.Enabled = _presentationModel.LineButtonStatus;
             _rectangle.Enabled = _presentationModel.RectangleButtonStatus;
             _ellipse.Enabled = _presentationModel.EllipseButtonStatus;
+            _clear.Enabled = _presentationModel.ClearButtonStatus;
             _redo.Enabled = _presentationModel.RedoButtonStatus;
             _undo.Enabled = _presentationModel.UndoButtonStatus;
         }

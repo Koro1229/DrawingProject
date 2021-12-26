@@ -119,7 +119,6 @@ namespace DrawingModel
 
             _shapes.Clear();
             NotifyModelChanged();
-
         }
 
         //畫圖
@@ -156,7 +155,6 @@ namespace DrawingModel
                     break;
                 }
             }
-
         }
 
         //observer
@@ -170,7 +168,6 @@ namespace DrawingModel
         public void ClearAll()
         {
             // OnPaint時會自動清除畫面，因此不需實作
-
         }
 
         //增加新形狀

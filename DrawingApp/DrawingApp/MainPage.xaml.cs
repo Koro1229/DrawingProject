@@ -87,6 +87,7 @@ namespace DrawingApp
             _rectangle.IsEnabled = _presentationModel.RectangleButtonStatus;
             _ellipse.IsEnabled = _presentationModel.EllipseButtonStatus;
             _line.IsEnabled = _presentationModel.LineButtonStatus;
+            _clear.IsEnabled = _presentationModel.ClearButtonStatus;
             _undo.IsEnabled = _presentationModel.UndoButtonStatus;
             _redo.IsEnabled = _presentationModel.RedoButtonStatus;
         }

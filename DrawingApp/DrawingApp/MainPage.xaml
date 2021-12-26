@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <Button x:Name="_rectangle" Content="Rectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="13,64,1069,0" Click="HandleRectangleButtonClick" Grid.RowSpan="2" Grid.Column="1" />
         <Button x:Name="_ellipse" Content="Ellipse" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="684,64,400,0" Click="HandleEllipseButtonClick" Grid.RowSpan="2" Grid.Column="1" />
-        <Button x:Name="_clear" Content="Clear" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="983,64,99,0" Click="HandleClearButtonClick" Grid.RowSpan="2" Grid.Column="1" />
+        <Button x:Name="_clear" Content="Clear" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="983,64,99,0" Click="HandleClearButtonClick" Grid.RowSpan="2" Grid.Column="1" IsEnabled="False" />
         <Button x:Name="_line" Content="Line" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="314,64,770,0" Click="HandleLineButtonClick" Grid.RowSpan="2" Grid.Column="1"/>
         <Canvas x:Name="_canvas" Margin="13,138,99,99" Background="#FFFFFFA0" PointerPressed="HandleCanvasPressed" PointerReleased="HandleCanvasReleased" PointerMoved="HandleCanvasMoved" Grid.RowSpan="2" Grid.Column="1">
         </Canvas>

@@ -43,6 +43,7 @@ namespace DrawingForm
             // _clear
             // 
             this._clear.AutoSize = true;
+            this._clear.Enabled = false;
             this._clear.Location = new System.Drawing.Point(1188, 28);
             this._clear.Name = "_clear";
             this._clear.Size = new System.Drawing.Size(150, 25);

@@ -42,6 +42,14 @@ namespace DrawingForm.PresentationModel
             get; set;
         }
 
+        public bool ClearButtonStatus
+        {
+            get
+            {
+                return _model.GetShapes().Count != 0;
+            }
+        }
+
         public bool UndoButtonStatus
         {
             get
