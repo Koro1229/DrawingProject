@@ -12,25 +12,31 @@ namespace DrawingModel
         void Draw(IGraphics graphics);
         //選擇
         void Selected(IGraphics graphics);
+        //設定shape
+        void SetShape(double firstX, double firstY, double secondX, double secondY);
+        //是否在shape中
+        bool IsInShape(double xCoordinate, double yCoordinate);
+        //取得座標字串
+        String GetDataString();
 
         double FirstX
         {
-            get; set;
+            get;
         }
 
         double SecondX
         {
-            get; set;
+            get;
         }
 
         double FirstY
         {
-            get; set;
+            get;
         }
 
         double SecondY
         {
-            get; set;
+            get;
         }
 
         Tuple<double, double> Center

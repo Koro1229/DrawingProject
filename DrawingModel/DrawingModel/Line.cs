@@ -23,18 +23,39 @@ namespace DrawingModel
         //選取
         public void Selected(IGraphics graphics)
         {
-            graphics.DrawSelectedItem(_x1, _y1, _x2, _y2);
+            if (IsSelected)
+                graphics.DrawSelectedItem(_x1, _y1, _x2, _y2);
+        }
+
+        //設定shape
+        public void SetShape(double firstX, double firstY, double secondX, double secondY)
+        {
+            _x1 = firstX;
+            _y1 = firstY;
+            _x2 = secondX;
+            _y2 = secondY;
+        }
+
+        //是否在shape中
+        public bool IsInShape(double xCoordinate, double yCoordinate)
+        {
+            return xCoordinate >= FirstX && xCoordinate <= SecondX && yCoordinate >= FirstY && yCoordinate <= SecondY;
+        }
+
+        //取得座標字串
+        public String GetDataString()
+        {
+            const String LEFT_BRACKET = "(";
+            const String COMMA = ", ";
+            const String RIGHT_BRACKET = ")";
+            return LEFT_BRACKET + ((int)FirstX).ToString() + COMMA + ((int)FirstY).ToString() + COMMA + ((int)SecondX).ToString() + COMMA + ((int)SecondY).ToString() + RIGHT_BRACKET;
         }
 
         public double FirstX
         {
             get
             {
-                return _x1;
-            }
-            set
-            {
-                _x1 = value;
+                return _x1 < _x2 ? _x1 : _x2;
             }
         }
 
@@ -42,11 +63,7 @@ namespace DrawingModel
         {
             get
             {
-                return _x2;
-            }
-            set
-            {
-                _x2 = value;
+                return _x1 > _x2 ? _x1 : _x2;
             }
         }
 
@@ -54,11 +71,7 @@ namespace DrawingModel
         {
             get
             {
-                return _y1;
-            }
-            set
-            {
-                _y1 = value;
+                return _y1 < _y2 ? _y1 : _y2;
             }
         }
 
@@ -66,11 +79,7 @@ namespace DrawingModel
         {
             get
             {
-                return _y2;
-            }
-            set
-            {
-                _y2 = value;
+                return _y1 > _y2 ? _y1 : _y2;
             }
         }
 
@@ -84,7 +93,7 @@ namespace DrawingModel
             }
         }
 
-        public IShape FirseShape
+        public IShape FirstShape
         {
             get; set;
         }

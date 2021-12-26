@@ -133,8 +133,7 @@ namespace DrawingModel
                 if (aShape.GetType() != new Line().GetType())
                     aShape.Draw(graphics);
             foreach (IShape aShape in _shapes)
-                if (aShape.IsSelected)
-                    aShape.Selected(graphics);
+                aShape.Selected(graphics);
             if (_isPressed)
             {
                 IShape currentShape = ShapeFactory.CreateShape(_drawingMode);
@@ -143,13 +142,14 @@ namespace DrawingModel
             }
         }
 
-        public void MarkShape(double corX, double corY)
+        //標出選擇物件
+        public void MarkShape(double xCoordinate, double yCoordinate)
         {
             if (_currentSelectedIndex != -1)
                 _shapes[_currentSelectedIndex].IsSelected = false;
             for (int i = _shapes.Count - 1; i >= 0; i--)
             {
-                if (PointInShape(corX, corY, i))
+                if (PointInShape(xCoordinate, yCoordinate, i))
                 {
                     _shapes[i].IsSelected = true;
                     _currentSelectedIndex = i;
@@ -194,31 +194,32 @@ namespace DrawingModel
         //設定shape狀態
         private IShape SetShapeStatus(IShape shape)
         {
-            shape.FirstX = _firstPointX;
-            shape.FirstY = _firstPointY;
-            shape.SecondX = _secondX;
-            shape.SecondY = _secondY;
+            shape.SetShape(_firstPointX, _firstPointY, _secondX, _secondY);
             shape.IsSelected = false;
             return shape;
         }
 
+        //刪除最後畫的shape
         public void DeleteShape()
         {
             _shapes.RemoveAt(_shapes.Count - 1);
         }
 
+        //上一步
         public void Undo()
         {
             _commandManager.Undo();
             NotifyModelChanged();
         }
 
+        //下一步
         public void Redo()
         {
             _commandManager.Redo();
             NotifyModelChanged();
         }
 
+        //得到點擊的shape
         public IShape GetOnShape(double currentXCoordinate, double currentYCoordinate)
         {
             for (int i = _shapes.Count - 1; i >= 0; i--)
@@ -231,35 +232,28 @@ namespace DrawingModel
             return null;
         }
 
+        //確定點擊位置在shape上面
         private bool PointInShape(double currentXCoordinate, double currentYCoordinate, int index)
         {
             IShape shape = _shapes[index];
             if (shape.GetType() != new Line().GetType())
             {
-                double firstX = shape.FirstX < shape.SecondX ? shape.FirstX : shape.SecondX;
-                double secondX = shape.FirstX < shape.SecondX ? shape.SecondX : shape.FirstX;
-                if (currentXCoordinate >= firstX && currentXCoordinate <= secondX)
+                if (shape.IsInShape(currentXCoordinate, currentYCoordinate))
                 {
-                    double firstY = shape.FirstY < shape.SecondY ? shape.FirstY : shape.SecondY;
-                    double secondY = shape.FirstY < shape.SecondY ? shape.SecondY : shape.FirstY;
-                    if (currentYCoordinate >= firstY && currentYCoordinate <= secondY)
-                        return true;
+                    return true;
                 }
             }
             return false;
         }
 
+        //設定line
         private Line SetLineStatus(IShape shape)
         {
-            const int AVERAGE = 2;
             Line line = new Line();
             IShape firstShape = GetOnShape(shape.FirstX, shape.FirstY);
             IShape secondShape = GetOnShape(shape.SecondX, shape.SecondY);
-            line.FirstX = (firstShape.FirstX + firstShape.SecondX) / AVERAGE;
-            line.FirstY = (firstShape.FirstY + firstShape.SecondY) / AVERAGE;
-            line.SecondX = (secondShape.FirstX + secondShape.SecondX) / AVERAGE;
-            line.SecondY = (secondShape.FirstY + secondShape.SecondY) / AVERAGE;
-            line.FirseShape = firstShape;
+            line.SetShape(firstShape.Center.Item1, firstShape.Center.Item2, secondShape.Center.Item1, secondShape.Center.Item2);
+            line.FirstShape = firstShape;
             line.SecondShape = secondShape;
             return line;
         }

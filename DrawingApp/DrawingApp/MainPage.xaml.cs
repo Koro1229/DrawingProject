@@ -24,14 +24,14 @@ namespace DrawingApp
         readonly DrawingModel.Model _model;
         readonly PresentationModel.PresentationModel _presentationModel;
 
-        const int DEFAULT_MODE = -1;
-        const int LINE_MODE = 0;
-        const int RECTANGLE_MODE = 1;
-        const int ELLIPSE_MODE = 2;
+        private const int DEFAULT_MODE = -1;
+        private const int LINE_MODE = 0;
+        private const int RECTANGLE_MODE = 1;
+        private const int ELLIPSE_MODE = 2;
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             _model = new DrawingModel.Model();
             _presentationModel = new PresentationModel.PresentationModel(_model, _canvas);
             _model._modelChanged += HandleModelChanged;

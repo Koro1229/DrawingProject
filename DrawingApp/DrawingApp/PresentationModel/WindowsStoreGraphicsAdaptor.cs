@@ -18,7 +18,7 @@ namespace DrawingApp.PresentationModel
 
         public WindowsStoreGraphicsAdaptor(Canvas canvas)
         {
-            this._canvas = canvas;
+            _canvas = canvas;
         }
 
         //清空全部
@@ -79,6 +79,7 @@ namespace DrawingApp.PresentationModel
             return new Thickness(left, top, right, bottom);
         }
 
+        //畫選擇的物件
         public void DrawSelectedItem(double x1, double y1, double x2, double y2)
         {
             Windows.UI.Xaml.Shapes.Rectangle SelectedItem = new Windows.UI.Xaml.Shapes.Rectangle
@@ -94,6 +95,7 @@ namespace DrawingApp.PresentationModel
             DrawCorner(x1, y1, x2, y2);
         }
 
+        //畫角落
         private void DrawCorner(double x1, double y1, double x2, double y2)
         {
             const float HALF_RADIUS = 4;
@@ -103,6 +105,7 @@ namespace DrawingApp.PresentationModel
             DrawPoint(x2 - HALF_RADIUS, y2 - HALF_RADIUS);
         }
 
+        //畫角落的點
         private void DrawPoint(double corX, double corY)
         {
             const float RADIUS = 8;

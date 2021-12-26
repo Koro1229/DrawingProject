@@ -32,12 +32,12 @@ namespace DrawingForm
             this._clear = new System.Windows.Forms.Button();
             this._ellipse = new System.Windows.Forms.Button();
             this._rectangle = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this._toolStrip = new System.Windows.Forms.ToolStrip();
             this._undo = new System.Windows.Forms.ToolStripButton();
             this._redo = new System.Windows.Forms.ToolStripButton();
             this._line = new System.Windows.Forms.Button();
             this._label = new System.Windows.Forms.Label();
-            this.toolStrip1.SuspendLayout();
+            this._toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // _clear
@@ -73,16 +73,16 @@ namespace DrawingForm
             this._rectangle.UseVisualStyleBackColor = true;
             this._rectangle.Click += new System.EventHandler(this.HandleRectangleButtonClick);
             // 
-            // toolStrip1
+            // _toolStrip
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._undo,
             this._redo});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1350, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
+            this._toolStrip.Location = new System.Drawing.Point(0, 0);
+            this._toolStrip.Name = "_toolStrip";
+            this._toolStrip.Size = new System.Drawing.Size(1350, 25);
+            this._toolStrip.TabIndex = 3;
+            this._toolStrip.Text = "toolStrip1";
             // 
             // _undo
             // 
@@ -131,15 +131,15 @@ namespace DrawingForm
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this._label);
             this.Controls.Add(this._line);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this._toolStrip);
             this.Controls.Add(this._rectangle);
             this.Controls.Add(this._ellipse);
             this.Controls.Add(this._clear);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DrawingForm";
             this.Text = "DrawingForm";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this._toolStrip.ResumeLayout(false);
+            this._toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +150,7 @@ namespace DrawingForm
         private System.Windows.Forms.Button _clear;
         private System.Windows.Forms.Button _ellipse;
         private System.Windows.Forms.Button _rectangle;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip _toolStrip;
         private System.Windows.Forms.ToolStripButton _undo;
         private System.Windows.Forms.ToolStripButton _redo;
         private System.Windows.Forms.Button _line;

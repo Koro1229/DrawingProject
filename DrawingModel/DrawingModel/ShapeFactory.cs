@@ -11,16 +11,21 @@ namespace DrawingModel
         //建立形狀 判斷
         public static IShape CreateShape(int mode)
         {
+            const String ERROR = "No shape mode";
+            const int LINE_MODE = 0;
+            const int RECTANGLE_MODE = 1;
+            const int ELLIPSE_MODE = 2;
+
             switch (mode)
             {
-                case 0:
+                case LINE_MODE:
                     return new Line();
-                case 1:
+                case RECTANGLE_MODE:
                     return new Rectangle();
-                case 2:
+                case ELLIPSE_MODE:
                     return new Ellipse();
                 default:
-                    throw new Exception("no shape mode");
+                    throw new Exception(ERROR);
             }
         }
 

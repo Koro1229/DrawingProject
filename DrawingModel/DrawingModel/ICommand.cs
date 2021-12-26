@@ -11,7 +11,7 @@ namespace DrawingModel
         //執行動作
         void Execute();
         //去除前一個執行的動作
-        void UnExecute();
+        void ExecuteDisable();
         //清掉全部
         void Clear();
     }

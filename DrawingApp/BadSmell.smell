@@ -201,12 +201,32 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>..\..\DrawingModel\DrawingModel\CommandManager.cs</RelativePath>
+                <ProjectName>DrawingApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\..\DrawingModel\DrawingModel\DrawCommand.cs</RelativePath>
+                <ProjectName>DrawingApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>..\..\DrawingModel\DrawingModel\Ellipse.cs</RelativePath>
                 <ProjectName>DrawingApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>..\..\DrawingModel\DrawingModel\ICommand.cs</RelativePath>
+                <ProjectName>DrawingApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>..\..\DrawingModel\DrawingModel\IGraphics.cs</RelativePath>
+                <ProjectName>DrawingApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\..\DrawingModel\DrawingModel\IShape.cs</RelativePath>
                 <ProjectName>DrawingApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -226,7 +246,7 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>..\..\DrawingModel\DrawingModel\Shape.cs</RelativePath>
+                <RelativePath>..\..\DrawingModel\DrawingModel\ShapeFactory.cs</RelativePath>
                 <ProjectName>DrawingApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>

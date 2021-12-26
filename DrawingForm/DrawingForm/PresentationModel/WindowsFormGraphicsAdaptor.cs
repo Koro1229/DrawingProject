@@ -53,20 +53,23 @@ namespace DrawingForm.PresentationModel
             _graphics.DrawEllipse(Pens.Black, (float)leftTopXCoordinate, (float)leftTopYCoordinate, (float)width, (float)height);
         }
 
+        //畫出選擇的物件
         public void DrawSelectedItem(double x1, double y1, double x2, double y2)
         {
             double width = x2 > x1 ? x2 - x1 : x1 - x2;
             double height = y2 > y1 ? y2 - y1 : y1 - y2;
             double leftTopXCoordinate = x2 > x1 ? x1 : x2;
             double leftTopYCoordinate = y2 > y1 ? y1 : y2;
-
-            Pen pen = new Pen(Color.Red, 3);
+            const float THICKNESS = 3;
+            const float DASH = 7;
+            Pen pen = new Pen(Color.Red, THICKNESS);
             pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            pen.DashPattern = new float[] { 7, 3 };
+            pen.DashPattern = new float[] { DASH, THICKNESS };
             _graphics.DrawRectangle(pen, (float)leftTopXCoordinate, (float)leftTopYCoordinate, (float)width, (float)height);
             DrawCorner(x1, y1, x2, y2);
         }
 
+        //畫角落
         private void DrawCorner(double x1, double y1, double x2, double y2)
         {
             DrawPoint(x1, y1);
@@ -75,13 +78,16 @@ namespace DrawingForm.PresentationModel
             DrawPoint(x2, y2);
         }
 
-        private void DrawPoint(double corX, double corY)
+        //畫角落的點
+        private void DrawPoint(double xCoordinate, double yCoordinate)
         {
             const float RADIUS = 6;
-            Pen pen = new Pen(Color.Black, 2);
+            const float HALF_RADIUS = 3;
+            const float THICKNESS = 2;
+            Pen pen = new Pen(Color.Black, THICKNESS);
             SolidBrush solidBrush = new SolidBrush(Color.White);
-            _graphics.FillEllipse(solidBrush, (float)corX - (RADIUS / 2), (float)corY - (RADIUS / 2), RADIUS, RADIUS);
-            _graphics.DrawEllipse(pen, (float)corX - (RADIUS / 2), (float)corY - (RADIUS / 2), RADIUS, RADIUS);
+            _graphics.FillEllipse(solidBrush, (float)xCoordinate - (HALF_RADIUS), (float)yCoordinate - (HALF_RADIUS), RADIUS, RADIUS);
+            _graphics.DrawEllipse(pen, (float)xCoordinate - (HALF_RADIUS), (float)yCoordinate - (HALF_RADIUS), RADIUS, RADIUS);
         }
     }
 }

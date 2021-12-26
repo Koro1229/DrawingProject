@@ -55,8 +55,8 @@ namespace DrawingForm
         //滑鼠放開Canvas的事件
         public void HandleCanvasReleased(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if (_presentationModel.DrawingMode == DEFAULT_MODE)
-                _label.Text = _presentationModel.GetShapeData(e.X, e.Y);
+            
+            _label.Text = _presentationModel.GetShapeData(e.X, e.Y);
             _model.ReleasePointer(e.X, e.Y);
             ResetDefaultButtonAndMode();
         }
@@ -88,7 +88,6 @@ namespace DrawingForm
             _redo.Enabled = _presentationModel.RedoButtonStatus;
             _undo.Enabled = _presentationModel.UndoButtonStatus;
         }
-
 
         //Line按鈕按下的事件
         public void HandleLineButtonClick(object sender, System.EventArgs e)

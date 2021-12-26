@@ -16,16 +16,19 @@ namespace DrawingModel
             _model = model;
         }
 
+        //執行
         public void Execute()
         {
             _model.AddNewShape(_shape); 
         }
 
-        public void UnExecute()
+        //令執行無效(笑死 老師命名不給過)
+        public void ExecuteDisable()
         {
             _model.DeleteShape();
         }
 
+        //清空 目前還沒用
         public void Clear()
         {
             _model.ClearAll();

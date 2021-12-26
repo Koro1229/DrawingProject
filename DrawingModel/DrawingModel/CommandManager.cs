@@ -8,40 +8,42 @@ namespace DrawingModel
 {
     public class CommandManager
     {
-        Stack<ICommand> undo = new Stack<ICommand>();
-        Stack<ICommand> redo = new Stack<ICommand>();
+        Stack<ICommand> _undo = new Stack<ICommand>();
+        Stack<ICommand> _redo = new Stack<ICommand>();
 
-
+        //執行
         public void Execute(ICommand command)
         {
             command.Execute();
-            undo.Push(command);
-            redo.Clear();
+            _undo.Push(command);
+            _redo.Clear();
         }
 
+        //清空
         public void Clear()
         {
-            redo.Clear();
-            undo.Clear();
+            _redo.Clear();
+            _undo.Clear();
         }
 
-
+        //上一步
         public void Undo()
         {
-            if (undo.Count > 0)
+            if (_undo.Count > 0)
             {
-                ICommand command = undo.Pop();
-                redo.Push(command);
-                command.UnExecute();
+                ICommand command = _undo.Pop();
+                _redo.Push(command);
+                command.ExecuteDisable();
             }
         }
 
+        //下一步
         public void Redo()
         {
-            if (redo.Count > 0)
+            if (_redo.Count > 0)
             {
-                ICommand command = redo.Pop();
-                undo.Push(command);
+                ICommand command = _redo.Pop();
+                _undo.Push(command);
                 command.Execute();
             }
         }
@@ -50,7 +52,7 @@ namespace DrawingModel
         {
             get
             {
-                return redo.Count != 0;
+                return _redo.Count != 0;
             }
         }
 
@@ -58,7 +60,7 @@ namespace DrawingModel
         {
             get
             {
-                return undo.Count != 0;
+                return _undo.Count != 0;
             }
         }
     }
