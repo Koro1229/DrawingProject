@@ -201,5 +201,17 @@ namespace MainFormUITest
             action.Build();
             action.Perform();
         }
+
+        //點擊某個點
+        public void ClickOnPoint(String name, Tuple<int, int> Point)
+        {
+            var element = _driver.FindElementByAccessibilityId(name);
+            var action = new Actions(_driver);
+            action.MoveToElement(element);
+            action.MoveByOffset(Point.Item1, Point.Item2);
+            action.Click();
+            action.Build();
+            action.Perform();
+        }
     }
 }

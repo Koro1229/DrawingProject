@@ -18,11 +18,9 @@ namespace MainFormUITest.GUITest
         private String targetAppPath;
         private const String DRAWING_FORM = "DrawingForm";
         private const String CANVAS_NAME = "_canvas";
+        private const String LABEL_NAME = "_label";
 
 
-        /// <summary>
-        /// Launches the Calculator
-        /// </summary>
         [TestInitialize()]
         public void Initialize()
         {
@@ -42,9 +40,6 @@ namespace MainFormUITest.GUITest
             _robot.CleanUp();
         }
 
-        /// <summary>
-        /// Tests that the result of 123 + 321 should be 444
-        /// </summary>
         [TestMethod]
         public void BasicFunctionTest()
         {
@@ -60,15 +55,13 @@ namespace MainFormUITest.GUITest
         //基本功能
         private void RunScriptBasicFunction()
         {
+            const string RESULT_ONE = "Rectangle:(474, 263, 674, 463)";
+            const string RESULT_TWO = "Ellipse:(874, 263, 1074, 463)";
             _robot.SwitchTo(DRAWING_FORM);
-            Tuple<int, int> firstPoint = new Tuple<int, int>(-200, 100);
-            Tuple<int, int> secondPoint = new Tuple<int, int>(-200, -100);
-            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
-            _robot.Sleep(1);
             _robot.ClickOnName("Rectangle");
             _robot.Sleep(1);
-            firstPoint = new Tuple<int, int>(0, -100);
-            secondPoint = new Tuple<int, int>(200, 100);
+            Tuple<int, int> firstPoint = new Tuple<int, int>(-200, 100);
+            Tuple<int, int> secondPoint = new Tuple<int, int>(0, -100);
             _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
             _robot.Sleep(1);
             _robot.ClickOnName("Ellipse");
@@ -77,6 +70,19 @@ namespace MainFormUITest.GUITest
             secondPoint = new Tuple<int, int>(400, -100);
             _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
             _robot.Sleep(1);
+            _robot.ClickOnName("Line");
+            _robot.Sleep(1);
+            firstPoint = new Tuple<int, int>(-100, 99);
+            secondPoint = new Tuple<int, int>(300, -99);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+            firstPoint = new Tuple<int, int>(-100, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            _robot.AssertText(LABEL_NAME, RESULT_ONE);
+            firstPoint = new Tuple<int, int>(300, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            _robot.AssertText(LABEL_NAME, RESULT_TWO);
+            _robot.ClickOnName("Clear");
         }
 
         //雪人
@@ -96,18 +102,30 @@ namespace MainFormUITest.GUITest
             _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
             _robot.Sleep(1);
 
+            _robot.ClickOnName("Ellipse");
+            firstPoint = new Tuple<int, int>(-145, -35);
+            secondPoint = new Tuple<int, int>(-170, -10);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+
+            _robot.ClickOnName("Ellipse");
+            firstPoint = new Tuple<int, int>(145, -35);
+            secondPoint = new Tuple<int, int>(170, -10);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+
             //身體
             _robot.ClickOnName("Ellipse");
             firstPoint = new Tuple<int, int>(-150, 300);
             secondPoint = new Tuple<int, int>(150, 0);
             _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
-            _robot.Sleep(1); 
+            _robot.Sleep(1);
 
             _robot.ClickOnName("Ellipse");
             firstPoint = new Tuple<int, int>(-25, 135);
             secondPoint = new Tuple<int, int>(25, 185);
             _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
-            _robot.Sleep(1); 
+            _robot.Sleep(1);
 
             _robot.ClickOnName("Ellipse");
             firstPoint = new Tuple<int, int>(-25, 115);
@@ -151,6 +169,13 @@ namespace MainFormUITest.GUITest
             secondPoint = new Tuple<int, int>(150, -85);
             _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
             _robot.Sleep(1);
+
+            //assert們
+            //Tuple<int, int> point = new Tuple<int, int>(-150, 150);
+            //_robot.ClickOnPoint(CANVAS_NAME, point);
+            //_robot.AssertText(LABEL_NAME, )
+            //point = new Tuple<int, int>(-150, -100);
+
         }
     }
 
