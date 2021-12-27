@@ -43,6 +43,7 @@ namespace DrawingForm
         public void HandleClearButtonClick(object sender, System.EventArgs e)
         {
             _model.Clear();
+            _label.Text = "";
             ResetDefaultButtonAndMode();
         }
 

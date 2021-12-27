@@ -50,6 +50,7 @@ namespace DrawingApp
         private void HandleClearButtonClick(object sender, RoutedEventArgs e)
         {
             _model.Clear();
+            _textBlock.Text = "";
             ResetDefaultButtonAndMode();
         }
 

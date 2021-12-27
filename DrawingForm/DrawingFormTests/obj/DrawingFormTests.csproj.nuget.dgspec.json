@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\DrawingFormTests.csproj": {}
+    "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\DrawingFormTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\DrawingFormTests.csproj": {
+    "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\DrawingFormTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\DrawingFormTests.csproj",
+        "projectUniqueName": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\DrawingFormTests.csproj",
         "projectName": "DrawingFormTests",
-        "projectPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\DrawingFormTests.csproj",
-        "packagesPath": "C:\\Users\\Koro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\obj\\",
+        "projectPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\DrawingFormTests.csproj",
+        "packagesPath": "C:\\Users\\joker\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingFormTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Koro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joker\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": ".NETCoreApp,Version=v3.1",
             "projectReferences": {
-              "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj": {
-                "projectPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj"
+              "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj": {
+                "projectPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj"
               }
             }
           }
@@ -80,24 +80,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj": {
+    "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
+        "projectUniqueName": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
         "projectName": "DrawingForm",
-        "projectPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
-        "packagesPath": "C:\\Users\\Koro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\obj\\",
+        "projectPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
+        "packagesPath": "C:\\Users\\joker\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Koro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joker\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -141,7 +141,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
