@@ -55,7 +55,7 @@ namespace DrawingModel
         {
             get
             {
-                return _x1 < _x2 ? _x1 : _x2;
+                return _x1;
             }
         }
 
@@ -63,7 +63,7 @@ namespace DrawingModel
         {
             get
             {
-                return _x1 > _x2 ? _x1 : _x2;
+                return _x2;
             }
         }
 
@@ -71,7 +71,7 @@ namespace DrawingModel
         {
             get
             {
-                return _y1 < _y2 ? _y1 : _y2;
+                return _y1;
             }
         }
 
@@ -79,7 +79,7 @@ namespace DrawingModel
         {
             get
             {
-                return _y1 > _y2 ? _y1 : _y2;
+                return _y2;
             }
         }
 

@@ -171,11 +171,35 @@ namespace MainFormUITest.GUITest
             _robot.Sleep(1);
 
             //assert們
-            //Tuple<int, int> point = new Tuple<int, int>(-150, 150);
-            //_robot.ClickOnPoint(CANVAS_NAME, point);
-            //_robot.AssertText(LABEL_NAME, )
-            //point = new Tuple<int, int>(-150, -100);
+            const string RECTANGLE = "Rectangle:";
+            const string ELLIPSE = "Ellipse:";
+            //674, 363
+            Tuple<int, int> point = new Tuple<int, int>(-150, 150);
+            _robot.ClickOnPoint(CANVAS_NAME, point);
+            _robot.AssertText(LABEL_NAME, ELLIPSE + "(529, 328, 504, 353)");//手掌
 
+            _robot.Sleep(1);
+
+            point = new Tuple<int, int>(0, -90);
+            _robot.ClickOnPoint(CANVAS_NAME, point);
+            _robot.AssertText(LABEL_NAME, RECTANGLE + "(524, 263, 824, 278)");//帽子下緣
+
+            _robot.Sleep(1);
+
+            point = new Tuple<int, int>(0, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, point);
+            _robot.AssertText(LABEL_NAME, RECTANGLE + "(659, 348, 689, 378)");//嘴巴
+            
+            _robot.Sleep(1);
+
+            point = new Tuple<int, int>(0, 160);
+            _robot.ClickOnPoint(CANVAS_NAME, point);
+            _robot.AssertText(LABEL_NAME, RECTANGLE + "(649, 498, 699, 548)");//中下鈕扣
+
+            _robot.Sleep(1);
+
+
+            _robot.ClickOnName("Clear");
         }
     }
 

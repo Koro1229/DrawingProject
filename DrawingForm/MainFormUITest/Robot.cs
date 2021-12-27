@@ -203,12 +203,12 @@ namespace MainFormUITest
         }
 
         //點擊某個點
-        public void ClickOnPoint(String name, Tuple<int, int> Point)
+        public void ClickOnPoint(String name, Tuple<int, int> point)
         {
             var element = _driver.FindElementByAccessibilityId(name);
             var action = new Actions(_driver);
             action.MoveToElement(element);
-            action.MoveByOffset(Point.Item1, Point.Item2);
+            action.MoveByOffset(point.Item1, point.Item2);
             action.Click();
             action.Build();
             action.Perform();
