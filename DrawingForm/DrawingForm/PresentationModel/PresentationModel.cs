@@ -102,7 +102,6 @@ namespace DrawingForm.PresentationModel
             const int DEFAULT_MODE = -1;
             if (DrawingMode == DEFAULT_MODE)
             {
-
                 IShape shape = _model.GetOnShape(xCoordinate, yCoordinate);
                 _model.MarkShape(xCoordinate, yCoordinate);
                 if (shape != null)

@@ -233,12 +233,10 @@ namespace DrawingModel
         private bool PointInShape(double currentXCoordinate, double currentYCoordinate, int index)
         {
             IShape shape = _shapes[index];
-            if (shape.GetType() != new Line().GetType())
+            if (shape.IsInShape(currentXCoordinate, currentYCoordinate))
             {
-                if (shape.IsInShape(currentXCoordinate, currentYCoordinate))
-                {
+                if (shape.GetType() != new Line().GetType())
                     return true;
-                }
             }
             return false;
         }

@@ -25,6 +25,9 @@ namespace MainFormUITest
         private const String DEVICE_NAME = "deviceName";
         private const String WINDOWS = "WindowsPC";
         private const String SPACE = " ";
+        private const String LEFT_BRACKET = "(";
+        private const String COMMA = ", ";
+        private const String RIGHT_BRACKET = ")";
         private const string WIN_APP_DRIVER_URI = "http://127.0.0.1:4723";
 
         // constructor
@@ -212,6 +215,39 @@ namespace MainFormUITest
             action.Click();
             action.Build();
             action.Perform();
+        }
+
+        //點點的附近
+        public bool AssertPoint(string name, Tuple<int, int>firstPoint, Tuple<int, int> secondPoint, string type)
+        {
+
+            String text = _driver.FindElementByAccessibilityId(name).Text;
+            if (IsNearPoint(text, firstPoint, secondPoint, type))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //點附近判斷X Y(判定問題而增加)
+        private bool IsNearPoint(string text, Tuple<int, int> firstPoint, Tuple<int, int> secondPoint, string type)
+        {
+            return text == type + LEFT_BRACKET + firstPoint.Item1.ToString() + COMMA + firstPoint.Item2.ToString() + COMMA + secondPoint.Item1.ToString() + COMMA + secondPoint.Item2.ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + firstPoint.Item1.ToString() + COMMA + (firstPoint.Item2 + 1).ToString() + COMMA + secondPoint.Item1.ToString() + COMMA + secondPoint.Item2.ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + firstPoint.Item1.ToString() + COMMA + firstPoint.Item2.ToString() + COMMA + secondPoint.Item1.ToString() + COMMA + (secondPoint.Item2 + 1).ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + firstPoint.Item1.ToString() + COMMA + (firstPoint.Item2 + 1).ToString() + COMMA + secondPoint.Item1.ToString() + COMMA + (secondPoint.Item2 + 1).ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + (firstPoint.Item1 + 1).ToString() + COMMA + firstPoint.Item2.ToString() + COMMA + secondPoint.Item1.ToString() + COMMA + secondPoint.Item2.ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + (firstPoint.Item1 + 1).ToString() + COMMA + (firstPoint.Item2 + 1).ToString() + COMMA + secondPoint.Item1.ToString() + COMMA + secondPoint.Item2.ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + (firstPoint.Item1 + 1).ToString() + COMMA + firstPoint.Item2.ToString() + COMMA + secondPoint.Item1.ToString() + COMMA + (secondPoint.Item2 + 1).ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + (firstPoint.Item1 + 1).ToString() + COMMA + (firstPoint.Item2 + 1).ToString() + COMMA + secondPoint.Item1.ToString() + COMMA + (secondPoint.Item2 + 1).ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + firstPoint.Item1.ToString() + COMMA + firstPoint.Item2.ToString() + COMMA + (secondPoint.Item1 + 1).ToString() + COMMA + secondPoint.Item2.ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + firstPoint.Item1.ToString() + COMMA + (firstPoint.Item2 + 1).ToString() + COMMA + (secondPoint.Item1 + 1).ToString() + COMMA + secondPoint.Item2.ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + firstPoint.Item1.ToString() + COMMA + firstPoint.Item2.ToString() + COMMA + (secondPoint.Item1 + 1).ToString() + COMMA + (secondPoint.Item2 + 1).ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + firstPoint.Item1.ToString() + COMMA + (firstPoint.Item2 + 1).ToString() + COMMA + (secondPoint.Item1 + 1).ToString() + COMMA + (secondPoint.Item2 + 1).ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + (firstPoint.Item1 + 1).ToString() + COMMA + firstPoint.Item2.ToString() + COMMA + (secondPoint.Item1 + 1).ToString() + COMMA + secondPoint.Item2.ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + (firstPoint.Item1 + 1).ToString() + COMMA + (firstPoint.Item2 + 1).ToString() + COMMA + (secondPoint.Item1 + 1).ToString() + COMMA + secondPoint.Item2.ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + (firstPoint.Item1 + 1).ToString() + COMMA + firstPoint.Item2.ToString() + COMMA + (secondPoint.Item1 + 1).ToString() + COMMA + (secondPoint.Item2 + 1).ToString() + RIGHT_BRACKET ||
+                text == type + LEFT_BRACKET + (firstPoint.Item1 + 1).ToString() + COMMA + (firstPoint.Item2 + 1).ToString() + COMMA + (secondPoint.Item1 + 1).ToString() + COMMA + (secondPoint.Item2 + 1).ToString() + RIGHT_BRACKET;
         }
     }
 }
