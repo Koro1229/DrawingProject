@@ -9,8 +9,9 @@
   <ItemGroup>
     <Compile Include="..\DrawingModel\CommandManager.cs" Link="Model\CommandManager.cs" />
     <Compile Include="..\DrawingModel\DrawCommand.cs" Link="Model\DrawCommand.cs" />
+    <Compile Include="..\DrawingModel\DrawingEllipseState.cs" Link="Model\DrawingEllipseState.cs" />
     <Compile Include="..\DrawingModel\DrawingLineState.cs" Link="Model\DrawingLineState.cs" />
-    <Compile Include="..\DrawingModel\DrawingState.cs" Link="Model\DrawingState.cs" />
+    <Compile Include="..\DrawingModel\DrawingRectangleState.cs" Link="Model\DrawingRectangleState.cs" />
     <Compile Include="..\DrawingModel\Ellipse.cs" Link="Model\Ellipse.cs" />
     <Compile Include="..\DrawingModel\ICommand.cs" Link="Model\ICommand.cs" />
     <Compile Include="..\DrawingModel\IGraphics.cs" Link="Model\IGraphics.cs" />
@@ -21,6 +22,7 @@
     <Compile Include="..\DrawingModel\PointerState.cs" Link="Model\PointerState.cs" />
     <Compile Include="..\DrawingModel\Rectangle.cs" Link="Model\Rectangle.cs" />
     <Compile Include="..\DrawingModel\ShapeFactory.cs" Link="Model\ShapeFactory.cs" />
+    <Compile Include="..\DrawingModel\StateFactory.cs" Link="Model\StateFactory.cs" />
   </ItemGroup>
 
   <ItemGroup>

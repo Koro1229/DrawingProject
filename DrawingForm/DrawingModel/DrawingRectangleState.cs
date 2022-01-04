@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DrawingModel
 {
-    class DrawingLineState : IState
+    class DrawingRectangleState : IState
     {
-        const int LINE_MODE = 0;
+        const int RECTANGLE_MODE = 1;
         private double _firstPointX;
         private double _firstPointY;
         private double _secondX;
@@ -19,7 +19,7 @@ namespace DrawingModel
         //按下
         public void Press(double currentXCoordinate, double currentYCoordinate, IShape firstShape)
         {
-            if (currentXCoordinate > 0 && currentYCoordinate > 0 && firstShape != null)
+            if (currentXCoordinate > 0 && currentYCoordinate > 0)
             {
                 _firstPointX = _secondX = currentXCoordinate;
                 _firstPointY = _secondY = currentYCoordinate;
@@ -28,40 +28,31 @@ namespace DrawingModel
             }
         }
 
-        //移動
+        //移動時的資料(讓畫面可以跟著滑鼠畫圖的東西)
         public IShape Move(double currentXCoordinate, double currentYCoordinate)
         {
             if (_isPressed)
             {
-                IShape currentShape = ShapeFactory.CreateShape(LINE_MODE);
+                _isDrawed = true;
                 _secondX = currentXCoordinate;
                 _secondY = currentYCoordinate;
+                IShape currentShape = ShapeFactory.CreateShape(RECTANGLE_MODE);
                 currentShape = SetShapeStatus(currentShape);
-                _isDrawed = true;
                 return currentShape;
             }
             return null;
         }
 
+        //滑鼠按鍵放開後做的事情
         public IShape Release(IShape firstShape, IShape secondShape)
         {
             if (_isPressed && _isDrawed)
             {
-                IShape shape = ShapeFactory.CreateShape(LINE_MODE);
-                shape = SetLineStatus(shape, firstShape, secondShape);
+                IShape shape = ShapeFactory.CreateShape(RECTANGLE_MODE);
+                shape = SetShapeStatus(shape);
                 return shape;
             }
             return null;
-        }
-
-        //設定line
-        private Line SetLineStatus(IShape shape, IShape firstShape, IShape secondShape)
-        {
-            Line line = new Line();
-            line.SetShape(firstShape.Center.Item1, firstShape.Center.Item2, secondShape.Center.Item1, secondShape.Center.Item2);
-            line.FirstShape = firstShape;
-            line.SecondShape = secondShape;
-            return line;
         }
 
         //設定pic

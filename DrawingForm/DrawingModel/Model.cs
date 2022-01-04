@@ -19,8 +19,11 @@ namespace DrawingModel
         private int _currentSelectedIndex = -1;
         private bool _isPressed = false;
         private bool _isDrawed = false;
+        private IShape _firstShape;
+        private IShape _secondShape;
+        private IShape _currentShape;
+        private IState _state = new DrawingEllipseState();
         private readonly List<IShape> _shapes = new List<IShape>();
-        private readonly IState _state = new DrawingState();
 
         const int DEFAULT_MODE = -1;
         private int _drawingMode = DEFAULT_MODE;//-1 = NO SHAPE, 0 = line, 1 = rectangle, 2 = ellipse
@@ -34,6 +37,7 @@ namespace DrawingModel
             }
             set
             {
+                _state = StateFactory.CreateState(value);
                 _drawingMode = value;
             }
         }
@@ -75,49 +79,49 @@ namespace DrawingModel
         //存取按下的資料
         public void PressPointer(double currentXCoordinate, double currentYCoordinate)
         {
-            // bool isOnShape = GetOnShape(currentXCoordinate, currentYCoordinate) != null;
-            //_state.Press(currentXCoordinate, currentYCoordinate, isOnShape);
-            if (currentXCoordinate > 0 && currentYCoordinate > 0 && _drawingMode != -1 && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
-            {
-                _firstPointX = _secondX = currentXCoordinate;
-                _firstPointY = _secondY = currentYCoordinate;
-                _isPressed = true;
-                _isDrawed = false;
-            }
+            _firstShape = GetOnShape(currentXCoordinate, currentYCoordinate);
+            _state.Press(currentXCoordinate, currentYCoordinate, _firstShape);
+            //if (currentXCoordinate > 0 && currentYCoordinate > 0 && _drawingMode != -1 && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
+            //{
+            //    _firstPointX = _secondX = currentXCoordinate;
+            //    _firstPointY = _secondY = currentYCoordinate;
+            //    _isPressed = true;
+            //    _isDrawed = false;
+            //}
         }
 
         //移動時的資料(讓畫面可以跟著滑鼠畫圖的東西)
         public void MovePointer(double currentXCoordinate, double currentYCoordinate)
         {
-            //_state.Move(currentXCoordinate, currentYCoordinate);
-            if (_isPressed)
-            {
-                _secondX = currentXCoordinate;
-                _secondY = currentYCoordinate;
-                _isDrawed = true;
-            }
+            _currentShape = _state.Move(currentXCoordinate, currentYCoordinate);
+            //if (_isPressed)
+            //{
+            //    _secondX = currentXCoordinate;
+            //    _secondY = currentYCoordinate;
+            //    _isDrawed = true;
+            //}
             NotifyModelChanged();
         }
 
         //滑鼠按鍵放開後做的事情
         public void ReleasePointer(double currentXCoordinate, double currentYCoordinate)
         {
-            // bool isOnShape = GetOnShape(currentXCoordinate, currentYCoordinate) != null;
-            //IShape shape = _state.Release(_drawingMode, isOnShape);
-            //if (shape != null)
-            //  _commandManager.Execute(new DrawCommand(this, shape));
+            _secondShape = GetOnShape(currentXCoordinate, currentYCoordinate);
+            IShape shape = _state.Release(_firstShape, _secondShape);
+            if (shape != null && _drawingMode != DEFAULT_MODE)
+                _commandManager.Execute(new DrawCommand(this, shape));
 
-            if (_isPressed && _isDrawed && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
-            {
-                IShape shape = ShapeFactory.CreateShape(_drawingMode);
-                shape = SetShapeStatus(shape);
-                if (shape.GetType() == new Line().GetType())
-                    _commandManager.Execute(new DrawCommand(this, SetLineStatus(shape)));
-                else
-                    _commandManager.Execute(new DrawCommand(this, shape));
-            }
+            //if (_isPressed && _isDrawed && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
+            //{
+            //    IShape shape = ShapeFactory.CreateShape(_drawingMode);
+            //    shape = SetShapeStatus(shape);
+            //    if (shape.GetType() == new Line().GetType())
+            //        _commandManager.Execute(new DrawCommand(this, SetLineStatus(shape)));
+            //    else
+            //        _commandManager.Execute(new DrawCommand(this, shape));
+            //}
 
-            _isPressed = _isDrawed = false;
+            //_isPressed = _isDrawed = false;
             NotifyModelChanged();
         }
 
@@ -143,11 +147,9 @@ namespace DrawingModel
                     aShape.Draw(graphics);
             foreach (IShape aShape in _shapes)
                 aShape.Selected(graphics);
-            if (_isPressed)
+            if (_currentShape != null)
             {
-                IShape currentShape = ShapeFactory.CreateShape(_drawingMode);
-                currentShape = SetShapeStatus(currentShape);
-                currentShape.Draw(graphics);
+                _currentShape.Draw(graphics);
             }
         }
 
