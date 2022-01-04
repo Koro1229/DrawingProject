@@ -787,3 +787,4 @@ Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_C
 Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
 Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
 Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
+given range is not current

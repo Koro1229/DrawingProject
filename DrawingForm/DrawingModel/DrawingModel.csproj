@@ -122,7 +122,11 @@
   <ItemGroup>
     <Compile Include="CommandManager.cs" />
     <Compile Include="DrawCommand.cs" />
+    <Compile Include="DrawingLineState.cs" />
+    <Compile Include="DrawingState.cs" />
     <Compile Include="ICommand.cs" />
+    <Compile Include="IState.cs" />
+    <Compile Include="PointerState.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="IShape.cs" />
     <Compile Include="Ellipse.cs" />

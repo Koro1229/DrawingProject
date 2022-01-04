@@ -20,6 +20,7 @@ namespace DrawingModel
         private bool _isPressed = false;
         private bool _isDrawed = false;
         private readonly List<IShape> _shapes = new List<IShape>();
+        private readonly IState _state = new DrawingState();
 
         const int DEFAULT_MODE = -1;
         private int _drawingMode = DEFAULT_MODE;//-1 = NO SHAPE, 0 = line, 1 = rectangle, 2 = ellipse
@@ -36,6 +37,7 @@ namespace DrawingModel
                 _drawingMode = value;
             }
         }
+
         //for test
         public double FirstPointX
         {
@@ -73,6 +75,8 @@ namespace DrawingModel
         //存取按下的資料
         public void PressPointer(double currentXCoordinate, double currentYCoordinate)
         {
+            // bool isOnShape = GetOnShape(currentXCoordinate, currentYCoordinate) != null;
+            //_state.Press(currentXCoordinate, currentYCoordinate, isOnShape);
             if (currentXCoordinate > 0 && currentYCoordinate > 0 && _drawingMode != -1 && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
             {
                 _firstPointX = _secondX = currentXCoordinate;
@@ -85,18 +89,24 @@ namespace DrawingModel
         //移動時的資料(讓畫面可以跟著滑鼠畫圖的東西)
         public void MovePointer(double currentXCoordinate, double currentYCoordinate)
         {
+            //_state.Move(currentXCoordinate, currentYCoordinate);
             if (_isPressed)
             {
                 _secondX = currentXCoordinate;
                 _secondY = currentYCoordinate;
                 _isDrawed = true;
-                NotifyModelChanged();
             }
+            NotifyModelChanged();
         }
 
         //滑鼠按鍵放開後做的事情
         public void ReleasePointer(double currentXCoordinate, double currentYCoordinate)
         {
+            // bool isOnShape = GetOnShape(currentXCoordinate, currentYCoordinate) != null;
+            //IShape shape = _state.Release(_drawingMode, isOnShape);
+            //if (shape != null)
+            //  _commandManager.Execute(new DrawCommand(this, shape));
+
             if (_isPressed && _isDrawed && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
             {
                 IShape shape = ShapeFactory.CreateShape(_drawingMode);

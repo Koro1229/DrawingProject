@@ -33,8 +33,9 @@ namespace DrawingForm
             _canvas.MouseMove += HandleCanvasMoved;
             _canvas.Paint += HandleCanvasPaint;
             Controls.Add(_canvas);
-            _model = new DrawingModel.Model();
+            _model = new Model();
             _presentationModel = new PresentationModel.PresentationModel(_model);
+            ResetDefaultButtonAndMode();
             _model._modelChanged += HandleModelChanged;
             _presentationModel._presentationModelChanged += RefreshButtonStatus;
         }
@@ -56,7 +57,6 @@ namespace DrawingForm
         //滑鼠放開Canvas的事件
         public void HandleCanvasReleased(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            
             _label.Text = _presentationModel.GetShapeData(e.X, e.Y);
             _model.ReleasePointer(e.X, e.Y);
             ResetDefaultButtonAndMode();
