@@ -55,3 +55,4 @@ C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\Main
 C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\MainFormUITest\obj\Debug\MainFormUITest.csproj.CoreCompileInputs.cache
 C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\MainFormUITest\obj\Debug\MainFormUITest.dll
 C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\MainFormUITest\obj\Debug\MainFormUITest.pdb
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\MainFormUITest\obj\Debug\MainFormUITest.csproj.CopyComplete

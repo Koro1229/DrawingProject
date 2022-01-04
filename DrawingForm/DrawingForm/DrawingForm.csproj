@@ -7,20 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\DrawingModel\DrawingModel\CommandManager.cs" Link="Model\CommandManager.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\DrawCommand.cs" Link="Model\DrawCommand.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\Ellipse.cs" Link="Model\Ellipse.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\ICommand.cs" Link="Model\ICommand.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\IGraphics.cs" Link="Model\IGraphics.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\IShape.cs" Link="Model\IShape.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\Line.cs" Link="Model\Line.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\Model.cs" Link="Model\Model.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\Rectangle.cs" Link="Model\Rectangle.cs" />
-    <Compile Include="..\..\DrawingModel\DrawingModel\ShapeFactory.cs" Link="Model\ShapeFactory.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\" />
+    <Compile Include="..\DrawingModel\CommandManager.cs" Link="Model\CommandManager.cs" />
+    <Compile Include="..\DrawingModel\DrawCommand.cs" Link="Model\DrawCommand.cs" />
+    <Compile Include="..\DrawingModel\Ellipse.cs" Link="Model\Ellipse.cs" />
+    <Compile Include="..\DrawingModel\ICommand.cs" Link="Model\ICommand.cs" />
+    <Compile Include="..\DrawingModel\IGraphics.cs" Link="Model\IGraphics.cs" />
+    <Compile Include="..\DrawingModel\IShape.cs" Link="Model\IShape.cs" />
+    <Compile Include="..\DrawingModel\Line.cs" Link="Model\Line.cs" />
+    <Compile Include="..\DrawingModel\Model.cs" Link="Model\Model.cs" />
+    <Compile Include="..\DrawingModel\Rectangle.cs" Link="Model\Rectangle.cs" />
+    <Compile Include="..\DrawingModel\ShapeFactory.cs" Link="Model\ShapeFactory.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +32,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>

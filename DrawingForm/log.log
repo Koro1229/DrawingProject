@@ -783,3 +783,7 @@ TableControl: About to update entries 2021/12/27 下午 04:07:04:379
 TableControl: Updating entries 2021/12/27 下午 04:07:04:381
 TableControl: Updating entries (UI thread) 2021/12/27 下午 04:07:04:384
 TableControl: Refreshing UI 2021/12/27 下午 04:07:04:387
+Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
+Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
+Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
+Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
