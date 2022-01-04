@@ -200,14 +200,6 @@ namespace DrawingModel
             return _shapes;
         }
 
-        //設定shape狀態
-        private IShape SetShapeStatus(IShape shape)
-        {
-            shape.SetShape(_firstPointX, _firstPointY, _secondX, _secondY);
-            shape.IsSelected = false;
-            return shape;
-        }
-
         //刪除最後畫的shape
         public void DeleteShape()
         {
@@ -251,18 +243,6 @@ namespace DrawingModel
                     return true;
             }
             return false;
-        }
-
-        //設定line
-        private Line SetLineStatus(IShape shape)
-        {
-            Line line = new Line();
-            IShape firstShape = GetOnShape(shape.FirstX, shape.FirstY);
-            IShape secondShape = GetOnShape(shape.SecondX, shape.SecondY);
-            line.SetShape(firstShape.Center.Item1, firstShape.Center.Item2, secondShape.Center.Item1, secondShape.Center.Item2);
-            line.FirstShape = firstShape;
-            line.SecondShape = secondShape;
-            return line;
         }
     }
 }

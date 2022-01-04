@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-NT46HI3</Machine>
-    <WindowsUser>Koro</WindowsUser>
+    <Machine>DESKTOP-7H3EU9D</Machine>
+    <WindowsUser>說個笑話</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>0e39c478-f3c8-4c89-9acc-47f96067ddc7</PackageIdentityName>
     <PackageIdentityPublisher>CN=Koro</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>B00C812512CD25EAE07F9D497BD7748BD910C86FDDEF0833558EA10C4287D9A5</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>F1599FA7FC9E3F7B5DA2AA9C8FA40F043AF347597C7C5F9B85A1DE0FB84664E3</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>0e39c478-f3c8-4c89-9acc-47f96067ddc7_1.0.0.0_x86__cxacdcph5y7sm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>0e39c478-f3c8-4c89-9acc-47f96067ddc7_cxacdcph5y7sm!App</RegisteredUserModeAppID>
     <RegisteredPackageID>0e39c478-f3c8-4c89-9acc-47f96067ddc7</RegisteredPackageID>
@@ -27,86 +27,86 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-01-04T05:53:42.694</Modified>
+      <Modified>2022-01-04T15:36:39.370</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\DrawingApp.exe">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\DrawingApp.exe">
       <PackagePath>entrypoint\DrawingApp.exe</PackagePath>
-      <Modified>2022-01-04T05:53:37.261</Modified>
+      <Modified>2022-01-04T15:36:37.357</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
-      <Modified>2021-02-04T17:15:46.000</Modified>
+      <Modified>2021-02-04T16:15:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
-      <Modified>2020-12-01T20:52:00.000</Modified>
+      <Modified>2020-12-01T19:52:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2022-01-04T03:09:40.337</Modified>
+      <Modified>2022-01-04T09:54:55.011</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2021-10-12T08:52:26.065</Modified>
+      <Modified>2022-01-04T09:54:55.005</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-10-12T08:52:26.067</Modified>
+      <Modified>2022-01-04T09:54:55.006</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-10-12T08:52:26.068</Modified>
+      <Modified>2022-01-04T09:54:55.006</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-10-12T08:52:26.069</Modified>
+      <Modified>2022-01-04T09:54:55.007</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-10-12T08:52:26.069</Modified>
+      <Modified>2022-01-04T09:54:55.007</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-10-12T08:52:26.070</Modified>
+      <Modified>2022-01-04T09:54:55.007</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-10-12T08:52:26.071</Modified>
+      <Modified>2022-01-04T09:54:55.008</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\DrawingApp.xr.xml">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\DrawingApp.xr.xml">
       <PackagePath>DrawingApp.xr.xml</PackagePath>
-      <Modified>2022-01-04T03:25:18.992</Modified>
+      <Modified>2022-01-04T09:54:55.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-01-04T05:06:46.717</Modified>
+      <Modified>2022-01-04T15:36:37.283</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-01-04T05:06:46.719</Modified>
+      <Modified>2022-01-04T15:36:37.283</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2020-12-01T18:52:06.000</Modified>
+      <Modified>2020-12-01T17:52:06.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-01-04T05:53:37.986</Modified>
+      <Modified>2022-01-04T15:36:37.780</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\Core\DrawingApp.exe">
+    <AppxPackagedFile Include="C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\bin\x86\Debug\Core\DrawingApp.exe">
       <PackagePath>DrawingApp.exe</PackagePath>
-      <Modified>2022-01-04T05:53:42.672</Modified>
+      <Modified>2022-01-04T15:36:39.362</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
