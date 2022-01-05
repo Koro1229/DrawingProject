@@ -37,6 +37,8 @@ namespace DrawingForm
             this._redo = new System.Windows.Forms.ToolStripButton();
             this._line = new System.Windows.Forms.Button();
             this._label = new System.Windows.Forms.Label();
+            this._save = new System.Windows.Forms.Button();
+            this._load = new System.Windows.Forms.Button();
             this._toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,9 +46,9 @@ namespace DrawingForm
             // 
             this._clear.AutoSize = true;
             this._clear.Enabled = false;
-            this._clear.Location = new System.Drawing.Point(1188, 28);
+            this._clear.Location = new System.Drawing.Point(620, 28);
             this._clear.Name = "_clear";
-            this._clear.Size = new System.Drawing.Size(150, 25);
+            this._clear.Size = new System.Drawing.Size(180, 25);
             this._clear.TabIndex = 0;
             this._clear.Text = "Clear";
             this._clear.UseVisualStyleBackColor = true;
@@ -55,9 +57,9 @@ namespace DrawingForm
             // _ellipse
             // 
             this._ellipse.AutoSize = true;
-            this._ellipse.Location = new System.Drawing.Point(800, 28);
+            this._ellipse.Location = new System.Drawing.Point(420, 28);
             this._ellipse.Name = "_ellipse";
-            this._ellipse.Size = new System.Drawing.Size(150, 25);
+            this._ellipse.Size = new System.Drawing.Size(180, 25);
             this._ellipse.TabIndex = 1;
             this._ellipse.Text = "Ellipse";
             this._ellipse.UseVisualStyleBackColor = true;
@@ -66,9 +68,9 @@ namespace DrawingForm
             // _rectangle
             // 
             this._rectangle.AutoSize = true;
-            this._rectangle.Location = new System.Drawing.Point(12, 28);
+            this._rectangle.Location = new System.Drawing.Point(220, 28);
             this._rectangle.Name = "_rectangle";
-            this._rectangle.Size = new System.Drawing.Size(150, 25);
+            this._rectangle.Size = new System.Drawing.Size(180, 25);
             this._rectangle.TabIndex = 2;
             this._rectangle.Text = "Rectangle";
             this._rectangle.UseVisualStyleBackColor = true;
@@ -107,9 +109,9 @@ namespace DrawingForm
             // 
             // _line
             // 
-            this._line.Location = new System.Drawing.Point(400, 28);
+            this._line.Location = new System.Drawing.Point(20, 28);
             this._line.Name = "_line";
-            this._line.Size = new System.Drawing.Size(150, 25);
+            this._line.Size = new System.Drawing.Size(180, 25);
             this._line.TabIndex = 4;
             this._line.Text = "Line";
             this._line.UseVisualStyleBackColor = true;
@@ -125,11 +127,31 @@ namespace DrawingForm
             this._label.Size = new System.Drawing.Size(0, 15);
             this._label.TabIndex = 5;
             // 
+            // _save
+            // 
+            this._save.Location = new System.Drawing.Point(820, 28);
+            this._save.Name = "_save";
+            this._save.Size = new System.Drawing.Size(180, 25);
+            this._save.TabIndex = 6;
+            this._save.Text = "Save";
+            this._save.UseVisualStyleBackColor = true;
+            // 
+            // _load
+            // 
+            this._load.Location = new System.Drawing.Point(1020, 28);
+            this._load.Name = "_load";
+            this._load.Size = new System.Drawing.Size(180, 25);
+            this._load.TabIndex = 7;
+            this._load.Text = "Load";
+            this._load.UseVisualStyleBackColor = true;
+            // 
             // DrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this._load);
+            this.Controls.Add(this._save);
             this.Controls.Add(this._label);
             this.Controls.Add(this._line);
             this.Controls.Add(this._toolStrip);
@@ -156,6 +178,8 @@ namespace DrawingForm
         private System.Windows.Forms.ToolStripButton _redo;
         private System.Windows.Forms.Button _line;
         private System.Windows.Forms.Label _label;
+        private System.Windows.Forms.Button _save;
+        private System.Windows.Forms.Button _load;
     }
 }
 
