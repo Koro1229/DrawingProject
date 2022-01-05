@@ -29,7 +29,7 @@ namespace DrawingModel
         }
 
         //移動
-        public IShape Move(double currentXCoordinate, double currentYCoordinate)
+        public IShape Move(double currentXCoordinate, double currentYCoordinate, IShape selectedShape)
         {
             if (_isPressed)
             {
@@ -43,6 +43,7 @@ namespace DrawingModel
             return null;
         }
 
+        //放開
         public IShape Release(IShape firstShape, IShape secondShape)
         {
             if (_isPressed && _isDrawed)
@@ -58,9 +59,12 @@ namespace DrawingModel
         private Line SetLineStatus(IShape shape, IShape firstShape, IShape secondShape)
         {
             Line line = new Line();
-            line.SetShape(firstShape.Center.Item1, firstShape.Center.Item2, secondShape.Center.Item1, secondShape.Center.Item2);
-            line.FirstShape = firstShape;
-            line.SecondShape = secondShape;
+            if (firstShape != null && secondShape != null)
+            {
+                line.FirstShape = firstShape;
+                line.SecondShape = secondShape;
+                line.Refresh();
+            }
             return line;
         }
 

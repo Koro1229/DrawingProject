@@ -11,7 +11,7 @@ namespace DrawingModel
         //存取按下的資料
         void Press(double currentXCoordinate, double currentYCoordinate, IShape firstShape);
         //移動
-        IShape Move(double currentXCoordinate, double currentYCoordinate);
+        IShape Move(double currentXCoordinate, double currentYCoordinate, IShape selectedShape);
         //放開
         IShape Release(IShape firstShape, IShape secondShape);
         //IShape Release(bool isOnShape, List<IShape> shapes);

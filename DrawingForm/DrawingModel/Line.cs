@@ -51,6 +51,39 @@ namespace DrawingModel
             return LEFT_BRACKET + ((int)FirstX).ToString() + COMMA + ((int)FirstY).ToString() + COMMA + ((int)SecondX).ToString() + COMMA + ((int)SecondY).ToString() + RIGHT_BRACKET;
         }
 
+        //移動
+        public void MoveShape(double deltaX, double deltaY)
+        {
+            //line不移動
+        }
+
+        //刷新
+        public void Refresh()
+        {
+            _x1 = FirstShape.Center.Item1;
+            _y1 = FirstShape.Center.Item2;
+            _x2 = SecondShape.Center.Item1;
+            _y2 = SecondShape.Center.Item2;
+        }
+
+        //取得移動數據
+        public Tuple<double, double, double, double> GetMoveTuple()
+        {
+            return null;
+        }
+
+        //儲存shape
+        public void SaveMove(Tuple<double, double, double, double> moveResult)
+        {
+            //沒甚麼好存
+        }
+
+        //取消移動
+        public void MoveDisable()
+        {
+            //nah
+        }
+
         public double FirstX
         {
             get

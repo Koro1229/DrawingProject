@@ -81,25 +81,13 @@ namespace DrawingModel
         {
             _firstShape = GetOnShape(currentXCoordinate, currentYCoordinate);
             _state.Press(currentXCoordinate, currentYCoordinate, _firstShape);
-            //if (currentXCoordinate > 0 && currentYCoordinate > 0 && _drawingMode != -1 && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
-            //{
-            //    _firstPointX = _secondX = currentXCoordinate;
-            //    _firstPointY = _secondY = currentYCoordinate;
-            //    _isPressed = true;
-            //    _isDrawed = false;
-            //}
         }
 
         //移動時的資料(讓畫面可以跟著滑鼠畫圖的東西)
         public void MovePointer(double currentXCoordinate, double currentYCoordinate)
         {
-            _currentShape = _state.Move(currentXCoordinate, currentYCoordinate);
-            //if (_isPressed)
-            //{
-            //    _secondX = currentXCoordinate;
-            //    _secondY = currentYCoordinate;
-            //    _isDrawed = true;
-            //}
+            _currentShape = _state.Move(currentXCoordinate, currentYCoordinate, _firstShape);
+            RefreshLine();
             NotifyModelChanged();
         }
 
@@ -110,18 +98,9 @@ namespace DrawingModel
             IShape shape = _state.Release(_firstShape, _secondShape);
             if (shape != null && _drawingMode != DEFAULT_MODE)
                 _commandManager.Execute(new DrawCommand(this, shape));
-
-            //if (_isPressed && _isDrawed && (_drawingMode != 0 || GetOnShape(currentXCoordinate, currentYCoordinate) != null))
-            //{
-            //    IShape shape = ShapeFactory.CreateShape(_drawingMode);
-            //    shape = SetShapeStatus(shape);
-            //    if (shape.GetType() == new Line().GetType())
-            //        _commandManager.Execute(new DrawCommand(this, SetLineStatus(shape)));
-            //    else
-            //        _commandManager.Execute(new DrawCommand(this, shape));
-            //}
-
-            //_isPressed = _isDrawed = false;
+            if (shape != null && DrawingMode == DEFAULT_MODE)//防呆
+                _commandManager.Execute(new MoveCommand(this, shape, shape.GetMoveTuple()));
+            _currentShape = null;//優化
             NotifyModelChanged();
         }
 
@@ -130,7 +109,7 @@ namespace DrawingModel
         {
             _commandManager.Clear();
             _isPressed = false;
-
+            CleanMark();
             _shapes.Clear();
             NotifyModelChanged();
         }
@@ -157,7 +136,7 @@ namespace DrawingModel
         public void MarkShape(double xCoordinate, double yCoordinate)
         {
             if (_currentSelectedIndex != -1)
-                _shapes[_currentSelectedIndex].IsSelected = false;
+                CleanMark();
             for (int i = _shapes.Count - 1; i >= 0; i--)
             {
                 if (PointInShape(xCoordinate, yCoordinate, i))
@@ -167,6 +146,20 @@ namespace DrawingModel
                     break;
                 }
             }
+        }
+
+        //清掉選取
+        public void CleanMark()
+        {
+            foreach (IShape shape in _shapes)
+            {
+                if (shape.IsSelected)
+                {
+                    shape.IsSelected = false;
+                }
+                _currentSelectedIndex = DEFAULT_MODE;
+            }
+            NotifyModelChanged();
         }
 
         //observer
@@ -182,12 +175,6 @@ namespace DrawingModel
             // OnPaint時會自動清除畫面，因此不需實作
         }
 
-        //增加新形狀
-        public void AddNewShape(IShape shape)
-        {
-            _shapes.Add(shape);
-        }
-       
         //current for test 確認有按著
         public bool IsPressed()
         {
@@ -200,10 +187,30 @@ namespace DrawingModel
             return _shapes;
         }
 
+        //增加新形狀
+        public void AddNewShape(IShape shape)
+        {
+            _shapes.Add(shape);
+        }
+
         //刪除最後畫的shape
         public void DeleteShape()
         {
             _shapes.RemoveAt(_shapes.Count - 1);
+        }
+
+        //儲存shape移動
+        public void SaveShapeMove(IShape shape, Tuple<double, double, double, double> move)
+        {
+            shape.SaveMove(move);
+            RefreshLine();
+        }
+
+        //移動取消
+        public void DeleteShapeMove(IShape shape)
+        {
+            shape.MoveDisable();
+            RefreshLine();
         }
 
         //上一步
@@ -243,6 +250,15 @@ namespace DrawingModel
                     return true;
             }
             return false;
+        }
+
+        //刷新移動圖時Line的狀態
+        public void RefreshLine()
+        {
+            foreach (IShape shape in _shapes)
+            {
+                shape.Refresh();
+            }
         }
     }
 }

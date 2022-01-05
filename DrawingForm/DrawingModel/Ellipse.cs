@@ -9,31 +9,30 @@ namespace DrawingModel
     class Ellipse : IShape
     {
         const int TWO = 2;
-        private double _x1;
-        private double _y1;
-        private double _x2;
-        private double _y2;
+        private List<Tuple<double, double, double, double>> _pointHistory = new List<Tuple<double, double, double, double>>();
+        private double _currentX1;
+        private double _currentX2;
+        private double _currentY1;
+        private double _currentY2;
         private bool _isSelected;
         //畫圖
         public void Draw(IGraphics graphics)
         {
-            graphics.DrawEllipse(_x1, _y1, _x2, _y2);
+            graphics.DrawEllipse(_currentX1, _currentY1, _currentX2, _currentY2);
         }
 
         //選取
         public void Selected(IGraphics graphics)
         {
             if (IsSelected)
-                graphics.DrawSelectedItem(_x1, _y1, _x2, _y2);
+                graphics.DrawSelectedItem(_currentX1, _currentY1, _currentX2, _currentY2);
         }
 
         //設定shape
         public void SetShape(double firstX, double firstY, double secondX, double secondY)
         {
-            _x1 = firstX;
-            _y1 = firstY;
-            _x2 = secondX;
-            _y2 = secondY;
+            _pointHistory.Add(new Tuple<double, double, double, double>(firstX, firstY, secondX, secondY));
+            MoveShape(0, 0);
         }
 
         //是否在shape中
@@ -51,11 +50,59 @@ namespace DrawingModel
             return LEFT_BRACKET + ((int)FirstX).ToString() + COMMA + ((int)FirstY).ToString() + COMMA + ((int)SecondX).ToString() + COMMA + ((int)SecondY).ToString() + RIGHT_BRACKET;
         }
 
+        //移動
+        public void MoveShape(double deltaX, double deltaY)
+        {
+            _currentX1 = GetLatestPoint().Item1 + deltaX;
+            _currentY1 = GetLatestPoint().Item2 + deltaY;
+            _currentX2 = GetLatestPoint().Item3 + deltaX;
+            _currentY2 = GetLatestPoint().Item4 + deltaY;
+        }
+
+        //刷新
+        public void Refresh()
+        {
+            //沒東西刷新
+        }
+
+        //取得移動數據
+        public Tuple<double, double, double, double> GetMoveTuple()
+        {
+            return new Tuple<double, double, double, double>(_currentX1, _currentY1, _currentX2, _currentY2);
+        }
+
+        //儲存shape
+        public void SaveMove(Tuple<double, double, double, double> moveResult)
+        {
+            _pointHistory.Add(moveResult);
+            _currentX1 = moveResult.Item1;
+            _currentY1 = moveResult.Item2;
+            _currentX2 = moveResult.Item3;
+            _currentY2 = moveResult.Item4;
+        }
+
+        //取消移動
+        public void MoveDisable()
+        {
+            _pointHistory.RemoveAt(_pointHistory.Count - 1);
+            _currentX1 = GetLatestPoint().Item1;
+            _currentY1 = GetLatestPoint().Item2;
+            _currentX2 = GetLatestPoint().Item3;
+            _currentY2 = GetLatestPoint().Item4;
+
+        }
+
+        private Tuple<double, double, double, double> GetLatestPoint()
+        {
+            return _pointHistory.Last();
+        }
+
+
         public double FirstX
         {
             get
             {
-                return _x1 < _x2 ? _x1 : _x2;
+                return _currentX1 < _currentX2 ? _currentX1 : _currentX2;
             }
         }
 
@@ -63,7 +110,7 @@ namespace DrawingModel
         {
             get
             {
-                return _x1 > _x2 ? _x1 : _x2;
+                return _currentX1 > _currentX2 ? _currentX1 : _currentX2;
             }
         }
 
@@ -71,7 +118,7 @@ namespace DrawingModel
         {
             get
             {
-                return _y1 < _y2 ? _y1 : _y2;
+                return _currentY1 < _currentY2 ? _currentY1 : _currentY2;
             }
         }
 
@@ -79,7 +126,7 @@ namespace DrawingModel
         {
             get
             {
-                return _y1 > _y2 ? _y1 : _y2;
+                return _currentY1 > _currentY2 ? _currentY1 : _currentY2;
             }
         }
 
@@ -99,8 +146,8 @@ namespace DrawingModel
         {
             get
             {
-                double centerX = (_x1 + _x2) / TWO;
-                double centerY = (_y1 + _y2) / TWO;
+                double centerX = (_currentX1 + _currentX2) / TWO;
+                double centerY = (_currentY1 + _currentY2) / TWO;
                 return new Tuple<double, double>(centerX, centerY);
             }
         }

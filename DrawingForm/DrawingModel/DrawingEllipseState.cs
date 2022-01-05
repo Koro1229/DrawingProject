@@ -29,7 +29,7 @@ namespace DrawingModel
         }
 
         //移動時的資料(讓畫面可以跟著滑鼠畫圖的東西)
-        public IShape Move(double currentXCoordinate, double currentYCoordinate)
+        public IShape Move(double currentXCoordinate, double currentYCoordinate, IShape selectedShape)
         {
             if (_isPressed)
             {

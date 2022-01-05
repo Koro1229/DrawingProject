@@ -104,6 +104,7 @@ namespace DrawingApp
         private void HandleLineButtonClick(object sender, RoutedEventArgs e)
         {
             _presentationModel.SetButtonStatus(false, true, true);
+            _model.CleanMark();
 
             _presentationModel.DrawingMode = LINE_MODE;
 
@@ -114,6 +115,7 @@ namespace DrawingApp
         private void HandleRectangleButtonClick(object sender, RoutedEventArgs e)
         {
             _presentationModel.SetButtonStatus(true, false, true);
+            _model.CleanMark();
 
             _presentationModel.DrawingMode = RECTANGLE_MODE;
 
@@ -124,6 +126,7 @@ namespace DrawingApp
         private void HandleEllipseButtonClick(object sender, RoutedEventArgs e)
         {
             _presentationModel.SetButtonStatus(true, true, false);
+            _model.CleanMark();
 
             _presentationModel.DrawingMode = ELLIPSE_MODE;
 

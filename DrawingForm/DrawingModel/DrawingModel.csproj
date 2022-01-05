@@ -127,6 +127,7 @@
     <Compile Include="DrawingRectangleState.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IState.cs" />
+    <Compile Include="MoveCommand.cs" />
     <Compile Include="PointerState.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="IShape.cs" />

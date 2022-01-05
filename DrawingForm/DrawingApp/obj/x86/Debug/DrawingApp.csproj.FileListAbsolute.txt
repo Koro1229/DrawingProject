@@ -88,3 +88,4 @@ C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\
 C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424491200000000.json
 C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingApp\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424527200000000.json
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingApp\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424491200000000.json

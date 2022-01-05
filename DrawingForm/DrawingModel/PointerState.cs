@@ -19,7 +19,7 @@ namespace DrawingModel
         //按下
         public void Press(double currentXCoordinate, double currentYCoordinate, IShape firstShape)
         {
-            if (currentXCoordinate > 0 && currentYCoordinate > 0 && firstShape != null)
+            if (currentXCoordinate > 0 && currentYCoordinate > 0 && firstShape != null && firstShape.IsSelected)
             {
                 _firstPointX = _secondX = currentXCoordinate;
                 _firstPointY = _secondY = currentYCoordinate;
@@ -29,13 +29,14 @@ namespace DrawingModel
         }
 
         //移動
-        public IShape Move(double currentXCoordinate, double currentYCoordinate)
+        public IShape Move(double currentXCoordinate, double currentYCoordinate, IShape selectedShape)
         {
-            if (_isPressed)
+            if (_isPressed && selectedShape != null && selectedShape.IsSelected)
             {
                 _secondX = currentXCoordinate;
                 _secondY = currentYCoordinate;
                 _isMoving = true;
+                selectedShape.MoveShape(_secondX - _firstPointX, _secondY - _firstPointY);
             }
             return null;
         }
@@ -45,7 +46,7 @@ namespace DrawingModel
         {
             if (_isPressed && _isMoving)
             {
-
+                return firstShape;
             }
             return null;
         }

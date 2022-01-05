@@ -95,6 +95,7 @@ namespace DrawingForm
         public void HandleLineButtonClick(object sender, System.EventArgs e)
         {
             _presentationModel.SetButtonStatus(false, true, true);
+            _model.CleanMark();
 
             _presentationModel.DrawingMode = LINE_MODE;
 
@@ -105,6 +106,7 @@ namespace DrawingForm
         public void HandleRectangleButtonClick(object sender, System.EventArgs e)
         {
             _presentationModel.SetButtonStatus(true, false, true);
+            _model.CleanMark();
 
             _presentationModel.DrawingMode = RECTANGLE_MODE;
 
@@ -115,6 +117,7 @@ namespace DrawingForm
         public void HandleEllipseButtonClick(object sender, System.EventArgs e)
         {
             _presentationModel.SetButtonStatus(true, true, false);
+            _model.CleanMark();
 
             _presentationModel.DrawingMode = ELLIPSE_MODE;
 
