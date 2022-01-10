@@ -12,13 +12,7 @@ namespace DrawingModel
         public delegate void ModelChangedEventHandler();
 
         CommandManager _commandManager = new CommandManager();
-        double _firstPointX;
-        double _firstPointY;
-        double _secondX;
-        double _secondY;
         private int _currentSelectedIndex = -1;
-        private bool _isPressed = false;
-        private bool _isDrawed = false;
         private IShape _firstShape;
         private IShape _secondShape;
         private IShape _currentShape;
@@ -42,23 +36,6 @@ namespace DrawingModel
             }
         }
 
-        //for test
-        public double FirstPointX
-        {
-            get
-            {
-                return _firstPointX;
-            }
-        }
-
-        //for test
-        public double FirstPointY
-        {
-            get
-            {
-                return _firstPointY;
-            }
-        }
 
         public bool RedoStatus
         {
@@ -108,7 +85,6 @@ namespace DrawingModel
         public void Clear()
         {
             _commandManager.Clear();
-            _isPressed = false;
             CleanMark();
             _shapes.Clear();
             NotifyModelChanged();
@@ -175,11 +151,6 @@ namespace DrawingModel
             // OnPaint時會自動清除畫面，因此不需實作
         }
 
-        //current for test 確認有按著
-        public bool IsPressed()
-        {
-            return _isPressed;
-        }
 
         //current for test 得到shapes
         public List<IShape> GetShapes()
@@ -253,7 +224,7 @@ namespace DrawingModel
         }
 
         //刷新移動圖時Line的狀態
-        public void RefreshLine()
+        private void RefreshLine()
         {
             foreach (IShape shape in _shapes)
             {

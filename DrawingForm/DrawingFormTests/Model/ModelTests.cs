@@ -18,35 +18,7 @@ namespace DrawingModel.Tests
         }
 
         [TestMethod]
-        public void PointerPressedTest()
-        {
-            Assert.IsFalse(_model.IsPressed());
-
-            _model.DrawingMode = 1;//先改到可以PRESS的MODE
-            _model.PressPointer(100, 100);
-            Assert.IsTrue(_model.IsPressed());
-            Assert.AreEqual(_model.FirstPointX, 100);
-            Assert.AreEqual(_model.FirstPointY, 100);
-        }
-
-        [TestMethod]
-        public void PointerMovedTest()
-        {
-            bool isObserverCalled = false;
-            _model._modelChanged += () =>
-            {
-                isObserverCalled = true;
-            };
-
-            _model.DrawingMode = 2;//先把ispressed改對
-            _model.PressPointer(100, 100);//先把ispressed改對
-            _model.MovePointer(150, 150);//去觸發裡面內涵的observer 另外的資料提不出來做測試
-
-            Assert.IsTrue(isObserverCalled);
-        }
-
-        [TestMethod]
-        public void PointerReleasedTest()
+        public void PointerEventTest()
         {
             _model.DrawingMode = 1;
             _model.PressPointer(100, 100);
@@ -159,15 +131,6 @@ namespace DrawingModel.Tests
         }
 
         [TestMethod]
-        public void IsPressedTest()
-        {
-            Assert.IsFalse(_model.IsPressed());
-            _model.DrawingMode = 1;
-            _model.PressPointer(100, 100);
-            Assert.IsTrue(_model.IsPressed());
-        }
-
-        [TestMethod]
         public void NotifyModelChangedTest()
         {
             bool isObserverCalled = false;
@@ -196,6 +159,29 @@ namespace DrawingModel.Tests
             Assert.AreEqual(_model.DrawingMode, RECTANGLE_MODE);
             _model.DrawingMode = ELLIPSE_MODE;
             Assert.AreEqual(_model.DrawingMode, ELLIPSE_MODE);
+        }
+
+        [TestMethod]
+        public void DeleteMarkShapeTest()
+        {
+            _model.DrawingMode = 1;
+            _model.PressPointer(100, 100);
+            _model.MovePointer(200, 200);
+            _model.ReleasePointer(200, 200);
+            Assert.AreEqual(_model.GetShapes().Count, 1);//前置
+
+            Assert.IsFalse(_model.GetShapes()[0].IsSelected);
+            _model.MarkShape(150, 150);
+            Assert.IsTrue(_model.GetShapes()[0].IsSelected);//確定有改到狀態
+
+            _model.CleanMark(); //清掉選擇狀態
+            Assert.IsFalse(_model.GetShapes()[0].IsSelected);
+        }
+
+        [TestMethod]
+        public void MoveShapeTest()
+        {
+
         }
     }
 }
