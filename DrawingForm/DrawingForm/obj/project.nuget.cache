@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "sBrW1Tzs8ryCievQSh8q6BTfIAkBKXWwivrpL/3IIKF9gc/IIGVw4Z0Bc1lB77pB716hRBmLhlBbzLXskm/ZFw==",
+  "dgSpecHash": "pgcNFDz7NQLFxcg2UVWeTWj9neqesHhemtw8W2VBzviD+jhildb7GqAC6183OzJk9Z/PKKI8wBcHqJLC4NbV6A==",
   "success": true,
   "projectFilePath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingForm\\DrawingForm.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\joker\\.nuget\\packages\\google.apis\\1.55.0\\google.apis.1.55.0.nupkg.sha512",
+    "C:\\Users\\joker\\.nuget\\packages\\google.apis.auth\\1.55.0\\google.apis.auth.1.55.0.nupkg.sha512",
+    "C:\\Users\\joker\\.nuget\\packages\\google.apis.core\\1.55.0\\google.apis.core.1.55.0.nupkg.sha512",
+    "C:\\Users\\joker\\.nuget\\packages\\google.apis.drive.v2\\1.55.0.2530\\google.apis.drive.v2.1.55.0.2530.nupkg.sha512",
+    "C:\\Users\\joker\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

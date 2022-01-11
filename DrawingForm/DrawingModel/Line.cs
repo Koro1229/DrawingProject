@@ -91,6 +91,13 @@ namespace DrawingModel
             return NAME;
         }
 
+        //取得Mode flag
+        public String GetShapeMode()
+        {
+            const String MODE = "0";
+            return MODE;
+        }
+
         public double FirstX
         {
             get

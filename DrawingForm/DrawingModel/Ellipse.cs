@@ -99,6 +99,13 @@ namespace DrawingModel
             return NAME;
         }
 
+        //取得Mode flag
+        public String GetShapeMode()
+        {
+            const String MODE = "2";
+            return MODE;
+        }
+
         //取得最新的point
         private Tuple<double, double, double, double> GetLatestPoint()
         {

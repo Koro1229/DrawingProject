@@ -125,6 +125,8 @@
     <Compile Include="DrawingLineState.cs" />
     <Compile Include="DrawingEllipseState.cs" />
     <Compile Include="DrawingRectangleState.cs" />
+    <Compile Include="FileProducer.cs" />
+    <Compile Include="GoogleDriveService.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IState.cs" />
     <Compile Include="MoveCommand.cs" />
@@ -141,6 +143,9 @@
     <EmbeddedResource Include="Properties\DrawingModel.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Google.Apis.Drive.v2">
+      <Version>1.55.0.2530</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk">
       <Version>17.0.0</Version>
     </PackageReference>

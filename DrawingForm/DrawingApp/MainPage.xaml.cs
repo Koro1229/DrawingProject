@@ -105,6 +105,7 @@ namespace DrawingApp
         {
             _presentationModel.SetButtonStatus(false, true, true);
             _model.CleanMark();
+            _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = LINE_MODE;
 
@@ -116,6 +117,7 @@ namespace DrawingApp
         {
             _presentationModel.SetButtonStatus(true, false, true);
             _model.CleanMark();
+            _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = RECTANGLE_MODE;
 
@@ -127,6 +129,7 @@ namespace DrawingApp
         {
             _presentationModel.SetButtonStatus(true, true, false);
             _model.CleanMark();
+            _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = ELLIPSE_MODE;
 

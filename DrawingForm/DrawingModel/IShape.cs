@@ -30,6 +30,8 @@ namespace DrawingModel
         void MoveDisable();
         //取得shape名稱
         String GetShapeName();
+        //取得mode flag
+        String GetShapeMode();
 
         double FirstX
         {

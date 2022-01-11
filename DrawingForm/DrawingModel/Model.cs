@@ -12,6 +12,7 @@ namespace DrawingModel
         public delegate void ModelChangedEventHandler();
 
         CommandManager _commandManager = new CommandManager();
+        private FileProducer _fileProducer;//處理檔案
         private int _currentSelectedIndex = -1;
         private IShape _firstShape;
         private IShape _secondShape;
@@ -141,7 +142,6 @@ namespace DrawingModel
                 }
                 _currentSelectedIndex = DEFAULT_MODE;
             }
-            NotifyModelChanged();
         }
 
         //observer
@@ -235,6 +235,22 @@ namespace DrawingModel
             {
                 shape.Refresh();
             }
+        }
+
+        //存那些已經畫好的圖
+        public void SaveAllShapes()
+        {
+            _fileProducer = new FileProducer(this);
+            _fileProducer.UploadShapes();
+        }
+
+        public void LoadFileShapes()
+        {
+            _shapes.Clear();//先清掉
+            _fileProducer = new FileProducer(this);
+            _fileProducer.DownloadShapes();
+            _commandManager.Clear();//不給redo undo
+            CleanMark();//避免error(還在找原因)
         }
     }
 }

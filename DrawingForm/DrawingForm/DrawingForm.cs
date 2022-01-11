@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DrawingModel;
+using System.IO;
 
 namespace DrawingForm
 {
@@ -37,7 +38,7 @@ namespace DrawingForm
             _presentationModel = new PresentationModel.PresentationModel(_model);
             ResetDefaultButtonAndMode();
             _model._modelChanged += HandleModelChanged;
-            _presentationModel._presentationModelChanged += RefreshButtonStatus;
+            RefreshButtonStatus();
         }
 
         //clear按鈕按下的事件
@@ -77,6 +78,8 @@ namespace DrawingForm
         //當觀察者觸發時跑的事件
         public void HandleModelChanged()
         {
+            _redo.Enabled = _model.RedoStatus;
+            _undo.Enabled = _model.UndoStatus;
             Invalidate(true);
         }
 
@@ -87,8 +90,6 @@ namespace DrawingForm
             _rectangle.Enabled = _presentationModel.RectangleButtonStatus;
             _ellipse.Enabled = _presentationModel.EllipseButtonStatus;
             _clear.Enabled = _presentationModel.ClearButtonStatus;
-            _redo.Enabled = _presentationModel.RedoButtonStatus;
-            _undo.Enabled = _presentationModel.UndoButtonStatus;
         }
 
         //Line按鈕按下的事件
@@ -96,6 +97,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(false, true, true);
             _model.CleanMark();
+            _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = LINE_MODE;
 
@@ -107,6 +109,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(true, false, true);
             _model.CleanMark();
+            _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = RECTANGLE_MODE;
 
@@ -118,6 +121,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(true, true, false);
             _model.CleanMark();
+            _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = ELLIPSE_MODE;
 
@@ -146,6 +150,27 @@ namespace DrawingForm
         {
             _model.Redo();
             RefreshButtonStatus();
+        }
+
+        //save
+        private async void ClickSaveButton(object sender, EventArgs e)
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                _model.SaveAllShapes();
+            });
+            _label.Text = "";
+        }
+
+        //load
+        private async void ClickLoadButton(object sender, EventArgs e)
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                _model.LoadFileShapes();
+            });
+            _label.Text = "";
+            _model.NotifyModelChanged();
         }
     }
 }
