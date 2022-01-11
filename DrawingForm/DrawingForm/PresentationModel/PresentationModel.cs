@@ -115,17 +115,9 @@ namespace DrawingForm.PresentationModel
         //設定shape的字串
         private String GetShapeName(IShape shape)
         {
-            const String LINE = "Line:";
-            const String RECTANGLE = "Rectangle:";
-            const String ELLIPSE = "Ellipse:";
-            if (shape.GetType() == new Line().GetType())
-                return LINE;
-            else if (shape.GetType() == new Rectangle().GetType())
-                return RECTANGLE;
-            else if (shape.GetType() == new Ellipse().GetType())
-                return ELLIPSE;
-            else
-                return "";
+            const String COLON = ":";
+
+            return shape.GetShapeName() + COLON;
         }
     }
 }

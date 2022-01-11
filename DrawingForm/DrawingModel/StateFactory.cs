@@ -8,26 +8,24 @@ namespace DrawingModel
 {
     public class StateFactory
     {
+        const int DRAWING_LINE_MODE = 0;
+        const int DRAWING_RECTANGLE_MODE = 1;
+        const int DRAWING_ELLIPSE_MODE = 2;
+
         //建立形狀 判斷
         public static IState CreateState(int mode)
         {
-            const String ERROR = "No shape mode";
-            const int LINE_MODE = 0;
-            const int RECTANGLE_MODE = 1;
-            const int ELLIPSE_MODE = 2;
-
             switch (mode)
             {
-                case LINE_MODE:
+                case DRAWING_LINE_MODE:
                     return new DrawingLineState();
-                case RECTANGLE_MODE:
+                case DRAWING_RECTANGLE_MODE:
                     return new DrawingRectangleState();
-                case ELLIPSE_MODE:
+                case DRAWING_ELLIPSE_MODE:
                     return new DrawingEllipseState();
                 default:
                     return new PointerState();
             }
         }
-
     }
 }

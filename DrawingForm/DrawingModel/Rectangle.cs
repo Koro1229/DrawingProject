@@ -93,9 +93,17 @@ namespace DrawingModel
 
         }
 
+        //取得最後的點
         private Tuple<double, double, double, double> GetLatestPoint()
         {
             return _pointHistory.Last();
+        }
+
+        //取得名稱
+        public String GetShapeName()
+        {
+            const String NAME = "Rectangle";
+            return NAME;
         }
 
         public double FirstX

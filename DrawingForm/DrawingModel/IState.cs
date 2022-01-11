@@ -14,6 +14,5 @@ namespace DrawingModel
         IShape Move(double currentXCoordinate, double currentYCoordinate, IShape selectedShape);
         //放開
         IShape Release(IShape firstShape, IShape secondShape);
-        //IShape Release(bool isOnShape, List<IShape> shapes);
     }
 }

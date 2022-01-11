@@ -84,6 +84,13 @@ namespace DrawingModel
             //nah
         }
 
+        //取得名稱
+        public String GetShapeName()
+        {
+            const String NAME = "Line";
+            return NAME;
+        }
+
         public double FirstX
         {
             get

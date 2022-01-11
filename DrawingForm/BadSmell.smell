@@ -289,6 +289,21 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>..\DrawingModel\DrawingEllipseState.cs</RelativePath>
+                <ProjectName>DrawingForm</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\DrawingModel\DrawingLineState.cs</RelativePath>
+                <ProjectName>DrawingForm</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\DrawingModel\DrawingRectangleState.cs</RelativePath>
+                <ProjectName>DrawingForm</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>..\DrawingModel\Ellipse.cs</RelativePath>
                 <ProjectName>DrawingForm</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -309,6 +324,11 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>..\DrawingModel\IState.cs</RelativePath>
+                <ProjectName>DrawingForm</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>..\DrawingModel\Line.cs</RelativePath>
                 <ProjectName>DrawingForm</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -319,12 +339,27 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>..\DrawingModel\MoveCommand.cs</RelativePath>
+                <ProjectName>DrawingForm</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\DrawingModel\PointerState.cs</RelativePath>
+                <ProjectName>DrawingForm</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>..\DrawingModel\Rectangle.cs</RelativePath>
                 <ProjectName>DrawingForm</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>..\DrawingModel\ShapeFactory.cs</RelativePath>
+                <ProjectName>DrawingForm</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\DrawingModel\StateFactory.cs</RelativePath>
                 <ProjectName>DrawingForm</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -415,8 +450,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2228</ProductionLoc>
-          <TestLoc>501</TestLoc>
+          <ProductionLoc>2740</ProductionLoc>
+          <TestLoc>487</TestLoc>
         </CodeReview>
       </Data>
     </div>

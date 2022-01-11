@@ -788,3 +788,7 @@ Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_C
 Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
 Exception : 無效的剪貼簿格式 (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
 given range is not current
+Informational: 記錄層級已設定為 資訊性 (預設)。
+Informational: 記錄層級已設定為 資訊性 (預設)。
+ResolveFWLinkAccountManager statusCode is redirect: 'True'
+ResolveFWLinkAccountManager resovled fwlink from 'https://go.microsoft.com/fwlink/?LinkID=415837' to 'https://app.vssps.visualstudio.com/'

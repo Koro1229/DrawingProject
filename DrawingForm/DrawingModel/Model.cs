@@ -36,7 +36,6 @@ namespace DrawingModel
             }
         }
 
-
         public bool RedoStatus
         {
             get
@@ -64,7 +63,6 @@ namespace DrawingModel
         public void MovePointer(double currentXCoordinate, double currentYCoordinate)
         {
             _currentShape = _state.Move(currentXCoordinate, currentYCoordinate, _firstShape);
-            RefreshLine();
             NotifyModelChanged();
         }
 
@@ -73,12 +71,20 @@ namespace DrawingModel
         {
             _secondShape = GetOnShape(currentXCoordinate, currentYCoordinate);
             IShape shape = _state.Release(_firstShape, _secondShape);
-            if (shape != null && _drawingMode != DEFAULT_MODE)
-                _commandManager.Execute(new DrawCommand(this, shape));
-            if (shape != null && DrawingMode == DEFAULT_MODE)//防呆
-                _commandManager.Execute(new MoveCommand(this, shape, shape.GetMoveTuple()));
+
+            RunCommand(shape);
+
             _currentShape = null;//優化
             NotifyModelChanged();
+        }
+
+        //跑command
+        private void RunCommand(IShape shape)
+        {
+            if (shape != null && _drawingMode != DEFAULT_MODE)
+                _commandManager.Execute(new DrawCommand(this, shape));
+            if (shape != null && _drawingMode == DEFAULT_MODE)
+                _commandManager.Execute(new MoveCommand(this, shape, shape.GetMoveTuple()));
         }
 
         //清空
@@ -150,7 +156,6 @@ namespace DrawingModel
         {
             // OnPaint時會自動清除畫面，因此不需實作
         }
-
 
         //current for test 得到shapes
         public List<IShape> GetShapes()

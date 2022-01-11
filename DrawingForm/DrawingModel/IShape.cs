@@ -28,6 +28,8 @@ namespace DrawingModel
         void SaveMove(Tuple<double, double, double, double> move);
         //取消shape移動
         void MoveDisable();
+        //取得shape名稱
+        String GetShapeName();
 
         double FirstX
         {

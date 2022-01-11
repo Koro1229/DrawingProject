@@ -92,11 +92,18 @@ namespace DrawingModel
 
         }
 
+        //取得名稱
+        public String GetShapeName()
+        {
+            const String NAME = "Ellipse";
+            return NAME;
+        }
+
+        //取得最新的point
         private Tuple<double, double, double, double> GetLatestPoint()
         {
             return _pointHistory.Last();
         }
-
 
         public double FirstX
         {

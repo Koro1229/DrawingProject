@@ -8,14 +8,14 @@ namespace DrawingModel
 {
     public class ShapeFactory
     {
+        const int LINE_MODE = 0;
+        const int RECTANGLE_MODE = 1;
+        const int ELLIPSE_MODE = 2;
+        const String ERROR = "No shape mode";
+
         //建立形狀 判斷
         public static IShape CreateShape(int mode)
         {
-            const String ERROR = "No shape mode";
-            const int LINE_MODE = 0;
-            const int RECTANGLE_MODE = 1;
-            const int ELLIPSE_MODE = 2;
-
             switch (mode)
             {
                 case LINE_MODE:

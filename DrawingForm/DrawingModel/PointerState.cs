@@ -15,7 +15,6 @@ namespace DrawingModel
         private bool _isPressed = false;
         private bool _isMoving = false;
 
-
         //按下
         public void Press(double currentXCoordinate, double currentYCoordinate, IShape firstShape)
         {

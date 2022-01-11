@@ -118,17 +118,9 @@ namespace DrawingApp.PresentationModel
         //取得shape的名稱
         private string GetShapeName(IShape shape)
         {
-            const string LINE = "Line:";
-            const string RECTANGLE = "Rectangle:";
-            const string ELLIPSE = "Ellipse:";
-            if (shape.GetType() == new Line().GetType())
-                return LINE;
-            else if (shape.GetType() == new Rectangle().GetType())
-                return RECTANGLE;
-            else if (shape.GetType() == new Ellipse().GetType())
-                return ELLIPSE;
-            else
-                return "";
+            const String COLON = ":";
+
+            return shape.GetShapeName() + COLON;
         }
     }
 }
