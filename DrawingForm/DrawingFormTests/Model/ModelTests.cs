@@ -179,9 +179,27 @@ namespace DrawingModel.Tests
         }
 
         [TestMethod]
-        public void MoveShapeTest()
+        public void MoveShapeAndDisableTest()
         {
+            _model.DrawingMode = 1;
+            _model.PressPointer(100, 100);
+            _model.MovePointer(200, 200);
+            _model.ReleasePointer(200, 200);
+            Assert.AreEqual(_model.GetShapes().Count, 1);//前置
 
+            IShape test = _model.GetShapes()[0];
+
+            _model.SaveShapeMove(test, new Tuple<double, double, double, double>(200, 200, 300, 300));//測移動
+            Assert.AreEqual(test.FirstX, 200);
+            Assert.AreEqual(test.FirstY, 200);
+            Assert.AreEqual(test.SecondX, 300);
+            Assert.AreEqual(test.SecondY, 300);//移動後
+
+            _model.DeleteShapeMove(test);//測移動取消
+            Assert.AreEqual(test.FirstX, 100);
+            Assert.AreEqual(test.FirstY, 100);
+            Assert.AreEqual(test.SecondX, 200);
+            Assert.AreEqual(test.SecondY, 200);//回原位
         }
     }
 }
