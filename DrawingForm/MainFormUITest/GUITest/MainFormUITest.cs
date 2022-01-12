@@ -36,7 +36,7 @@ namespace MainFormUITest.GUITest
         [TestCleanup()]
         public void Cleanup()
         {
-            _robot.Sleep(5);
+            _robot.Sleep(2);
             _robot.CleanUp();
         }
 
@@ -172,12 +172,14 @@ namespace MainFormUITest.GUITest
             Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(874, 263), new Tuple<int, int>(1074, 463), ELLIPSE));
 
             _robot.ClickOnName("Undo");
+            _robot.Sleep(1);
 
             firstPoint = new Tuple<int, int>(300, 0);
             _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
             _robot.AssertText(LABEL_NAME, "No Shape Selected");
 
             _robot.ClickOnName("Redo");
+            _robot.Sleep(1);
 
             firstPoint = new Tuple<int, int>(300, 0);
             _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
@@ -197,12 +199,14 @@ namespace MainFormUITest.GUITest
             Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(275, 463), new Tuple<int, int>(475, 663), RECTANGLE));
 
             _robot.ClickOnName("Undo");
+            _robot.Sleep(1);
 
             firstPoint = new Tuple<int, int>(-100, 0);
             _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
             Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(474, 263), new Tuple<int, int>(674, 463), RECTANGLE));
 
             _robot.ClickOnName("Redo");
+            _robot.Sleep(1);
 
             firstPoint = new Tuple<int, int>(-300, 200);
             _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
@@ -294,7 +298,7 @@ namespace MainFormUITest.GUITest
             _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
             _robot.Sleep(1);
 
-            //assert們
+            ////assert們
             const string RECTANGLE = "Rectangle:";
             const string ELLIPSE = "Ellipse:";
             //674, 363
@@ -357,23 +361,28 @@ namespace MainFormUITest.GUITest
             Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(859, 378), new Tuple<int, int>(884, 403), ELLIPSE));
 
             _robot.ClickOnName("Undo");
+            _robot.Sleep(1);
 
+            //674, 363
             point = new Tuple<int, int>(190, -25);
             _robot.ClickOnPoint(CANVAS_NAME, point);
             Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(844, 328), new Tuple<int, int>(869, 353), ELLIPSE));
 
 
             _robot.ClickOnName("Redo");
+            _robot.Sleep(1);
 
-            point = new Tuple<int, int>(-190, -25);
+            point = new Tuple<int, int>(-190, 25);
             _robot.ClickOnPoint(CANVAS_NAME, point);
-            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(844, 378), new Tuple<int, int>(849, 403), ELLIPSE));
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(464, 378), new Tuple<int, int>(489, 403), ELLIPSE));
 
             _robot.ClickOnName("Clear");
 
             _robot.Sleep(1);
 
             _robot.ClickOnName("Load");
+
+            _robot.Sleep(5);
 
             //674, 363
             //手掌
