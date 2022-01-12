@@ -71,6 +71,12 @@ namespace DrawingModel
             return new Tuple<double, double, double, double>(_currentX1, _currentY1, _currentX2, _currentY2);
         }
 
+        //當前座標
+        public Tuple<double, double, double, double> GetCurrentTuple()
+        {
+            return new Tuple<double, double, double, double>(FirstX, FirstY, SecondX, SecondY);
+        }
+
         //儲存shape
         public void SaveMove(Tuple<double, double, double, double> moveResult)
         {

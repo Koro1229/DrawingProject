@@ -24,6 +24,8 @@ namespace DrawingModel
         void Refresh();
         //取得移動
         Tuple<double, double, double, double> GetMoveTuple();
+        //取得當前座標
+        Tuple<double, double, double, double> GetCurrentTuple();
         //儲存shape移動
         void SaveMove(Tuple<double, double, double, double> move);
         //取消shape移動

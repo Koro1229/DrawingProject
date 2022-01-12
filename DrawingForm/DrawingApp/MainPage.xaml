@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" MaxWidth="1366" MaxHeight="768">
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0" Width="1366" Height="768">
+    <Grid x:Name="_grid" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0" Width="1366" Height="768">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="43*"/>
             <ColumnDefinition Width="640*"/>
@@ -18,10 +18,12 @@
             <RowDefinition Height="0*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="_rectangle" Content="Rectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="314,64,770,0" Click="HandleRectangleButtonClick" Grid.RowSpan="2" Grid.Column="1" />
-        <Button x:Name="_ellipse" Content="Ellipse" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="684,64,400,0" Click="HandleEllipseButtonClick" Grid.RowSpan="2" Grid.Column="1" />
-        <Button x:Name="_clear" Content="Clear" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="983,64,99,0" Click="HandleClearButtonClick" Grid.RowSpan="2" Grid.Column="1" IsEnabled="False" />
+        <Button x:Name="_rectangle" Content="Rectangle" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="237,64,847,0" Click="HandleRectangleButtonClick" Grid.RowSpan="2" Grid.Column="1" />
+        <Button x:Name="_ellipse" Content="Ellipse" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="444,64,640,0" Click="HandleEllipseButtonClick" Grid.RowSpan="2" Grid.Column="1" />
+        <Button x:Name="_clear" Content="Clear" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="657,64,425,0" Click="HandleClearButtonClick" Grid.RowSpan="2" Grid.Column="1" IsEnabled="False" />
         <Button x:Name="_line" Content="Line" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="13,64,1069,0" Click="HandleLineButtonClick" Grid.RowSpan="2" Grid.Column="1"/>
+        <Button x:Name="_save" Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="871,64,278,0" Click="HandleSaveButtonClick" Grid.RowSpan="2" Grid.Column="1"/>
+        <Button x:Name="_load" Content="Load" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="1024,64,125,0" Click="HandleLoadButtonClick" Grid.RowSpan="2" Grid.Column="1"/>
         <Canvas x:Name="_canvas" Margin="13,138,99,99" Background="#FFFFFFA0" PointerPressed="HandleCanvasPressed" PointerReleased="HandleCanvasReleased" PointerMoved="HandleCanvasMoved" Grid.RowSpan="2" Grid.Column="1">
         </Canvas>
         <TextBlock x:Name="_textBlock" Text="" TextWrapping="Wrap" Margin="914,630,99,120" Grid.RowSpan="2" Grid.Column="1"/>

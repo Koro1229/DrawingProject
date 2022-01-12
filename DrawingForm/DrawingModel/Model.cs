@@ -237,20 +237,21 @@ namespace DrawingModel
             }
         }
 
-        //存那些已經畫好的圖
+        //save
         public void SaveAllShapes()
         {
             _fileProducer = new FileProducer(this);
             _fileProducer.UploadShapes();
         }
 
+        //load
         public void LoadFileShapes()
         {
             _shapes.Clear();//先清掉
             _fileProducer = new FileProducer(this);
             _fileProducer.DownloadShapes();
             _commandManager.Clear();//不給redo undo
-            CleanMark();//避免error(還在找原因)
+            CleanMark();//避免error
         }
     }
 }

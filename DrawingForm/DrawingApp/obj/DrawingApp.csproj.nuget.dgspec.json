@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\DrawingApp.csproj": {}
+    "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\DrawingApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\DrawingApp.csproj": {
+    "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\DrawingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\DrawingApp.csproj",
+        "projectUniqueName": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\DrawingApp.csproj",
         "projectName": "DrawingApp",
-        "projectPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\DrawingApp.csproj",
-        "packagesPath": "C:\\Users\\joker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joker\\Desktop\\110-1\\WindowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\obj\\",
+        "projectPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\DrawingApp.csproj",
+        "packagesPath": "C:\\Users\\Koro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Koro\\Desktop\\Homework\\Koro\\windowDesign\\DrawingProject\\DrawingForm\\DrawingApp\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -19,7 +19,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\joker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Koro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -39,6 +39,10 @@
       "frameworks": {
         "uap10.0.17763": {
           "dependencies": {
+            "Google.Apis.Drive.v2": {
+              "target": "Package",
+              "version": "[1.55.0.2530, )"
+            },
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.12, )"

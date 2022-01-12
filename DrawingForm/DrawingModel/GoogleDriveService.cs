@@ -18,7 +18,7 @@ namespace DrawingModel
 {
     public class GoogleDriveService
     {
-        private static readonly string[] SCOPES = new[] { DriveService.Scope.DriveFile, DriveService.Scope.Drive };
+        private readonly string[] _scopes = new[] { DriveService.Scope.DriveFile, DriveService.Scope.Drive };
         private DriveService _service;
         private const int KB = 0x400;
         private const int DOWNLOAD_CHUNK_SIZE = 256 * KB;
@@ -26,6 +26,8 @@ namespace DrawingModel
         private string _applicationName;
         private string _clientSecretFileName;
         private UserCredential _credential;
+        const int TWO = 2;
+        const char SPLASH = '\\';
 
         /// <summary>
         /// 創造一個Google Drive Service
@@ -39,6 +41,7 @@ namespace DrawingModel
             this.CreateNewService(applicationName, clientSecretFileName);
         }
 
+        //建立新的object
         private void CreateNewService(string applicationName, string clientSecretFileName)
         {
             const string USER = "user";
@@ -49,14 +52,10 @@ namespace DrawingModel
             {
                 string credentialPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                 credentialPath = Path.Combine(credentialPath, CREDENTIAL_FOLDER + applicationName);
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets, SCOPES, USER, CancellationToken.None, new FileDataStore(credentialPath, true)).Result;
+                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets, _scopes, USER, CancellationToken.None, new FileDataStore(credentialPath, true)).Result;
             }
 
-            DriveService service = new DriveService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = applicationName
-            });
+            DriveService service = GetServiceTool(credential, applicationName);
 
             _credential = credential;
             DateTime now = DateTime.Now;
@@ -64,6 +63,18 @@ namespace DrawingModel
             _service = service;
         }
 
+        //取得service
+        private DriveService GetServiceTool(UserCredential credential, string applicationName)
+        {
+            DriveService service = new DriveService(new BaseClientService.Initializer()
+            { 
+                HttpClientInitializer = credential,
+                ApplicationName = applicationName });
+
+            return service;
+        }
+
+        //
         private int UNIXNowTimeStamp
         {
             get
@@ -118,20 +129,26 @@ namespace DrawingModel
             listRequest.Q = queryString;
             do
             {
-                try
-                {
-                    FileList fileList = listRequest.Execute();
-                    returnList.AddRange(fileList.Items);
-                    listRequest.PageToken = fileList.NextPageToken;
-                }
-                catch (Exception exception)
-                {
-                    listRequest.PageToken = null;
-                    throw exception;
-                }
+                DoTryAndCatch(listRequest, returnList);
             } while (!String.IsNullOrEmpty(listRequest.PageToken));
 
             return returnList;
+        }
+
+        //envy
+        private void DoTryAndCatch(FilesResource.ListRequest listRequest, List<Google.Apis.Drive.v2.Data.File> returnList)
+        {
+            try
+            {
+                FileList fileList = listRequest.Execute();
+                returnList.AddRange(fileList.Items);
+                listRequest.PageToken = fileList.NextPageToken;
+            }
+            catch (Exception exception)
+            {
+                listRequest.PageToken = null;
+                throw exception;
+            }
         }
 
         /// <summary>
@@ -139,32 +156,42 @@ namespace DrawingModel
         /// </summary>
         /// <param name="uploadFileName">上傳的檔案名稱 </param>
         /// <param name="contentType">上傳的檔案種類，請參考MIME Type : http://www.iana.org/assignments/media-types/media-types.xhtml </param>
-        /// <param name="uploadProgressEventHandeler"> 上傳進度改變時呼叫的函式</param>
+        /// <param name="uploadProgress"> 上傳進度改變時呼叫的函式</param>
         /// <param name="responseReceivedEventHandler">收到回應時呼叫的函式 </param>
         /// <returns>上傳成功，回傳上傳成功的 Google Drive 格式之File</returns>
-        public Google.Apis.Drive.v2.Data.File UploadFile(string uploadFileName, string contentType, Action<IUploadProgress> uploadProgressEventHandeler = null, Action<Google.Apis.Drive.v2.Data.File> responseReceivedEventHandler = null)
+        public Google.Apis.Drive.v2.Data.File UploadFile(string uploadFileName, string contentType, Action<IUploadProgress> uploadProgress = null, Action<Google.Apis.Drive.v2.Data.File> responseReceivedEventHandler = null)
         {
             FileStream uploadStream = new FileStream(uploadFileName, FileMode.Open, FileAccess.Read);
-            const char SPLASH = '\\';
             string title = "";
 
             this.CheckCredentialTimeStamp();
-            if (uploadFileName.LastIndexOf(SPLASH) != -1)
-                title = uploadFileName.Substring(uploadFileName.LastIndexOf(SPLASH) + 1);
-            else
-                title = uploadFileName;
+            GetTitle(uploadFileName, title);
 
-            Google.Apis.Drive.v2.Data.File fileToInsert = new Google.Apis.Drive.v2.Data.File { Title = title };
+            Google.Apis.Drive.v2.Data.File fileToInsert = new Google.Apis.Drive.v2.Data.File
+            { 
+                Title = title };
             FilesResource.InsertMediaUpload insertRequest = _service.Files.Insert(fileToInsert, uploadStream, contentType);
-            insertRequest.ChunkSize = FilesResource.InsertMediaUpload.MinimumChunkSize * 2;
+            insertRequest.ChunkSize = FilesResource.InsertMediaUpload.MinimumChunkSize * TWO;
 
-            if (uploadProgressEventHandeler != null)
-                insertRequest.ProgressChanged += uploadProgressEventHandeler;
+            AddProperty(uploadProgress, responseReceivedEventHandler, insertRequest);
+            TryAndCatchForUploadFile(insertRequest, uploadStream);
 
+            return insertRequest.ResponseBody;
+        }
+        
+        //tool too long
+        private void AddProperty(Action<IUploadProgress> uploadProgress, Action<Google.Apis.Drive.v2.Data.File> responseReceivedEventHandler, FilesResource.InsertMediaUpload insertRequest)
+        {
+            if (uploadProgress != null)
+                insertRequest.ProgressChanged += uploadProgress;
 
             if (responseReceivedEventHandler != null)
                 insertRequest.ResponseReceived += responseReceivedEventHandler;
+        }
 
+        //tool too long
+        private void TryAndCatchForUploadFile(FilesResource.InsertMediaUpload insertRequest, FileStream uploadStream)
+        {
             try
             {
                 insertRequest.Upload();
@@ -177,8 +204,15 @@ namespace DrawingModel
             {
                 uploadStream.Close();
             }
+        }
 
-            return insertRequest.ResponseBody;
+        //tool too long
+        private void GetTitle(string uploadFileName, string title)
+        {
+            if (uploadFileName.LastIndexOf(SPLASH) != -1)
+                title = uploadFileName.Substring(uploadFileName.LastIndexOf(SPLASH) + 1);
+            else
+                title = uploadFileName;
         }
 
         /// <summary>
@@ -186,8 +220,8 @@ namespace DrawingModel
         /// </summary>
         /// <param name="fileToDownload">欲下載的檔案(Google Drive File) 一般會從List取得</param>
         /// <param name="downloadPath">下載到路徑</param>
-        /// <param name="downloadProgressChangedEventHandeler">當下載進度改變時，呼叫這個函式</param>
-        public void DownloadFile(Google.Apis.Drive.v2.Data.File fileToDownload, string downloadPath, Action<IDownloadProgress> downloadProgressChangedEventHandeler = null)
+        /// <param name="downloadProgress">當下載進度改變時，呼叫這個函式</param>
+        public void DownloadFile(Google.Apis.Drive.v2.Data.File fileToDownload, string downloadPath, Action<IDownloadProgress> downloadProgress = null)
         {
             const string SPLASH = @"\";
 
@@ -225,32 +259,33 @@ namespace DrawingModel
             }
         }
 
-        /// <summary>
-        /// 更新指定FileID的檔案
-        /// </summary>
-        /// <param name="fileName">欲上傳至Google Drive並覆蓋在Google Drive上舊版檔案的檔案位置 </param>
-        /// <param name="fileId">存在於Google Drive 舊版檔案的FileID </param>
-        /// <param name="contentType">MIME Type</param>
-        /// <returns>如更新成功，回傳更新後的Google Drive File</returns>
-        public Google.Apis.Drive.v2.Data.File UpdateFile(string fileName, string fileId, string contentType)
-        {
-            CheckCredentialTimeStamp();
-            try
-            {
-                Google.Apis.Drive.v2.Data.File file = _service.Files.Get(fileId).Execute();
-                byte[] byteArray = System.IO.File.ReadAllBytes(fileName);
-                MemoryStream stream = new MemoryStream(byteArray);
-                FilesResource.UpdateMediaUpload request = _service.Files.Update(file, fileId, stream, contentType);
-                request.NewRevision = true;
-                request.Upload();
+        ///// <summary>
+        ///// 更新指定FileID的檔案
+        ///// </summary>
+        ///// <param name="fileName">欲上傳至Google Drive並覆蓋在Google Drive上舊版檔案的檔案位置 </param>
+        ///// <param name="fileId">存在於Google Drive 舊版檔案的FileID </param>
+        ///// <param name="contentType">MIME Type</param>
+        ///// <returns>如更新成功，回傳更新後的Google Drive File</returns>
+        //public Google.Apis.Drive.v2.Data.File UpdateFile(string fileName, string fileId, string contentType)
+        //{
+        //    CheckCredentialTimeStamp();
+        //    try
+        //    {
+        //        Google.Apis.Drive.v2.Data.File file = _service.Files.Get(fileId).Execute();
+        //        byte[] byteArray = System.IO.File.ReadAllBytes(fileName);
+        //        MemoryStream stream = new MemoryStream(byteArray);
+        //        FilesResource.UpdateMediaUpload request = _service.Files.Update(file, fileId, stream, contentType);
+        //        request.NewRevision = true;
+        //        request.Upload();
 
-                Google.Apis.Drive.v2.Data.File updatedFile = request.ResponseBody;
-                return updatedFile;
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
+        //        Google.Apis.Drive.v2.Data.File updatedFile = request.ResponseBody;
+        //        return updatedFile;
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        throw exception;
+        //    }
+        //}
+
     }
 }

@@ -57,6 +57,12 @@ namespace DrawingModel
             //line不移動
         }
 
+        //當前座標
+        public Tuple<double, double, double, double> GetCurrentTuple()
+        {
+            return new Tuple<double, double, double, double>(FirstX, FirstY, SecondX, SecondY);
+        }
+
         //刷新
         public void Refresh()
         {
