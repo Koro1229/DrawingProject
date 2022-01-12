@@ -22,6 +22,7 @@ namespace DrawingForm
         const int RECTANGLE_MODE = 1;
         const int ELLIPSE_MODE = 2;
         const int DEFAULT_MODE = -1;
+        const String DEFAULT_LABEL = "No Shape Selected";
 
         public DrawingForm()
         {
@@ -45,7 +46,7 @@ namespace DrawingForm
         public void HandleClearButtonClick(object sender, System.EventArgs e)
         {
             _model.Clear();
-            _label.Text = "";
+            _label.Text = DEFAULT_LABEL;
             ResetDefaultButtonAndMode();
         }
 
@@ -97,6 +98,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(false, true, true);
             _model.CleanMark();
+            _label.Text = DEFAULT_LABEL;
             _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = LINE_MODE;
@@ -109,6 +111,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(true, false, true);
             _model.CleanMark();
+            _label.Text = DEFAULT_LABEL;
             _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = RECTANGLE_MODE;
@@ -121,6 +124,7 @@ namespace DrawingForm
         {
             _presentationModel.SetButtonStatus(true, true, false);
             _model.CleanMark();
+            _label.Text = DEFAULT_LABEL;
             _model.NotifyModelChanged();
 
             _presentationModel.DrawingMode = ELLIPSE_MODE;
@@ -155,21 +159,26 @@ namespace DrawingForm
         //save
         private async void ClickSaveButton(object sender, EventArgs e)
         {
+            _save.Enabled = false;
             await Task.Factory.StartNew(() =>
             {
                 _model.SaveAllShapes();
             });
-            _label.Text = "";
+            _label.Text = DEFAULT_LABEL;
+            _save.Enabled = true;
         }
 
         //load
         private async void ClickLoadButton(object sender, EventArgs e)
         {
+            _load.Enabled = false;
             await Task.Factory.StartNew(() =>
             {
                 _model.LoadFileShapes();
             });
-            _label.Text = "";
+            _label.Text = DEFAULT_LABEL;
+            _load.Enabled = true;
+            _clear.Enabled = true;
             _model.NotifyModelChanged();
         }
     }

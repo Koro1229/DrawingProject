@@ -63,7 +63,6 @@ namespace DrawingModel.Tests
             IShape test = _model.GetShapes()[0];
             _model.AddNewShape(test);
             Assert.AreEqual(_model.GetShapes().Count, 2);//確認有加進去
-
         }
 
         [TestMethod]
@@ -200,6 +199,41 @@ namespace DrawingModel.Tests
             Assert.AreEqual(test.FirstY, 100);
             Assert.AreEqual(test.SecondX, 200);
             Assert.AreEqual(test.SecondY, 200);//回原位
+        }
+
+        [TestMethod]
+        public void SaveAndLoadTest()
+        {
+            _model.DrawingMode = 1;
+            _model.PressPointer(100, 100);
+            _model.MovePointer(200, 200);
+            _model.ReleasePointer(200, 200);
+            Assert.AreEqual(_model.GetShapes().Count, 1);//前置
+
+            IShape test = _model.GetShapes()[0];
+            _model.AddNewShape(test);
+            Assert.AreEqual(_model.GetShapes().Count, 2);//確認有加進去
+
+            _model.SaveAllShapes();
+            _model.Clear();
+
+            Assert.AreEqual(_model.GetShapes().Count, 0);//確認有清乾淨
+
+            _model.LoadFileShapes();
+
+            Assert.AreEqual(_model.GetShapes().Count, 2);//確認有加進去
+            test = _model.GetShapes()[0];
+            Assert.AreEqual(test.FirstX, 100);
+            Assert.AreEqual(test.FirstY, 100);
+            Assert.AreEqual(test.SecondX, 200);
+            Assert.AreEqual(test.SecondY, 200);
+
+            test = _model.GetShapes()[1];
+            Assert.AreEqual(test.FirstX, 100);
+            Assert.AreEqual(test.FirstY, 100);
+            Assert.AreEqual(test.SecondX, 200);
+            Assert.AreEqual(test.SecondY, 200);
+
         }
     }
 }

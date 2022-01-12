@@ -12,7 +12,7 @@ namespace DrawingForm.PresentationModel
         public delegate void PresentationModelEventHandler();
 
         readonly Model _model;
-
+        const String DEFAULT_LABEL = "No Shape Selected";
         public PresentationModel(Model model)
         {
             this._model = model;
@@ -109,7 +109,7 @@ namespace DrawingForm.PresentationModel
                     return GetShapeName(shape) + shape.GetDataString();
                 }
             }
-            return "";
+            return DEFAULT_LABEL;
         }
 
         //設定shape的字串

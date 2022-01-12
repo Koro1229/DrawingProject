@@ -13,7 +13,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
 // 空白頁項目範本已記錄在 https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x404
 
 namespace DrawingApp
@@ -153,24 +152,28 @@ namespace DrawingApp
         }
 
         //save
-        private async void HandleSaveButtonClick(object sender, RoutedEventArgs e)
+        private void HandleSaveButtonClick(object sender, RoutedEventArgs e)
         {
+            //async
             //await Task.Factory.StartNew(() =>
             //{
             //    _model.LoadFileShapes();
             //});
-            _textBlock.Text = "有問題 不給用";
+            const String ERROR = "有問題 不給用";
+            _textBlock.Text = ERROR;
             _model.NotifyModelChanged();
         }
 
         //load
-        private async void HandleLoadButtonClick(object sender, RoutedEventArgs e)
+        private void HandleLoadButtonClick(object sender, RoutedEventArgs e)
         {
+            //async
             //await Task.Factory.StartNew(() =>
             //{
             //    _model.LoadFileShapes();
             //});
-            _textBlock.Text = "有問題 不給用";
+            const String ERROR = "有問題 不給用";
+            _textBlock.Text = ERROR;
             _model.NotifyModelChanged();
         }
     }

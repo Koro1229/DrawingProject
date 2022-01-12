@@ -104,3 +104,10 @@ C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingForm
 C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\Google.Apis.Drive.v2.dll
 C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\joker\Desktop\110-1\WindowDesign\DrawingProject\DrawingForm\DrawingForm\obj\Debug\netcoreapp3.1\DrawingForm.csproj.CopyComplete
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\clientSecret.json
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\Google.Apis.dll
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\Google.Apis.Drive.v2.dll
+C:\Users\Koro\Desktop\Homework\Koro\windowDesign\DrawingProject\DrawingForm\DrawingForm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

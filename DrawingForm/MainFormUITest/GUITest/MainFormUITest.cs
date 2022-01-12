@@ -47,6 +47,18 @@ namespace MainFormUITest.GUITest
         }
 
         [TestMethod]
+        public void MoveShapeTest()
+        {
+            RunScriptMoveShape();
+        }
+
+        [TestMethod]
+        public void RedoAndUndoTest()
+        {
+            RunScriptRedoAndUndo();
+        }
+
+        [TestMethod]
         public void BulidASnowmanTest()
         {
             RunScriptBuildASnowman();
@@ -76,13 +88,120 @@ namespace MainFormUITest.GUITest
             secondPoint = new Tuple<int, int>(300, -99);
             _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
             _robot.Sleep(1);
+            //assert
             firstPoint = new Tuple<int, int>(-100, 0);
             _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
             Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(474, 263), new Tuple<int, int>(674, 463), RECTANGLE));
             firstPoint = new Tuple<int, int>(300, 0);
             _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
             Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(874, 263), new Tuple<int, int>(1074, 463), ELLIPSE));
+
             _robot.ClickOnName("Clear");
+        }
+
+        //移動
+        private void RunScriptMoveShape()
+        {
+            const string RECTANGLE = "Rectangle:";
+            _robot.SwitchTo(DRAWING_FORM);
+            _robot.ClickOnName("Rectangle");
+            _robot.Sleep(1);
+            Tuple<int, int> firstPoint = new Tuple<int, int>(-200, 100);
+            Tuple<int, int> secondPoint = new Tuple<int, int>(0, -100);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+            _robot.ClickOnName("Ellipse");
+            _robot.Sleep(1);
+            firstPoint = new Tuple<int, int>(200, 100);
+            secondPoint = new Tuple<int, int>(400, -100);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+            _robot.ClickOnName("Line");
+            _robot.Sleep(1);
+            firstPoint = new Tuple<int, int>(-100, 99);
+            secondPoint = new Tuple<int, int>(300, -99);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+            //assert
+            firstPoint = new Tuple<int, int>(-100, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(474, 263), new Tuple<int, int>(674, 463), RECTANGLE));
+
+            _robot.Sleep(1);
+            //移動
+            firstPoint = new Tuple<int, int>(-100, 0);
+            secondPoint = new Tuple<int, int>(-300, 200);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+
+            //assert
+            firstPoint = new Tuple<int, int>(-300, 200);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(275, 463), new Tuple<int, int>(475, 663), RECTANGLE));
+
+            _robot.ClickOnName("Clear");
+        }
+
+        //redo and undo
+        private void RunScriptRedoAndUndo()
+        {
+            const string RECTANGLE = "Rectangle:";
+            const string ELLIPSE = "Ellipse:";
+            _robot.SwitchTo(DRAWING_FORM);
+            _robot.ClickOnName("Rectangle");
+            _robot.Sleep(1);
+            Tuple<int, int> firstPoint = new Tuple<int, int>(-200, 100);
+            Tuple<int, int> secondPoint = new Tuple<int, int>(0, -100);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+            _robot.ClickOnName("Ellipse");
+            _robot.Sleep(1);
+            firstPoint = new Tuple<int, int>(200, 100);
+            secondPoint = new Tuple<int, int>(400, -100);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+            //assert
+            firstPoint = new Tuple<int, int>(-100, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(474, 263), new Tuple<int, int>(674, 463), RECTANGLE));
+            firstPoint = new Tuple<int, int>(300, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(874, 263), new Tuple<int, int>(1074, 463), ELLIPSE));
+
+            _robot.ClickOnName("Undo");
+
+            firstPoint = new Tuple<int, int>(300, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            _robot.AssertText(LABEL_NAME, "No Shape Selected");
+
+            _robot.ClickOnName("Redo");
+
+            firstPoint = new Tuple<int, int>(300, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(874, 263), new Tuple<int, int>(1074, 463), ELLIPSE));
+
+            //移動
+            firstPoint = new Tuple<int, int>(-100, 0);
+            secondPoint = new Tuple<int, int>(-300, 200);
+            _robot.DragAndDrop(CANVAS_NAME, firstPoint, secondPoint);
+            _robot.Sleep(1);
+
+            //assert
+            firstPoint = new Tuple<int, int>(-300, 200);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(275, 463), new Tuple<int, int>(475, 663), RECTANGLE));
+
+            _robot.ClickOnName("Undo");
+
+            firstPoint = new Tuple<int, int>(-100, 0);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(474, 263), new Tuple<int, int>(674, 463), RECTANGLE));
+
+            _robot.ClickOnName("Redo");
+
+            firstPoint = new Tuple<int, int>(-300, 200);
+            _robot.ClickOnPoint(CANVAS_NAME, firstPoint);
+            Assert.IsTrue(_robot.AssertPoint(LABEL_NAME, new Tuple<int, int>(275, 463), new Tuple<int, int>(475, 663), RECTANGLE));
         }
 
         //雪人
